@@ -1,0 +1,37 @@
+{
+    "name": "s-damian/damian-php-fw",
+    "description": "The Damian PHP Framework.",
+    "keywords": ["framework", "damian-php", "DamianPhp"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stephen Damian",
+            "email": "contact@devandweb.fr",
+            "homepage": "https://github.com/s-damian"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.5.*"
+    },
+    "autoload": {
+        "files": [
+            "src/DamianPhp/Support/helpers.php"
+        ],
+        "psr-4" : {
+            "DamianPhp\\": "src/DamianPhp/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "php ./vendor/phpunit/phpunit/phpunit"
+        ],
+        "test-class": [
+            "php ./vendor/phpunit/phpunit/phpunit --filter"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

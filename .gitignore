@@ -1,0 +1,13 @@
+# Base
+/vendor
+.phpunit.result.cache
+composer.lock
+composer.phar
+
+# For IDE
+/.idea
+/.vscode
+/nbproject
+_ide_helper_models.php
+_ide_helper.php
+.phpstorm.meta.php
