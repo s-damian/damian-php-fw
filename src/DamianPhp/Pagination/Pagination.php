@@ -144,7 +144,7 @@ class Pagination implements PaginationInterface
 
         $this->cssClassP = isset($options['css_class_p']) && is_string($options['css_class_p'])
             ? $options['css_class_p']
-            : 'block-pagination';
+            : 'pagination';
 
         $this->cssClassLinkActive = isset($options['css_class_link_active']) && is_string($options['css_class_link_active']) ?
             $options['css_class_link_active']
