@@ -426,7 +426,7 @@ class Query
 
         foreach ($this->ons as $on) {
             $comporaisonOperator = $on[1];
-            if (!in_array($comporaisonOperator, self::COMPARAISON_OPERATORS)) {
+            if (! in_array($comporaisonOperator, self::COMPARAISON_OPERATORS)) {
                 Helper::getExceptionOrLog('Comparaison operator "'.$comporaisonOperator.'" not allowed.');
             }
 
@@ -451,7 +451,7 @@ class Query
         if (count($this->wheres) > 0) {    
             foreach ($this->wheres as $value) {
                 $comporaisonOperator = $value[1];
-                if (!in_array($comporaisonOperator, self::COMPARAISON_OPERATORS)) {
+                if (! in_array($comporaisonOperator, self::COMPARAISON_OPERATORS)) {
                     Helper::getExceptionOrLog('Comparaison operator "'.$comporaisonOperator.'" not allowed.');
                 }
 

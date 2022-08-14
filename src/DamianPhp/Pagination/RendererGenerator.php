@@ -107,7 +107,7 @@ abstract class RendererGenerator
             $actionPerPage = isset($options['action']) && is_string($options['action']) ? $options['action'] : Server::getRequestUri();
 
             /** @var HtmlRenderer $this */
-            $onChange = !$request->isAjax() ? $this->perPageOnchange() : '';
+            $onChange = ! $request->isAjax() ? $this->perPageOnchange() : '';
 
             $html .= $this->perPageOpenForm($actionPerPage);
             $html .= $this->perPageLabel();

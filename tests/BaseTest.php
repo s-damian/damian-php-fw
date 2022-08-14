@@ -16,7 +16,7 @@ class BaseTest extends TestCase
     {
         parent::setUp();
 
-        if (!file_exists(Helper::basePath('config/app.php'))) {
+        if (! file_exists(Helper::basePath('config/app.php'))) {
             exit('You cannot run the tests out of the skeleton.');
         }
     }

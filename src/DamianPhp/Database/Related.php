@@ -77,7 +77,7 @@ class Related
             foreach ($ligneQuery as $column => $value) {
                 if ($column === $data[2]) {
                     // si "row du Model joint" (qui était présente dans BDD) a été décoché, faut la supprimer de la BDD.
-                    if (!in_array($value, $relatedModelIds)) {
+                    if (! in_array($value, $relatedModelIds)) {
                         $relatedModelIds_toRemove[] = $value;
                     }
 
@@ -102,7 +102,7 @@ class Related
         $relatedModelIds_toInsert = []; // aura les ID des "rows du Model joint" cohées qui sont à insérer de la BDD (cases cochées, et qui n'étaient pas déjà présentes dans BDD)
         // on parcours tous les "rows du Model joint" cochées
         foreach ($data[3] as $relatedModelId_checked) {
-            if (!in_array($relatedModelId_checked, $relatedModelIds_notToInsert)) {
+            if (! in_array($relatedModelId_checked, $relatedModelIds_notToInsert)) {
                 $relatedModelIds_toInsert[] = (int) $relatedModelId_checked;
             }
         }

@@ -49,7 +49,7 @@ final class Lang extends SingletonConfig
         $file = $methodEx[0];
         unset($methodEx[0]);
 
-        if (!isset(self::$require[$file])) {
+        if (! isset(self::$require[$file])) {
             $path = Helper::basePath('resources/lang/'.$this->getLocale().'/'.$file.'.php');
 
             if (file_exists($path)) {
@@ -61,7 +61,7 @@ final class Lang extends SingletonConfig
 
         $keyToExtractValue = end($methodEx);
 
-        if (!isset(self::$require[$file][$keyToExtractValue])) {
+        if (! isset(self::$require[$file][$keyToExtractValue])) {
             self::$require[$file][$keyToExtractValue] = $this->exctactArrayFile(self::$require[$file], $methodEx, $keyToExtractValue, 0);
         }
 
@@ -75,7 +75,7 @@ final class Lang extends SingletonConfig
      */
     private function withCallWithoutPoints(string $method): mixed
     {
-        if (!isset(self::$require[$method])) {
+        if (! isset(self::$require[$method])) {
             $path = Helper::basePath('resources/lang/'.$this->getLocale().'/'.$method.'.php');
 
             if (file_exists($path)) {
@@ -102,7 +102,7 @@ final class Lang extends SingletonConfig
                 $lang = Helper::config('lang')['default'];
             }
 
-            if (!in_array($lang, Helper::config('lang')['languages_allowed'])) {
+            if (! in_array($lang, Helper::config('lang')['languages_allowed'])) {
                 Helper::getExceptionOrLog('Lang "'.$lang.'" is not in "languages_allowed".');
             }
         }

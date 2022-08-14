@@ -195,7 +195,7 @@ class Router implements RouterInterface
     {
         if (Helper::config('app')['debug']) {
             foreach ($args as $key => $arg) {
-                if (!in_array($key, ['prefix', 'middleware', 'namespace'])) {
+                if (! in_array($key, ['prefix', 'middleware', 'namespace'])) {
                     Helper::getExceptionOrLog('Key not good.');
                 }
             }
@@ -344,7 +344,7 @@ class Router implements RouterInterface
         $this->routes[$method][] = $route;
 
         if (isset($args['name'])) {
-            if (!isset($this->namedRoute[$args['name']])) { // si Nom n'est pas déjà pris par une autre Route
+            if (! isset($this->namedRoute[$args['name']])) { // si Nom n'est pas déjà pris par une autre Route
                 $this->namedRoute[$args['name']] = $route;
             } else {
                 Helper::getExceptionOrLog('The name "'.$args['name'].'" is already taken by other route.');
@@ -394,7 +394,7 @@ class Router implements RouterInterface
      */
     private function verifyRequestMethodHasRoutes(): void
     {
-        if (!isset($this->routes[Request::getMethod()])) {
+        if (! isset($this->routes[Request::getMethod()])) {
             Log::errorDamianPhp('Method "'.Request::getMethod().'" does not exist for URI "'.$this->uri.'" in '.get_class().' on line '.__LINE__.'.');
             
             Helper::getExceptionOrGetError404('Method "'.Request::getMethod().'" does not exist for URI "'.$this->uri.'".');
@@ -439,7 +439,7 @@ class Router implements RouterInterface
      */
     public function url(string $name, $params = null): string
     {
-        if (!isset($this->namedRoute[$name])) {
+        if (! isset($this->namedRoute[$name])) {
             Helper::getExceptionOrLog('No route have this name "'.$name.'".');
         }
         
@@ -468,13 +468,13 @@ class Router implements RouterInterface
 
         $controllerClass = $this->getControllerWithNamespace($class);
 
-        if (!class_exists($controllerClass)) {
+        if (! class_exists($controllerClass)) {
             Helper::getExceptionOrGetError404('Class "'.$controllerClass.'" not found.');
         }
 
         $controller = new $controllerClass();
 
-        if (!method_exists($controller, $action)) {
+        if (! method_exists($controller, $action)) {
             Helper::getExceptionOrGetError404('Method "'.$action.'" not found in '.$controllerClass.'.');
         }
 

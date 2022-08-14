@@ -86,7 +86,7 @@ class InputGenerator
 
             foreach ($this->options as $k => $v) {
                 if ($k !== 'required' && $k !== 'checked') {
-                    if (!in_array($k, $keysAllowed)) {
+                    if (! in_array($k, $keysAllowed)) {
                         Helper::getException('Key "'.$k.'" not authorized.');
                     } else {
                         $this->html .= ' '.$k.'="'.$v.'"';

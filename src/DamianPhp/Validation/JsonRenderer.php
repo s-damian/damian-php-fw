@@ -28,7 +28,7 @@ class JsonRenderer implements RendererInterface
     {
         $json = '';
 
-        if (!$this->validator->isValid()) {
+        if (! $this->validator->isValid()) {
             $json .= Json::encode($this->validator->getErrors());
         }
 

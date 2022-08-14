@@ -51,7 +51,7 @@ final class Config extends SingletonConfig
         $file = $methodEx[0];
         unset($methodEx[0]);
 
-        if (!isset(self::$require[$file])) {
+        if (! isset(self::$require[$file])) {
             $path = Helper::basePath('config/'.$file.'.php');
 
             if (file_exists($path)) {
@@ -65,7 +65,7 @@ final class Config extends SingletonConfig
 
         // utile pour ces formats : config('email.array.key_existe') ou : config('email.key_inexistante')
         // mais pas utile pour ce format : config('file.key_existe')
-        if (!isset(self::$require[$file][$keyToExtractValue])) {
+        if (! isset(self::$require[$file][$keyToExtractValue])) {
             self::$require[$file][$keyToExtractValue] = $this->exctactArrayFile(self::$require[$file], $methodEx, $keyToExtractValue, 0);
         }
 
@@ -79,7 +79,7 @@ final class Config extends SingletonConfig
      */
     private function withCallWithoutPoints(string $method): mixed
     {
-        if (!isset(self::$require[$method])) {
+        if (! isset(self::$require[$method])) {
             $path = Helper::basePath('config/'.$method.'.php');
 
             if (file_exists($path)) {

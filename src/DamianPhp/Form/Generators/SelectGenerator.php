@@ -72,8 +72,8 @@ class SelectGenerator
     {
         if (count($this->options) > 0) {
             foreach ($this->options as $key => $value) {
-                if (!in_array($key, ['autosubmit', 'options_disabled'])) { // certaines options, on ne les "push" pas direct dans le html de la balise select
-                    if (!in_array($key, self::OPTIONS_KEYS_ALLOWED)) {
+                if (! in_array($key, ['autosubmit', 'options_disabled'])) { // certaines options, on ne les "push" pas direct dans le html de la balise select
+                    if (! in_array($key, self::OPTIONS_KEYS_ALLOWED)) {
                         Helper::getException('Key "'.$key.'" not authorized.');
                     } else {
                         $this->html .= ' '.$key.'="'.$value.'"';

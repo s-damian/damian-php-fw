@@ -27,7 +27,7 @@ class HtmlRenderer implements RendererInterface
     {
         $html = '';
 
-        if (!$this->validator->isValid()) {
+        if (! $this->validator->isValid()) {
             $html .= '<ul>';
             foreach ($this->validator->getErrors() as $error)  {
                 $html .= '<li>'.$error.'</li>';

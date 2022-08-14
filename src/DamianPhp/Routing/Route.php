@@ -120,7 +120,7 @@ class Route
         // Y trensformer en vrai expression régulière
         $regex = '#^'.$path.'$#i';
         // Verifier corespondance - Verifier si URL actuelle correspond à cette expression régulière
-        if (!preg_match($regex, $uri, $matches)) {
+        if (! preg_match($regex, $uri, $matches)) {
             return false;
         }
 
@@ -163,7 +163,7 @@ class Route
 
             $controllerClass = $this->getControllerWithNamespace($class);
 
-            if (!class_exists($controllerClass)) {
+            if (! class_exists($controllerClass)) {
                 Helper::getExceptionOrGetError404('Class "'.$controllerClass.'" not found.');
             }
 
@@ -171,7 +171,7 @@ class Route
 
             $controller = new $controllerClass(...$injectionsInConstruct['for_construct']);
 
-            if (!method_exists($controller, $action)) {
+            if (! method_exists($controller, $action)) {
                 Helper::getExceptionOrGetError404('Method "'.$action.'" not found in '.$controllerClass.'.');
             }
 
@@ -223,7 +223,7 @@ class Route
         $injectionsForAction = []; // on push les injections de methodes
         // on parcours tout les paramètres de l'action ou de la closure
         foreach ($reflectionClass->getConstructor()->getParameters() as $parameter) {
-            $classInjected = $parameter->getType() && !$parameter->getType()->isBuiltin() 
+            $classInjected = $parameter->getType() && ! $parameter->getType()->isBuiltin() 
                 ? new ReflectionClass($parameter->getType()->getName())
                 : null;
 
@@ -255,7 +255,7 @@ class Route
         $i = 0; // pour qu'on puisse mettre dans n'importe quel ordre les matches et injections dans paramètres des function
         // on parcours tout les paramètres de l'action ou de la closure
         foreach ($reflectionFunction->getParameters() as $parameter) {
-            $classInjected = $parameter->getType() && (method_exists($parameter->getType(), 'isBuiltin') && !$parameter->getType()->isBuiltin() )
+            $classInjected = $parameter->getType() && (method_exists($parameter->getType(), 'isBuiltin') && ! $parameter->getType()->isBuiltin() )
                 ? new ReflectionClass($parameter->getType()->getName())
                 : null;
 
@@ -298,7 +298,7 @@ class Route
                 $path = str_replace('{'.$k.'}', $v, $path);
             }
         } elseif (is_object($params)) {
-            if (!property_exists($params, 'id')) {
+            if (! property_exists($params, 'id')) {
                 Helper::getExceptionOrLog('Property "id" not exists in class "'.$params.'".');
             }
 

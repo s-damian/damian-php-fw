@@ -10,7 +10,7 @@ use DamianPhp\Support\Helper;
  * @link    https://github.com/s-damian
  */
 
-if (!function_exists('env')) {
+if (! function_exists('env')) {
     /**
      * Obtient la valeur d'une variable d'environnement.
      */
@@ -20,7 +20,7 @@ if (!function_exists('env')) {
     }
 }
 
-if (!function_exists('publicPath')) {
+if (! function_exists('publicPath')) {
     /**
      * Path du dossier racine public.
      */
@@ -30,7 +30,7 @@ if (!function_exists('publicPath')) {
     }
 }
 
-if (!function_exists('basePath')) {
+if (! function_exists('basePath')) {
     /**
      * Path du dossier racine qui contient toute l'application.
      */
@@ -40,7 +40,7 @@ if (!function_exists('basePath')) {
     }
 }
 
-if (!function_exists('storagePath')) {
+if (! function_exists('storagePath')) {
     /**
      * Path du dossier de storage.
      */
@@ -50,7 +50,7 @@ if (!function_exists('storagePath')) {
     }
 }
 
-if (!function_exists('load')) {
+if (! function_exists('load')) {
     /**
      * Charger une vue.
      */
@@ -60,7 +60,7 @@ if (!function_exists('load')) {
     }
 }
 
-if (!function_exists('getBaseUrl')) {
+if (! function_exists('getBaseUrl')) {
     /**
      * @return string - Pour liens href internes en absolues.
      */
@@ -70,7 +70,7 @@ if (!function_exists('getBaseUrl')) {
     }
 }
 
-if (!function_exists('route')) {
+if (! function_exists('route')) {
     /**
      * @return string - URL en absolue (avec le nom de la route, et éventuel(s) param(s)).
      */
@@ -80,7 +80,7 @@ if (!function_exists('route')) {
     }
 }
 
-if (!function_exists('getActiveUrl')) {
+if (! function_exists('getActiveUrl')) {
     /**
      * @return string - URL active en absolue.
      */
@@ -90,7 +90,7 @@ if (!function_exists('getActiveUrl')) {
     }
 }
 
-if (!function_exists('isLocalServer')) {
+if (! function_exists('isLocalServer')) {
     /**
      * @return bool - True si on est en local.
      */
@@ -100,7 +100,7 @@ if (!function_exists('isLocalServer')) {
     }
 }
 
-if (!function_exists('isPreprodServer')) {
+if (! function_exists('isPreprodServer')) {
     /**
      * @return bool - True si on est sur un serveur de preprod.
      */
@@ -110,7 +110,7 @@ if (!function_exists('isPreprodServer')) {
     }
 }
 
-if (!function_exists('isDevIP')) {
+if (! function_exists('isDevIP')) {
     /**
      * @return bool - True si l'IP request est dans les IP de développement.
      */
@@ -120,7 +120,7 @@ if (!function_exists('isDevIP')) {
     }
 }
 
-if (!function_exists('config')) {
+if (! function_exists('config')) {
     /**
      * @return mixed - Helper de config.
      */
@@ -130,7 +130,7 @@ if (!function_exists('config')) {
     }
 }
 
-if (!function_exists('lang')) {
+if (! function_exists('lang')) {
     /**
      * Utilse pour les translations spécifiques au framework ("core").
      *
@@ -142,7 +142,7 @@ if (!function_exists('lang')) {
     }
 }
 
-if (!function_exists('isMultilingual')) {
+if (! function_exists('isMultilingual')) {
     /**
      * @return bool - True si l'internationalisation est activé.
      */
@@ -152,7 +152,7 @@ if (!function_exists('isMultilingual')) {
     }
 }
 
-if (!function_exists('isLocale')) {
+if (! function_exists('isLocale')) {
     /**
      * @return bool - True si la lange locale est = à lang testée.
      */
@@ -162,7 +162,7 @@ if (!function_exists('isLocale')) {
     }
 }
 
-if (!function_exists('getLocale')) {
+if (! function_exists('getLocale')) {
     /**
      * @return string - Langue (soit celle par default, soit celle choisie par le visiteur) sous la forme 'fr'.
      */
@@ -172,7 +172,7 @@ if (!function_exists('getLocale')) {
     }
 }
 
-if (!function_exists('getException')) {
+if (! function_exists('getException')) {
     /**
      * Renvoyer une exception avec un message d'erreur si on est en dev.
      */
@@ -182,7 +182,7 @@ if (!function_exists('getException')) {
     }
 }
 
-if (!function_exists('getExceptionOrLog')) {
+if (! function_exists('getExceptionOrLog')) {
     /**
      * Si on est en dev : Renvoyer une exception avec un message d'erreur.
      * Si on est en prod : Logger l'erreur.
@@ -195,7 +195,7 @@ if (!function_exists('getExceptionOrLog')) {
     }
 }
 
-if (!function_exists('getExceptionOrGetError404')) {
+if (! function_exists('getExceptionOrGetError404')) {
     /**
      * Si on est en dev : Renvoyer une exception avec un message d'erreur.
      * Si on est en prod : Error 404.
@@ -206,7 +206,7 @@ if (!function_exists('getExceptionOrGetError404')) {
     }
 }
 
-if (!function_exists('getError404')) {
+if (! function_exists('getError404')) {
     /**
      * Renvoyer une erreur HTTP 404.
      */

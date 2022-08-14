@@ -51,14 +51,14 @@ abstract class HttpKernel
             // Pour si dans controller on fait : $this->middleware(['key', 'key2']);
             if (is_array($this->key)) {
                 foreach ($this->key as $perKey) {
-                    if (!array_key_exists($perKey, $this->routeMiddleware)) {
+                    if (! array_key_exists($perKey, $this->routeMiddleware)) {
                         Helper::getExceptionOrLog('Key "'.$perKey.'" not exist in Routes of Middleware.');
                     }
                 }
             }
             // Pour si dans controller on fait : $this->middleware('key');
             else {
-                if (!array_key_exists($this->key, $this->routeMiddleware)) {
+                if (! array_key_exists($this->key, $this->routeMiddleware)) {
                     Helper::getExceptionOrLog('Key "'.$this->key.'" not exist in Routes of Middleware.');
                 }
             }

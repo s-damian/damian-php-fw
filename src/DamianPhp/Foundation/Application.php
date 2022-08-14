@@ -26,7 +26,7 @@ class Application implements ApplicationInterface
         ini_set('session.cookie_domain', Helper::config('cookie')['domain']);
         ini_set('session.save_path', Helper::storagePath('sessions'));
 
-        if (!file_exists(Helper::storagePath('sessions'))) {
+        if (! file_exists(Helper::storagePath('sessions'))) {
             File::createDir(Helper::storagePath('sessions'), 0755);
         }
 
@@ -88,7 +88,7 @@ class Application implements ApplicationInterface
     public function ifIsMaintenance(): mixed
     {
         if (Helper::config('app')['maintenance']) {
-            if (!Helper::isDevIP()) {
+            if (! Helper::isDevIP()) {
                 return Router::getAction('App\Http\Controllers\Error\ErrorController@error503');
             }
         }

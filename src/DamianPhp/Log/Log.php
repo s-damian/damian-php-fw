@@ -20,7 +20,7 @@ class Log implements LogInterface
 {
     public function __construct()
     {
-        if (!file_exists(Helper::storagePath('logs'))) {
+        if (! file_exists(Helper::storagePath('logs'))) {
             File::createDir(Helper::storagePath('logs'));
         }
     }

@@ -65,7 +65,7 @@ abstract class SingletonConfig implements SingletonConfigInterface
         if (array_key_exists($methodEx[$i], $requireFile) && is_array($requireFile[$methodEx[$i]]) && $methodEx[$i] !== $key) {
             $result = $this->exctactArrayFile($requireFile[$methodEx[$i]], $methodEx, $key, $i);
         } else {
-            if (!array_key_exists($key, $requireFile)) Helper::getExceptionOrLog('Key "'.$key.'" not foud.');
+            if (! array_key_exists($key, $requireFile)) Helper::getExceptionOrLog('Key "'.$key.'" not foud.');
 
             $result = $requireFile[$key];
         }

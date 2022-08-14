@@ -88,7 +88,7 @@ class FileValidation
             $extMessage = $this->pushErrorWithFile('extension_file');
         }
 
-        if (!in_array(Security::getExtFile(strtolower($fileName)), $extension)) {
+        if (! in_array(Security::getExtFile(strtolower($fileName)), $extension)) {
             $error .= '<i style="font-size:16px;">- "'.$fileName.'" : '.$extMessage.'</i><br>';
         }
         // ***** /extension *****
@@ -178,7 +178,7 @@ class FileValidation
         }
 
         foreach ($fileName as $oneFileName) {
-            if (!in_array( Security::getExtFile(strtolower($oneFileName)), $extension )) {
+            if (! in_array( Security::getExtFile(strtolower($oneFileName)), $extension )) {
                 $error .= '<i style="font-size:16px;">- "'.$oneFileName.'" : '.$extMessage.'</i><br>';
             }
         }

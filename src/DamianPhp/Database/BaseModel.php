@@ -100,7 +100,7 @@ abstract class BaseModel implements BaseModelInterface
             $defaultDb = Helper::config('database')['default'];
             $tableSnakePlural = Str::snakePlural(end($classModelExplode));
 
-            if (!isset(Helper::config('database')['connections'][$defaultDb])) {
+            if (! isset(Helper::config('database')['connections'][$defaultDb])) {
                 Helper::getExceptionOrLog('"'.$defaultDb.'" must be in "connections" in "/config/database.php".');
             }
 
@@ -118,7 +118,7 @@ abstract class BaseModel implements BaseModelInterface
         $propertyWithUpper = lcfirst(mb_substr($method, 3, mb_strlen($method)));
         $property = Str::convertCamelCaseToSnakeCase($propertyWithUpper);
 
-        if (!property_exists(get_called_class(), $property)) {
+        if (! property_exists(get_called_class(), $property)) {
             Helper::getExceptionOrLog('Property "'.$property.'" no exist.');
 
             return false;
@@ -415,7 +415,7 @@ abstract class BaseModel implements BaseModelInterface
     {
         $result = $this->first($id);
 
-        if (!$result) {
+        if (! $result) {
             Helper::getExceptionOrGetError404('No query results for model ['.get_called_class().'].');
         }
 
@@ -433,7 +433,7 @@ abstract class BaseModel implements BaseModelInterface
     {
         $result = $this->first($id);
 
-        if (!$result) {
+        if (! $result) {
             return null;
         }
 
@@ -498,7 +498,7 @@ abstract class BaseModel implements BaseModelInterface
      */
     final public function getPagination(): string|Pagination
     {
-        if (!$this->paginated instanceof Paginated) {
+        if (! $this->paginated instanceof Paginated) {
             Helper::getExceptionOrLog('Method "getPagination()" must be called after method "paginate()".');
 
             return '';
@@ -512,7 +512,7 @@ abstract class BaseModel implements BaseModelInterface
      */
     final public function getTotal(): int
     {
-        if (!$this->paginated instanceof Paginated) {
+        if (! $this->paginated instanceof Paginated) {
             Helper::getExceptionOrLog('Method "getTotal()" must be called after method "paginate()".');
 
             return 0;

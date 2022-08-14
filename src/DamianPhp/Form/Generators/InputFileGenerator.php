@@ -39,7 +39,7 @@ class InputFileGenerator
 
         $this->addOptions();
 
-        $this->html .= (!isset($this->options['id'])) ? ' id="'.$this->name.'"' : '';
+        $this->html .= (! isset($this->options['id'])) ? ' id="'.$this->name.'"' : '';
 
         $this->html .= '>';
 
@@ -54,7 +54,7 @@ class InputFileGenerator
         if (count($this->options) > 0) {
             foreach ($this->options as $key => $value) {
                 if ($key !== 'multiple') {
-                    if (!in_array($key, self::OPTIONS_KEYS_ALLOWED)) {
+                    if (! in_array($key, self::OPTIONS_KEYS_ALLOWED)) {
                         Helper::getException('Key "'.$key.'" not authorized.');
                     } else {
                         $this->html .= ' '.$key.'="'.$value.'"';

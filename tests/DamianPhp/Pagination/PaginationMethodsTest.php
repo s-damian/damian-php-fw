@@ -28,7 +28,7 @@ class PaginationMethodsTest extends BaseTest
         $pagination->paginate(100);
 
         $this->assertSame(1, $pagination->getCurrentPage()); // si $_GET['page'] n'existe pas, prend la valeur de 1 par défaut
-        $this->assertTrue(!isset($_GET['page']));
+        $this->assertTrue(! isset($_GET['page']));
         
         // On simule qu'on se positionne sur une page d'après la dernière page (donc on simule qu'on est une page qui n'existe pas).
         // Il existe que 7 pages, et on se positionne sur la 9ème.

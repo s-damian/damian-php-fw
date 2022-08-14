@@ -62,7 +62,7 @@ class TextareaGenerator
         if (count($this->options) > 0) {
             foreach ($this->options as $k => $v) {
                 if ($k !== 'required') {
-                    if (!in_array($k, self::OPTIONS_KEYS_ALLOWED)) {
+                    if (! in_array($k, self::OPTIONS_KEYS_ALLOWED)) {
                         Helper::getException('Key "'.$k.'" not authorized.');
                     } else {
                         $this->html .= ' '.$k.'="'.$v.'"';

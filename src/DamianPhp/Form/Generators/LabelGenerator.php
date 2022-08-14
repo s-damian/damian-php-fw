@@ -53,7 +53,7 @@ class LabelGenerator
     {
         if (count($this->options) > 0) {
             foreach ($this->options as $key => $value) {
-                if (!in_array($key, self::OPTIONS_KEYS_ALLOWED)) {
+                if (! in_array($key, self::OPTIONS_KEYS_ALLOWED)) {
                     Helper::getException('Key "'.$key.'" not authorized.');
                 } else {
                     $this->html .= ' '.$key.'="'.$value.'"';

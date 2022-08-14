@@ -46,7 +46,7 @@ class Slug implements SlugInterface
         $strCharacters = str_split($this->str);
         
         foreach ($strCharacters as $character) {
-            if (!array_key_exists($character, $this->charactersArray())) {
+            if (! array_key_exists($character, $this->charactersArray())) {
                 $this->str = str_replace($character, '-', $this->str);
             }
         }

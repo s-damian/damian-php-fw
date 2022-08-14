@@ -37,7 +37,7 @@ class SessionStorage
             Helper::getExceptionOrLog('Failed to start the session: already started by PHP.');
         }
 
-        if (!session_start()) {
+        if (! session_start()) {
             Helper::getExceptionOrLog('Failed to start the session.');
         }
 

@@ -26,7 +26,7 @@ class File
         $files = [];
 
         foreach (self::open($path) as $item) {
-            if (!$item->isDot()) {
+            if (! $item->isDot()) {
                 $files[] = $item->getFilename();
             }
         }

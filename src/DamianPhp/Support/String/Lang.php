@@ -156,7 +156,7 @@ class Lang
     {
         $string = '';
 
-        if (!isset(Helper::config('lang')['address_structure'])) { // Sécurité.
+        if (! isset(Helper::config('lang')['address_structure'])) { // Sécurité.
             return '';
         }
 
@@ -334,7 +334,7 @@ class Lang
     {
         $toReturn = [];
 
-        if (!isset(Helper::config('lang')['address_structure'])) { // Sécurité.
+        if (! isset(Helper::config('lang')['address_structure'])) { // Sécurité.
             return '';
         }
 

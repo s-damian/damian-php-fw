@@ -97,7 +97,7 @@ class Media
         if ($options) {
             $array_key = ['id', 'class'];
             foreach ($options as $key => $value) {
-                if (!in_array($key, $array_key) && !$options['poster']) Helper::getException('Key "'.$key.'" not authorized in options of audio');
+                if (! in_array($key, $array_key) && ! $options['poster']) Helper::getException('Key "'.$key.'" not authorized in options of audio');
                 else $html .= ' '.$key.'="'.$value.'"';
             }
         }
@@ -106,7 +106,7 @@ class Media
 
         $array_types = ['mp3','ogg','mpeg','wav','wawe','aif','aac','m4a','wma'];
         foreach ($types as $type) {
-            if (!in_array($type, $array_types))  Helper::getException('Type "'.$type.'" of audio not authorized');
+            if (! in_array($type, $array_types))  Helper::getException('Type "'.$type.'" of audio not authorized');
             else $html .= '<source src="'.$audio.'.'.$type.'" type="audio/'.$type.'">';
         }
 
@@ -129,7 +129,7 @@ class Media
         if ($options) {
             $array_key = ['height', 'width', 'id', 'class'];
             foreach ($options as $key => $value) {
-                if (!in_array($key, $array_key) && !$options['poster']) Helper::getException('Key "'.$key.'" not authorized in options of video');
+                if (! in_array($key, $array_key) && ! $options['poster']) Helper::getException('Key "'.$key.'" not authorized in options of video');
                 else $html .= ' '.$key.'="'.$value.'"';
             }
         }
@@ -139,7 +139,7 @@ class Media
         $array_types = ['ogv','mp4','webm','ogg'];
         foreach ($types as $type) {
             // mp4 : IE, Safari / ogv : Firefox, Chrome, Opera / webm : Firefox, Chrome
-            if (!in_array($type, $array_types)) Helper::getException('Type "'.$type.'" of video not authorized');
+            if (! in_array($type, $array_types)) Helper::getException('Type "'.$type.'" of video not authorized');
             else $html .= '<source src="'.$video.'.'.$type.'" type="video/'.$type.'">';
         }
 

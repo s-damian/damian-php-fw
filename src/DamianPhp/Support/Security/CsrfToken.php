@@ -26,7 +26,7 @@ class CsrfToken implements TokenInterface
      */
     public function addSession(): void
     {
-        if (!Session::has('_token')) {
+        if (! Session::has('_token')) {
             $random = Str::random(35);
             
             Session::put('_token', SecurityF::hash($random));
@@ -47,7 +47,7 @@ class CsrfToken implements TokenInterface
      */
     public function verifyPost()
     {
-        if (!Session::has('_token') || !Input::hasPost('_token') || (Input::post('_token') !== Session::get('_token'))) {
+        if (! Session::has('_token') || !Input::hasPost('_token') || (Input::post('_token') !== Session::get('_token'))) {
             Flash::setError(Helper::lang('security')['csrf_token_post']);
 
             return Response::redirect(Session::get('_url'));
@@ -67,7 +67,7 @@ class CsrfToken implements TokenInterface
      */
     public function verifyGet()
     {
-        if (!Session::has('_token') || !Input::hasGet('_token') || (Input::get('_token') !== Session::get('_token'))) {
+        if (! Session::has('_token') || !Input::hasGet('_token') || (Input::get('_token') !== Session::get('_token'))) {
             Flash::setError(Helper::lang('security')['csrf_token_get']);
 
             return Response::redirect(Session::get('_url'));

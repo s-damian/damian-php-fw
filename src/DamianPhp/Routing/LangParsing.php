@@ -76,7 +76,7 @@ class LangParsing
         static $lang;
 
         if ($lang === null) {
-            if (!in_array(Helper::config('lang')['default'], Helper::config('lang')['languages_allowed'])) {
+            if (! in_array(Helper::config('lang')['default'], Helper::config('lang')['languages_allowed'])) {
                 Helper::getException('lang "default" must be in "languages_allowed".');
             }
 
@@ -111,7 +111,7 @@ class LangParsing
      */
     private function parseLangWithUrl(): string
     {
-        if (!isset(Helper::config('lang')['address_structure'])) {
+        if (! isset(Helper::config('lang')['address_structure'])) {
             return '';
         }
         

@@ -85,7 +85,7 @@ class Helper
     {
         $slash = $file !== null ? '/' : '';
 
-        if (!file_exists(self::basePath('storage'))) {
+        if (! file_exists(self::basePath('storage'))) {
             File::createDir(self::basePath('storage'), 0755);
         }
 

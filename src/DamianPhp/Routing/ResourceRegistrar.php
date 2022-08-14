@@ -65,7 +65,7 @@ class ResourceRegistrar
         foreach (self::RESOURCE_ACTIONS as $action) {
             $method = 'addResource'.ucfirst($action);
 
-            if (!isset($options['except']) && !isset($options['only'])) {
+            if (! isset($options['except']) && !isset($options['only'])) {
                 $this->$method($controller, $prefixRouteName);
             } elseif (isset($options['except']) && !in_array($action, $options['except'])) {
                 $this->$method($controller, $prefixRouteName);
@@ -88,7 +88,7 @@ class ResourceRegistrar
     {
         if (isset($options[$verify])) {
             foreach ($options[$verify] as $verif) {
-                if (!in_array($verif, self::RESOURCE_ACTIONS)) {
+                if (! in_array($verif, self::RESOURCE_ACTIONS)) {
                     Helper::getExceptionOrLog(ucfirst($verify).' "'.$verif.'" is not a resource action.');
                 }
             }

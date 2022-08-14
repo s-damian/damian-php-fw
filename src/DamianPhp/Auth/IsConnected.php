@@ -127,7 +127,7 @@ class IsConnected implements IsConnectedInterface
     private function hasKeysSession(): bool
     {
         foreach ($this->sessionValue as $sessionKey) {
-            if (!isset(Session::get($this->sessionName)[$sessionKey])) {
+            if (! isset(Session::get($this->sessionName)[$sessionKey])) {
                 return false;
             }
         }
@@ -196,7 +196,7 @@ class IsConnected implements IsConnectedInterface
             ->where('id', '=', Session::get($this->sessionName)['id'])
             ->find();
         
-        if (!$dataUser) {
+        if (! $dataUser) {
             return false;
         }
 

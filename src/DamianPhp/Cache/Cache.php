@@ -24,7 +24,7 @@ class Cache implements CacheInterface
 
     public function __construct()
     {
-        if (!file_exists(Helper::storagePath('cache'))) {
+        if (! file_exists(Helper::storagePath('cache'))) {
             File::createDir(Helper::storagePath('cache'));
         }
         
@@ -58,7 +58,7 @@ class Cache implements CacheInterface
      */
     public function get(string $file, int $minutes = null): mixed
     {
-        if (!$this->has($file)) {
+        if (! $this->has($file)) {
             return false;
         }
 
@@ -116,7 +116,7 @@ class Cache implements CacheInterface
      */
     public function remember(string $file, int $minutes, callable $callable): mixed
     {
-        if (!$toReturn = $this->getToObject($file, $minutes)) {
+        if (! $toReturn = $this->getToObject($file, $minutes)) {
             $toReturn = $callable();
 
             $this->put($file, $toReturn);

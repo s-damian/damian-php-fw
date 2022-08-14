@@ -157,7 +157,7 @@ class Validator implements ValidatorInterface
         if (method_exists($this, $methodVerify)) {
             $this->$methodVerify();
         } else {
-            if (!array_key_exists($rule, self::$extends)) {
+            if (! array_key_exists($rule, self::$extends)) {
                 Helper::getExceptionOrLog('Rule "'.$rule.'" not exist.');
             }
 
@@ -168,7 +168,7 @@ class Validator implements ValidatorInterface
     private function ruleWithExtend(string $rule): void
     {
         if (self::$extends[$rule]($this->input, $this->requestMethod[$this->input], $this->value) === false) {
-            if (!array_key_exists($rule, Helper::lang('validation'))) {
+            if (! array_key_exists($rule, Helper::lang('validation'))) {
                 Helper::getExceptionOrLog('Error response "'.$rule.'" not exist.');
             }
 
@@ -369,7 +369,7 @@ class Validator implements ValidatorInterface
      */
     private function verifyInArray(): void
     {
-        if (!in_array($this->requestMethod[$this->input], $this->value)) {
+        if (! in_array($this->requestMethod[$this->input], $this->value)) {
             $this->errors[$this->input] = $this->pushError('in_array');
         }
     }
@@ -473,7 +473,7 @@ class Validator implements ValidatorInterface
 
         $passwordInBdd = $this->value['column'];
 
-        if (!Hash::verify($this->value['password_to_verify'], $result->$passwordInBdd)) {
+        if (! Hash::verify($this->value['password_to_verify'], $result->$passwordInBdd)) {
             $this->errors[$this->input] = $this->pushError('password_current_ok');
         }
     }
@@ -483,7 +483,7 @@ class Validator implements ValidatorInterface
      */
     private function verifyRegex(): void
     {
-        if (!preg_match($this->value, $this->requestMethod[$this->input])) {
+        if (! preg_match($this->value, $this->requestMethod[$this->input])) {
             $this->errors[$this->input] = $this->pushError('regex', $this->value);
         }
     }
@@ -559,7 +559,7 @@ class Validator implements ValidatorInterface
 
         $dbColumn = $this->value['column'];
         
-        if (!isset($result->$dbColumn) || $result->$dbColumn !== $this->value['data_to_verify']) {
+        if (! isset($result->$dbColumn) || $result->$dbColumn !== $this->value['data_to_verify']) {
             $this->errors[$this->input] = $this->value['error_message'];
         }
     }
