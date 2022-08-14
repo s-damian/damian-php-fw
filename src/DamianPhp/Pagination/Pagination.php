@@ -43,12 +43,12 @@ class Pagination implements PaginationInterface
     private int $currentPage;
 
     /**
-     * Page départ (afficher liens pour aller aux pages précédantes).
+     * Page de départ.
      */
     private int $pageStart;
 
     /**
-     * Page fin (afficher liens pour aller aux pages suivantes).
+     * Page de fin.
      */
     private int $pageEnd;
 
@@ -122,15 +122,37 @@ class Pagination implements PaginationInterface
                 $this->getPP = is_numeric($this->request->getGet()->get(self::PER_PAGE_NAME)) ? (int) $this->request->getGet()->get(self::PER_PAGE_NAME) : null;
             }
         }
-
-        $this->defaultPerPage = isset($options['pp']) && is_integer($options['pp']) ? $options['pp'] : 15;
-        $this->numberLinks = isset($options['number_links']) && is_integer($options['number_links']) ? $options['number_links'] : 5;
-        $this->arrayOptionsSelect = isset($options['options_select']) && is_array($options['options_select']) ? $options['options_select'] : [15, 30, 50, 100, 200, 300];
-        $this->cssClassP = isset($options['css_class_p']) && is_string($options['css_class_p']) ? $options['css_class_p'] : 'block-pagination';
-        $this->cssClassLinkActive = isset($options['css_class_link_active']) && is_string($options['css_class_link_active']) ? $options['css_class_link_active'] : 'active';
-        $this->cssIdPP = isset($options['css_id_pp']) && is_string($options['css_id_pp']) ? $options['css_id_pp'] : 'per-page';
+        
+        $this->extractOptions($options);
 
         $this->htmlRenderer = new HtmlRenderer($this);
+    }
+
+    private function extractOptions(array $options = []): void
+    {
+        $this->defaultPerPage = isset($options['pp']) && is_integer($options['pp'])
+            ? $options['pp']
+            : 15;
+
+        $this->numberLinks = isset($options['number_links']) && is_integer($options['number_links'])
+            ? $options['number_links']
+            : 5;
+
+        $this->arrayOptionsSelect = isset($options['options_select']) && is_array($options['options_select'])
+            ? $options['options_select'] :
+            [15, 30, 50, 100, 200, 300];
+
+        $this->cssClassP = isset($options['css_class_p']) && is_string($options['css_class_p'])
+            ? $options['css_class_p']
+            : 'block-pagination';
+
+        $this->cssClassLinkActive = isset($options['css_class_link_active']) && is_string($options['css_class_link_active']) ?
+            $options['css_class_link_active']
+            : 'active';
+
+        $this->cssIdPP = isset($options['css_id_pp']) && is_string($options['css_id_pp'])
+            ? $options['css_id_pp']
+            : 'per-page';
     }
 
     /**
@@ -310,19 +332,19 @@ class Pagination implements PaginationInterface
     }
 
     /**
-     * @return int|string - Le nombre d'éléments affichés par page.
+     * @return null|int - Le nombre d'éléments affichés par page.
      */
-    public function getPerPage(): int|string
+    public function getPerPage(): ?int
     {
-        return $this->perPage ?? '';
+        return $this->perPage ?? null;
     }
 
     /**
-     * @return int|string - Le nombre d'éléments affichés par page par defaut.
+     * @return null|int - Le nombre d'éléments affichés par page par defaut.
      */
-    public function getDefaultPerPage(): int|string
+    public function getDefaultPerPage(): ?int
     {
-        return $this->defaultPerPage ?? '';
+        return $this->defaultPerPage ?? null;
     }
 
     public function getGetPP(): null|int|string
@@ -366,6 +388,14 @@ class Pagination implements PaginationInterface
     }
 
     /**
+     * @return bool - True s'il y a suffisamment d'éléments à diviser en plusieurs pages.
+     */
+    public function hasPages(): bool
+    {
+        return $this->count > $this->perPage;
+    }
+
+    /**
      * @return bool - True si il reste des pages après celle en cours.
      */
     public function hasMorePages(): bool
@@ -379,7 +409,7 @@ class Pagination implements PaginationInterface
     public function isFirstPage(): bool
     {
         if ($this->request->getGet()->has(self::PAGE_NAME)) {
-            return $this->getP === 1; 
+            return $this->currentPage === 1;
         }
         
         return true;

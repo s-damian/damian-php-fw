@@ -61,14 +61,14 @@ interface PaginationInterface
     public function getNbPages(): int;
 
     /**
-     * @return int|string - Le nombre d'éléments affichés par page.
+     * @return null|int - Le nombre d'éléments affichés par page.
      */
-    public function getPerPage(): int|string;
+    public function getPerPage(): ?int;
 
     /**
-     * @return int|string - Le nombre d'éléments affichés par page par defaut.
+     * @return null|int - Le nombre d'éléments affichés par page par defaut.
      */
-    public function getDefaultPerPage(): int|string;
+    public function getDefaultPerPage(): ?int;
 
     public function getGetPP(): null|int|string;
 
@@ -85,6 +85,11 @@ interface PaginationInterface
     public function getCssIdPP(): string;
 
     public function getArrayOptionsSelect(): array;
+
+    /**
+     * @return bool - True s'il y a suffisamment d'éléments à diviser en plusieurs pages.
+     */
+    public function hasPages(): bool;
 
     /**
      * @return bool - True si il reste des pages après celle en cours.
