@@ -370,13 +370,37 @@ class Str
     }
 
     /**
+     * @param array $options 
+     * - $options['except'] array
+     */
+    public static function inputHiddenIfHasQueryString(array $options = []): string
+    {
+        $arrayToIgnore = $options['except'] ?? [];
+
+        $htmlInputs = '';
+        foreach (Request::getGet()->all() as $get => $v) {
+            if (!in_array($get, $arrayToIgnore)) {
+                if (is_array($v)) {
+                    foreach ($v as $k => $oneV) {
+                        $htmlInputs .= '<input type="hidden" name="'.$get.'['.$k.']" value="'.$oneV.'">';
+                    }
+                } else {
+                    $htmlInputs .= '<input type="hidden" name="'.$get.'" value="'.$v.'">';
+                }
+            }
+        }
+
+        return $htmlInputs;
+    }
+
+    /**
      * Pour pouvoir "cumuler" les <select> si il y en a déjà à $_GET
      * Pour par ex.: if(!empty($_GET['categorie'])) { echo '<input type="hidden" name="categorie" value="'.$_GET['categorie'].'">'; }
      *
      * @param array|string $gets - Valeur des éventuels GET.
      * @return string - Les éventuels GET.
      */
-    public function inputHiddenIfHasQueryString(array|string $gets): string
+    public function inputHiddenIfHasQueryStringAddManually(array|string $gets): string
     {
         $var = '';
 

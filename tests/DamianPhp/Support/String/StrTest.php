@@ -107,9 +107,14 @@ class StrTest extends BaseTest
 
     public function testInputHiddenIfHasQueryString(): void
     {
-        $this->assertTrue(is_string($this->str->inputHiddenIfHasQueryString(['page', 'pp'])));
+        $this->assertTrue(is_string(Str::inputHiddenIfHasQueryString(['except' => ['except_test_1', 'except_test_2']])));
+    }
 
-        $this->assertTrue(is_string($this->str->inputHiddenIfHasQueryString('page')));
+    public function testInputHiddenIfHasQueryStringAddManually(): void
+    {
+        $this->assertTrue(is_string($this->str->inputHiddenIfHasQueryStringAddManually(['page', 'pp'])));
+
+        $this->assertTrue(is_string($this->str->inputHiddenIfHasQueryStringAddManually('page')));
     }
 
     public function testRandom(): void
