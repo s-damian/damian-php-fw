@@ -25,15 +25,13 @@ final class HtmlRenderer extends RendererGenerator
 
     /**
      * Si on est pas à la 1è page, faire apparaitre : la flèche gauche (page précédante).
-     *
-     * @param string $ifIssetGet - Si il y a déjà des GET dans l'URL, les cumuler avec les liens.
      */
-    protected function previousLink(string $ifIssetGet): string
+    protected function previousLink(): string
     {
         $html = '';
 
         if ($this->pagination->getCurrentPage() !== 1) {
-            $href = 'href="?'.Pagination::PAGE_NAME.'='.($this->pagination->getCurrentPage() - 1).''.$ifIssetGet.'"';
+            $href = 'href="'.$this->pagination->getPreviousPageUrl().'"';
 
             $html .= '<li>';
             $html .=     '<a rel="prev" title="'.Helper::lang('pagination')['previous'].'" '.$href.'>';
@@ -50,11 +48,8 @@ final class HtmlRenderer extends RendererGenerator
      *
      * Exemple si $this->pagination->getNumberLinks() = 4 :
      * si on est après la page 6, faire apparaitre ".." pour : "1" "..." "3"
-     *
-     * @param string $ifIssetGet - Si il y a déjà des GET dans l'URL, les cumuler avec les liens.
-     * @return string
      */
-    protected function firstLink(string $ifIssetGet): string
+    protected function firstLink(): string
     {
         $html = '';
 
@@ -63,7 +58,7 @@ final class HtmlRenderer extends RendererGenerator
                     ? '<li class="points"><span>...</span></li>'
                     : '';
 
-            $href = 'href="?'.Pagination::PAGE_NAME.'=1'.$ifIssetGet.'"';
+                    $href = 'href="'.$this->pagination->getFirstPageUrl().'"';
 
             $html .= '<li>';
             $html .=     '<a title="'.Helper::lang('pagination')['first'].'" '.$href.'>';
@@ -81,9 +76,9 @@ final class HtmlRenderer extends RendererGenerator
         return '<li class="'.$this->pagination->getCssClassLinkActive().'"><span>'.$nb.'</span></li>';
     }
 
-    protected function paginationLink(string $url, string $nb): string
+    protected function paginationLink(string $nb): string
     {
-        return '<li><a href="?'.Pagination::PAGE_NAME.'='.$url.'">'.$nb.'</a></li>';
+        return '<li><a href="'.$this->pagination->getUrl($nb).'">'.$nb.'</a></li>';
     }
 
     /**
@@ -91,10 +86,8 @@ final class HtmlRenderer extends RendererGenerator
      *
      * Exemple si $this->pagination->getNumberLinks() = 4 : 
      * si on est 5 pages avant le nombre de pages, faire apparaitre ".." pour : "avant avant dernière page" "..." "dernière page".
-     *
-     * @param string $ifIssetGet - Si il y a déjà des GET dans l'URL, les cumuler avec les liens.
      */
-    protected function lastLink(string $ifIssetGet): string
+    protected function lastLink(): string
     {
         $html = '';
 
@@ -103,7 +96,7 @@ final class HtmlRenderer extends RendererGenerator
                 ? '<li class="points"><span>...</span></li>'
                 : '';
 
-            $href = 'href="?'.Pagination::PAGE_NAME.'='.$this->pagination->getNbPages().''.$ifIssetGet.'"';
+                $href = 'href="'.$this->pagination->getLastPageUrl().'"';
 
             $html .= $dots;
             $html .= '<li>';
@@ -118,15 +111,13 @@ final class HtmlRenderer extends RendererGenerator
 
     /**
      * Si on est pas à la dernière page, faire apparaitre : la flèche droite (page suivante).
-     *
-     * @param string $ifIssetGet - si il y a des autres GET, les conserver dans les liens.
      */
-    protected function nextLink(string $ifIssetGet): string
+    protected function nextLink(): string
     {
         $html = '';
 
         if ($this->pagination->getCurrentPage() !== $this->pagination->getPageEnd()) {
-            $href = 'href="?'.Pagination::PAGE_NAME.'='.($this->pagination->getCurrentPage() + 1).''.$ifIssetGet.'"';
+            $href = 'href="'.$this->pagination->getNextPageUrl().'"';
 
             $html .= '<li>';
             $html .=     '<a rel="next" title="'.Helper::lang('pagination')['next'].'" '.$href.'>';
@@ -161,11 +152,6 @@ final class HtmlRenderer extends RendererGenerator
     protected function perPageLabel(): string
     {
         return '<label for="nb-perpage">'.Helper::lang('pagination')['per_page'].' : </label>';
-    }
-
-    protected function perPageInputHidden(): string
-    {
-        return '<input type="hidden" name="'.Pagination::PAGE_NAME.'" value="'.$this->pagination->getCurrentPage().'">';
     }
 
     protected function perPageOpenSelect(string $onChange): string

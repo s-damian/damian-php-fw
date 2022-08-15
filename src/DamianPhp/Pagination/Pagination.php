@@ -347,6 +347,100 @@ class Pagination implements PaginationInterface
         return $this->defaultPerPage ?? null;
     }
 
+    /**
+     * @return bool - True s'il y a suffisamment d'éléments à diviser en plusieurs pages.
+     */
+    public function hasPages(): bool
+    {
+        return $this->count > $this->perPage;
+    }
+
+    /**
+     * @return bool - True si il reste des pages après celle en cours.
+     */
+    public function hasMorePages(): bool
+    {
+        return $this->currentPage < $this->nbPages; 
+    }
+
+    /**
+     * @return bool - True si on est sur la première page.
+     */
+    public function isFirstPage(): bool
+    {
+        if ($this->request->getGet()->has(self::PAGE_NAME)) {
+            return $this->currentPage === 1;
+        }
+        
+        return true;
+    }
+
+    /**
+     * @return bool - True si on est sur la dernière page.
+     */
+    public function isLastPage(): bool
+    {
+        return $this->getP === $this->nbPages; 
+    }
+
+    /**
+     * @return bool - True si on est sur un numéro de page donné.
+     */
+    public function isPage(int $nb): bool
+    {
+        return $this->currentPage === $nb;
+    }
+
+    /**
+     * Obtenir l'URL de la page précédente.
+     * Renvoie null si nous sommes sur la première page.
+     */
+    public function getPreviousPageUrl(): ?string
+    {
+        if (! $this->isFirstPage()) {
+            return $this->request->getFullUrlWithQuery([self::PAGE_NAME => ($this->currentPage - 1)]);
+        }
+
+        return null;
+    }
+    
+    /**
+     * Obtenir l'URL de la page suivante.
+     * Renvoie null si nous sommes sur la dernière page.
+     */
+    public function getNextPageUrl(): ?string
+    {
+        if ($this->getP < $this->nbPages) {
+            return $this->request->getFullUrlWithQuery([self::PAGE_NAME => ($this->currentPage + 1)]);
+        }
+
+        return null;
+    }
+    
+    /**
+     * Obtenir l'URL de la première page.
+     */
+    public function getFirstPageUrl(): string
+    {
+        return $this->request->getFullUrlWithQuery([self::PAGE_NAME => 1]);
+    }
+    
+    /**
+     * Obtenir l'URL de la dernière page.
+     */
+    public function getLastPageUrl(): string
+    {
+        return $this->request->getFullUrlWithQuery([self::PAGE_NAME => $this->nbPages]);
+    }
+    
+    /**
+     * Obtenir l'URL d'un numéro de page donné.
+     */
+    public function getUrl(int $nb): string
+    {
+        return $this->request->getFullUrlWithQuery([self::PAGE_NAME => $nb]);
+    }
+
     public function getGetPP(): null|int|string
     {
         return $this->getPP;
@@ -388,51 +482,13 @@ class Pagination implements PaginationInterface
     }
 
     /**
-     * @return bool - True s'il y a suffisamment d'éléments à diviser en plusieurs pages.
-     */
-    public function hasPages(): bool
-    {
-        return $this->count > $this->perPage;
-    }
-
-    /**
-     * @return bool - True si il reste des pages après celle en cours.
-     */
-    public function hasMorePages(): bool
-    {
-        return $this->currentPage < $this->nbPages; 
-    }
-
-    /**
-     * @return bool - True si on est sur la première page.
-     */
-    public function isFirstPage(): bool
-    {
-        if ($this->request->getGet()->has(self::PAGE_NAME)) {
-            return $this->currentPage === 1;
-        }
-        
-        return true;
-    }
-
-    /**
-     * @return bool - True si on est sur la dernière page.
-     */
-    public function isLastPage(): bool
-    {
-        return $this->getP === $this->nbPages; 
-    }
-
-    /**
      * Rendre le rendu de la pagination au format HTML.
-     *
-     * @param array|string|null $ifIssetGet - Si il y a déjà des GET dans l'URL, les cumuler avec les liens.
      */
-    public function render(array|string $ifIssetGet = null): string
+    public function render(): string
     {
         $this->setPageStart()->setPageEnd();
 
-        return $this->htmlRenderer->render($ifIssetGet);
+        return $this->htmlRenderer->render();
     }
 
     /**
@@ -477,8 +533,8 @@ class Pagination implements PaginationInterface
      * @param array $options
      * - $options['action'] string : Pour l'action du form.
      */
-    public function perPage(array $options = []): string
+    public function perPageForm(array $options = []): string
     {
-        return $this->htmlRenderer->perPage($this->request, $options);
+        return $this->htmlRenderer->perPageForm($this->request, $options);
     }
 }

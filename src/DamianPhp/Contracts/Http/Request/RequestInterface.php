@@ -77,4 +77,11 @@ interface RequestInterface
      * @return string - Méthode HTTP utilisée pour accéder à la page : 'GET' ou 'POST'.
      */
     public function getRequestMethod();
+
+    /**
+     * @return string - L'URL courante (sans les éventuels query params).
+     */
+    public function getUrlCurrent(): string;
+
+    public function getFullUrlWithQuery(array $query);
 }

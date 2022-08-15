@@ -70,22 +70,6 @@ interface PaginationInterface
      */
     public function getDefaultPerPage(): ?int;
 
-    public function getGetPP(): null|int|string;
-
-    public function getPageStart(): int;
-
-    public function getPageEnd(): int;
-
-    public function getNumberLinks(): int;
-
-    public function getCssClassP(): string;
-
-    public function getCssClassLinkActive(): string;
-
-    public function getCssIdPP(): string;
-
-    public function getArrayOptionsSelect(): array;
-
     /**
      * @return bool - True s'il y a suffisamment d'éléments à diviser en plusieurs pages.
      */
@@ -107,11 +91,57 @@ interface PaginationInterface
     public function isLastPage(): bool;
 
     /**
-     * Rendre le rendu de la pagination au format HTML.
-     *
-     * @param array|string|null $ifIssetGet - Si il y a déjà des GET dans l'URL, les cumuler avec les liens.
+     * @return bool - True si on est sur un numéro de page donné.
      */
-    public function render(array|string $ifIssetGet = null): string;
+    public function isPage(int $nb): bool;
+    
+    /**
+     * Obtenir l'URL de la page précédente.
+     * Renvoie null si nous sommes sur la première page.
+     */
+    public function getPreviousPageUrl(): ?string;
+    
+    /**
+     * Obtenir l'URL de la page suivante.
+     * Renvoie null si nous sommes sur la dernière page.
+     */
+    public function getNextPageUrl(): ?string;
+
+    /**
+     * Obtenir l'URL de la première page.
+     */
+    public function getFirstPageUrl(): string;
+    
+    /**
+     * Obtenir l'URL de la dernière page.
+     */
+    public function getLastPageUrl(): string;
+    
+    /**
+     * Obtenir l'URL d'un numéro de page donné.
+     */
+    public function getUrl(int $nb): string;
+
+    public function getGetPP(): null|int|string;
+
+    public function getPageStart(): int;
+
+    public function getPageEnd(): int;
+
+    public function getNumberLinks(): int;
+
+    public function getCssClassP(): string;
+
+    public function getCssClassLinkActive(): string;
+
+    public function getCssIdPP(): string;
+
+    public function getArrayOptionsSelect(): array;
+
+    /**
+     * Rendre le rendu de la pagination au format HTML.
+     */
+    public function render(): string;
 
     /**
      * Rendre le rendu du per page au format HTML.
@@ -119,5 +149,5 @@ interface PaginationInterface
      * @param array $options
      * - $options['action'] string : Pour l'action du form.
      */
-    public function perPage(array $options = []): string;
+    public function perPageForm(array $options = []): string;
 }

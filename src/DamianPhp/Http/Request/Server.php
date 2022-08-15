@@ -69,16 +69,6 @@ class Server implements ServerInterface
     }
 
     /**
-     * @return string - L'URL courante (sans les éventuels query params).
-     */
-    public function getUrlCurrent(): string
-    {
-        $exUri = explode('?', $this->getRequestUri());
-
-        return $this->getRequestScheme().'://'.$this->getServerName().$exUri[0];
-    }
-
-    /**
      * @return string - Nom de domaine (sans "www.").
      */
     public function getDomainName(): string

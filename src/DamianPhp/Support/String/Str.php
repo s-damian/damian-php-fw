@@ -3,7 +3,7 @@
 namespace DamianPhp\Support\String;
 
 use DamianPhp\Support\Facades\Input;
-use DamianPhp\Support\Facades\Server;
+use DamianPhp\Support\Facades\Request;
 use DamianPhp\Support\Facades\Security;
 
 /**
@@ -238,7 +238,7 @@ class Str
                 $href = $url;
             } elseif ($i === count($items)) {
                 // passera ici si lors du dernier item si on na pas spécifier l'URL en key
-                $href = Server::getUrlCurrent();
+                $href = Request::getUrlCurrent();
             }
 
             $html .= '<a itemprop="item" href="'.$href.'">';

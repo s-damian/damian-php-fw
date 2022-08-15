@@ -36,11 +36,6 @@ interface ServerInterface
     public function getHttpHost(): string;
 
     /**
-     * @return string - L'URL courante (sans les éventuels query params).
-     */
-    public function getUrlCurrent(): string;
-
-    /**
      * @return string
      */
     public function getDocumentRoot(): string;

@@ -171,4 +171,138 @@ class PaginationMethodsTest extends BaseTest
 
         $this->assertFalse($pagination->isLastPage()); // nous ne sommes pas sur la dernière page (nous somme sur une page d'après, donc une page qui n'existe pas)
     }
+
+    public function testIsPage(): void
+    {
+        $_GET['page'] = 4;
+
+        $pagination = new Pagination();
+
+        $pagination->paginate(100);
+
+        $this->assertTrue($pagination->isPage(4));
+        $this->assertFalse($pagination->isPage(5));
+
+        // On simule qu'on se positionne sur une page d'après la dernière page (donc on simule qu'on est une page qui n'existe pas).
+        $_GET['page'] = 8;
+
+        $pagination = new Pagination();
+
+        $pagination->paginate(100);
+        $this->assertSame(7, $pagination->getNbPages()); // 100/15 = 6.66666666667 = il y a 7 pages
+        $this->assertTrue($pagination->isPage(1)); // ici par "sécurité" ça vaut bien true
+
+        // On simule qu'on se positionne que $_GET['page'] n'existe pas.
+        $_GET['page'] = null;
+
+        $pagination = new Pagination();
+
+        $pagination->paginate(100);
+        $this->assertSame(7, $pagination->getNbPages()); // 100/15 = 6.66666666667 = il y a 7 pages
+        $this->assertTrue($pagination->isPage(1)); // ici par "sécurité" ça vaut bien true
+    }
+
+    public function testGetPreviousPageUrl(): void
+    {
+        $_GET['page'] = 4;
+
+        $pagination = new Pagination();
+
+        $pagination->paginate(100);
+
+        $ex = explode('?page=', $pagination->getPreviousPageUrl());
+        $this->assertSame('3', $ex[1]); // page courante - (moins) 1 = 3
+
+        // Si on se positionne sur la 1ère page, sera null.
+        $_GET['page'] = 1;
+
+        $pagination = new Pagination();
+
+        $pagination->paginate(100);
+
+        $this->assertTrue($pagination->isFirstPage());
+        $this->assertTrue($pagination->getPreviousPageUrl() === null);
+    }
+
+    public function testGetNextPageUrl(): void
+    {
+        // On simule qu'on se positionne sur la dernière page.
+        $_GET['page'] = 4;
+
+        $pagination = new Pagination();
+
+        $pagination->paginate(100);
+
+        $ex = explode('?page=', $pagination->getNextPageUrl());
+        $this->assertSame('5', $ex[1]); // page courante + (plus) 1 = 5
+
+        // Si on se positionne sur la dernière page, sera null.
+        $_GET['page'] = 7;
+
+        $pagination = new Pagination();
+
+        $pagination->paginate(100);
+
+        $this->assertTrue($pagination->isLastPage()); // on est bien sur la dernière page
+        $this->assertTrue($pagination->getNextPageUrl() === null);
+
+        // On simule qu'on se positionne sur une page d'après la dernière page (donc on simule qu'on est une page qui n'existe pas).
+        // Il existe que 7 pages, et on se positionne sur la 9ème.
+        // PS (vs Pagination de Laravel) : on simule qu'on a le même comportement que la pagination livré avec Laravel.
+        $_GET['page'] = 9;
+
+        $pagination = new Pagination();
+
+        $pagination->paginate(100);
+
+        $this->assertFalse($pagination->isLastPage()); // nous ne sommes pas sur la dernière page (nous somme sur une page d'après, donc une page qui n'existe pas)
+        $this->assertTrue($pagination->getNextPageUrl() === null); 
+
+        // On simule n'importe quoi dans l'URL (un string).
+        // PS (vs Pagination de Laravel) : on simule qu'on a le même comportement que la pagination livré avec Laravel.
+        $_GET['page'] = 'rr';
+
+        $pagination = new Pagination();
+
+        $pagination->paginate(100);
+
+        $ex = explode('?page=', $pagination->getNextPageUrl());
+        $this->assertSame('2', $ex[1]); // page par défaut (page 1) + (plus) 1 = 2
+    }
+
+    public function testGetFirstPageUrl(): void
+    {
+        $_GET['page'] = 4;
+
+        $pagination = new Pagination();
+
+        $pagination->paginate(100);
+
+        $ex = explode('?page=', $pagination->getFirstPageUrl());
+        $this->assertSame('1', $ex[1]);
+    }
+    
+    public function testGetLastPageUrl(): void
+    {
+        $_GET['page'] = 4;
+
+        $pagination = new Pagination();
+
+        $pagination->paginate(100);
+
+        $ex = explode('?page=', $pagination->getLastPageUrl());
+        $this->assertSame('7', $ex[1]); // il y a 7 pages
+    }
+
+    public function testGetUrl(): void
+    {
+        $_GET['page'] = 4;
+
+        $pagination = new Pagination();
+
+        $pagination->paginate(100);
+
+        $ex = explode('?page=', $pagination->getUrl(2));
+        $this->assertSame('2', $ex[1]);
+    }
 }

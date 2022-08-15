@@ -168,4 +168,27 @@ class RequestTest extends BaseTest
         $this->assertTrue(is_string($request->getRequestMethod()));
         $this->assertSame('', $request->getRequestMethod()); // en testing (en cli), ça vaut ''
     }
+
+    public function testGetUrlCurrent(): void
+    {
+        $request = new Request();
+        
+        $this->assertTrue(is_string($request->getUrlCurrent()));
+    }
+    
+    public function testGetFullUrlWithQuery()
+    {
+        $request = new Request();
+
+        $this->assertSame('://?page=1', $request->getFullUrlWithQuery(['page' => 1]));
+    }
+    
+    public function testBuildQuery()
+    {
+        $request = new Request();
+
+        $this->assertSame('page=1', $request->buildQuery(['page' => 1]));
+
+        $this->assertSame('page=1&orderby=title&order=asc', $request->buildQuery(['page' => 1, 'orderby' => 'title', 'order' => 'asc']));
+    }
 }

@@ -49,11 +49,6 @@ class ServerTest extends BaseTest
         $this->assertTrue(is_string($this->server->getHttpHost()));
     }
 
-    public function testGetUrlCurrent(): void
-    {
-        $this->assertTrue(is_string($this->server->getUrlCurrent()));
-    }
-
     public function testGetDomainName(): void
     {
         $this->assertTrue(is_string($this->server->getDomainName()));

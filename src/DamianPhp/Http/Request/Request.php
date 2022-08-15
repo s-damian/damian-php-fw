@@ -2,6 +2,7 @@
 
 namespace DamianPhp\Http\Request;
 
+use DamianPhp\Support\Facades\Str;
 use DamianPhp\Http\Request\Bags\FileBag;
 use DamianPhp\Http\Request\Bags\ServerBag;
 use DamianPhp\Http\Request\Bags\ParameterBag;
@@ -196,5 +197,37 @@ class Request implements RequestInterface
     public function getRequestMethod(): string
     {
         return ServerF::getMethod();
+    }
+
+    /**
+     * @return string - L'URL courante (sans les éventuels query params).
+     */
+    public function getUrlCurrent(): string
+    {
+        $requestUri = ServerF::getRequestUri();
+
+        if (Str::contains($requestUri, '?')) {
+            $ex = explode('?', $requestUri);
+            $uri = $ex[0];
+        } elseif (Str::contains($requestUri, '&')) {
+            $ex = explode('&', $requestUri);
+            $uri = $ex[0];
+        } else {
+            $uri = $requestUri;
+        }
+
+        return ServerF::getRequestScheme().'://'.ServerF::getServerName().$uri;
+    }
+
+    public function getFullUrlWithQuery(array $query)
+    {
+        $question = '?';
+
+        return self::getUrlCurrent().$question.$this->buildQuery(array_merge(self::getGet()->all(), $query));
+    }
+
+    public function buildQuery($array)
+    {
+        return http_build_query($array, '', '&', PHP_QUERY_RFC3986);
     }
 }
