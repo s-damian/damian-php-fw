@@ -61,7 +61,7 @@ abstract class RendererGenerator
      * Pour choisir nombre d'éléments à afficher par page.
      *
      * @param array $options
-     * - $options['action'] (string) : Pour l'action du form.
+     * - $options['action'] string : Pour l'action du form.
      */
     final public function perPageForm(RequestInterface $request, array $options = []): string
     {

@@ -30,7 +30,7 @@ final class HtmlRenderer extends RendererGenerator
     {
         $html = '';
 
-        if ($this->pagination->getCurrentPage() !== 1) {
+        if (! $this->pagination->isFirstPage()) {
             $href = 'href="'.$this->pagination->getPreviousPageUrl().'"';
 
             $html .= '<li>';
@@ -53,12 +53,12 @@ final class HtmlRenderer extends RendererGenerator
     {
         $html = '';
 
-        if ($this->pagination->getCurrentPage() !== 1) {
+        if (! $this->pagination->isFirstPage()) {
             $dots = $this->pagination->getCurrentPage() > ($this->pagination->getNumberLinks() + 2)
-                    ? '<li class="points"><span>...</span></li>'
-                    : '';
+                ? '<li class="points"><span>...</span></li>'
+                : '';
 
-                    $href = 'href="'.$this->pagination->getFirstPageUrl().'"';
+            $href = 'href="'.$this->pagination->getFirstPageUrl().'"';
 
             $html .= '<li>';
             $html .=     '<a title="'.Helper::lang('pagination')['first'].'" '.$href.'>';
@@ -96,7 +96,7 @@ final class HtmlRenderer extends RendererGenerator
                 ? '<li class="points"><span>...</span></li>'
                 : '';
 
-                $href = 'href="'.$this->pagination->getLastPageUrl().'"';
+            $href = 'href="'.$this->pagination->getLastPageUrl().'"';
 
             $html .= $dots;
             $html .= '<li>';

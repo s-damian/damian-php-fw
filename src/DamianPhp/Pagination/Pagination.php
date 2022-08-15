@@ -217,24 +217,18 @@ class Pagination implements PaginationInterface
         }
     }
 
-    /**
-     * @return null|int - OFFSET.
-     */
     public function getOffset(): ?int
     {
         return $this->offset;
     }
 
-    /**
-     * @return null|int - LIMIT.
-     */
     public function getLimit(): ?int
     {
         return $this->limit;
     }
 
     /**
-     * @return int - Nombre total d'éléments sur lesquels on pagine.
+     * Retourner le nombre total d'éléments sur lesquels on pagine.
      */
     public function getCount(): int
     {
@@ -242,7 +236,7 @@ class Pagination implements PaginationInterface
     }
 
     /**
-     * @return int - Nombre d'éléments sur la page en cours.
+     * Retourner le nombre d'éléments sur la page en cours.
      */
     public function getCountOnCurrentPage(): int
     {
@@ -304,7 +298,7 @@ class Pagination implements PaginationInterface
     }
 
     /**
-     * @return int - Le nombre d'éléments sur la dernière page.
+     * Retourner le nombre d'éléments sur la dernière page.
      */
     private function getCountOnLastPage(): int
     {
@@ -316,7 +310,7 @@ class Pagination implements PaginationInterface
     }
 
     /**
-     * @return int - Page en cours.
+     * Retourner la page en cours.
      */
     public function getCurrentPage(): int
     {
@@ -324,7 +318,7 @@ class Pagination implements PaginationInterface
     }
 
     /**
-     * @return int - Nombre de pages.
+     * Retourner le nombre de pages.
      */
     public function getNbPages(): int
     {
@@ -332,7 +326,7 @@ class Pagination implements PaginationInterface
     }
 
     /**
-     * @return null|int - Le nombre d'éléments affichés par page.
+     * Retourner le nombre d'éléments affichés par page.
      */
     public function getPerPage(): ?int
     {
@@ -340,7 +334,7 @@ class Pagination implements PaginationInterface
     }
 
     /**
-     * @return null|int - Le nombre d'éléments affichés par page par defaut.
+     * Retourner le nombre d'éléments affichés par page par defaut.
      */
     public function getDefaultPerPage(): ?int
     {
@@ -348,7 +342,7 @@ class Pagination implements PaginationInterface
     }
 
     /**
-     * @return bool - True s'il y a suffisamment d'éléments à diviser en plusieurs pages.
+     * Retourner true s'il y a suffisamment d'éléments à diviser en plusieurs pages.
      */
     public function hasPages(): bool
     {
@@ -356,7 +350,7 @@ class Pagination implements PaginationInterface
     }
 
     /**
-     * @return bool - True si il reste des pages après celle en cours.
+     * Retourner true si il reste des pages après celle en cours.
      */
     public function hasMorePages(): bool
     {
@@ -364,27 +358,27 @@ class Pagination implements PaginationInterface
     }
 
     /**
-     * @return bool - True si on est sur la première page.
+     * Retourner true si on est sur la première page.
      */
     public function isFirstPage(): bool
     {
         if ($this->request->getGet()->has(self::PAGE_NAME)) {
-            return $this->currentPage === 1;
+            return $this->isPage(1);
         }
         
         return true;
     }
 
     /**
-     * @return bool - True si on est sur la dernière page.
+     * Retourner true si on est sur la dernière page.
      */
     public function isLastPage(): bool
     {
-        return $this->getP === $this->nbPages; 
+        return $this->currentPage === $this->nbPages; 
     }
 
     /**
-     * @return bool - True si on est sur un numéro de page donné.
+     * Retourner true si on est sur un numéro de page donné.
      */
     public function isPage(int $nb): bool
     {

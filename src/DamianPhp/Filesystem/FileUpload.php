@@ -39,7 +39,7 @@ class FileUpload implements FileInterface
      * @param string $path - Dossier ciblé.
      * @param string|null $input - Attribut html name="" de l'input.
      * @param array|null $options - Eventuelles options.
-     * - $options['prefix'] (string)
+     * - $options['prefix'] string
      */
     public function __construct(string $path, string $input = null, array $options = [])
     {

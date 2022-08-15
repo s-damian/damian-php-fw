@@ -18,14 +18,8 @@ interface PaginationInterface
      */
     public function paginate(int $count): void;
 
-    /**
-     * @return null|int - OFFSET.
-     */
     public function getOffset(): ?int;
 
-    /**
-     * @return null|int - LIMIT.
-     */
     public function getLimit(): ?int;
 
     /**
