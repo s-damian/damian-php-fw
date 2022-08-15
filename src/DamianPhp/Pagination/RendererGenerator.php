@@ -84,7 +84,7 @@ abstract class RendererGenerator
 
             /** @var HtmlRenderer $this */
             $html .= $this->perPageCloseSelect();
-            $html .= Str::inputHiddenIfHasQueryString(['except' => [Pagination::PER_PAGE_NAME]]);
+            $html .= Str::inputHiddenIfHasQueryString(['except' => [Pagination::PAGE_NAME, Pagination::PER_PAGE_NAME]]);
             $html .= $this->perPageCloseForm();
         }
 
