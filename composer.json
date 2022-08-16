@@ -24,14 +24,6 @@
             "DamianPhp\\": "src/DamianPhp/"
         }
     },
-    "scripts": {
-        "test": [
-            "php ./vendor/phpunit/phpunit/phpunit"
-        ],
-        "test-class": [
-            "php ./vendor/phpunit/phpunit/phpunit --filter"
-        ]
-    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
