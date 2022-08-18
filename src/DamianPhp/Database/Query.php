@@ -186,7 +186,7 @@ class Query
                 return 'DamianPhp\Database\Connectors\PostgreSQL';
             default:
                 Helper::getExceptionOrLog('Database Connection Name must be "mysql" or "pgsql".');
-                return;
+                return '';
         }
     }
 
