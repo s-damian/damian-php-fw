@@ -152,7 +152,7 @@ class Pagination implements PaginationInterface
 
         $this->cssIdPP = isset($options['css_id_pp']) && is_string($options['css_id_pp'])
             ? $options['css_id_pp']
-            : 'per-page';
+            : 'per-page-form';
     }
 
     /**

@@ -46,7 +46,7 @@ class PaginationOptionsTest extends BaseTest
 
         $this->assertSame('pagination', $pagination->getCssClassP());
         $this->assertSame('active', $pagination->getCssClassLinkActive());
-        $this->assertSame('per-page', $pagination->getCssIdPP());
+        $this->assertSame('per-page-form', $pagination->getCssIdPP());
     }
 
     /**
