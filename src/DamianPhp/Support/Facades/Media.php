@@ -3,7 +3,7 @@
 namespace DamianPhp\Support\Facades;
 
 /**
- * Facade pour les String.
+ * Facade pour la classe Media.
  * 
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
@@ -16,9 +16,6 @@ final class Media extends Facade
      */
     protected static $instance;
 
-    /**
-     * @return string
-     */
     protected static function getFacadeAccessor(): string
     {
         return \DamianPhp\Support\String\Media::class;

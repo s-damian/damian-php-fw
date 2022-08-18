@@ -44,8 +44,6 @@ class ExceptionHandler extends Exception implements ExceptionHandlerInterface
 
     /**
      * Envoyer une Exception et éventuellement envoyer un mail.
-     *
-     * @throws ExceptionHandler
      */
     private function runException(string $message)
     {
@@ -65,15 +63,13 @@ class ExceptionHandler extends Exception implements ExceptionHandlerInterface
     /**
      * Si on est en dev : Renvoyer une exception avec un message d'erreur.
      * Si on est en prod : Error 404.
-     *
-     * @throws ExceptionHandler
      */
-    public function getExceptionOrGetError404(string $message)
+    public function getExceptionOrGetError404(string $message): void
     {
         if (Helper::config('app')['debug']) {
             throw new self('Error 404: '.$message);
         } else {
-            return Helper::getError404();
+            Helper::getError404();
         }
     }
 

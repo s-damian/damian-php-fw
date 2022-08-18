@@ -21,7 +21,7 @@ Interface ExceptionHandlerInterface
      * @param string $message
      * @throws ExceptionHandler
      */
-    public function getExceptionOrGetError404(string $message);
+    public function getExceptionOrGetError404(string $message): void;
 
     /**
      * Retourne l'action d'erreur 404.

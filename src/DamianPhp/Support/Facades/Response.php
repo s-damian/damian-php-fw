@@ -16,9 +16,6 @@ final class Response extends Facade
      */
     protected static $instance;
 
-    /**
-     * @return string
-     */
     protected static function getFacadeAccessor(): string
     {
         return \DamianPhp\Http\Response\Response::class;

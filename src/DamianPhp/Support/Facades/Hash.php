@@ -16,9 +16,6 @@ final class Hash extends Facade
      */
     protected static $instance;
 
-    /**
-     * @return string
-     */
     protected static function getFacadeAccessor(): string
     {
         return \DamianPhp\Hashing\Hash::class;

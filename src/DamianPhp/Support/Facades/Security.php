@@ -16,9 +16,6 @@ final class Security extends Facade
      */
     protected static $instance;
 
-    /**
-     * @return string
-     */
     protected static function getFacadeAccessor(): string
     {
         return \DamianPhp\Support\Security\Security::class;

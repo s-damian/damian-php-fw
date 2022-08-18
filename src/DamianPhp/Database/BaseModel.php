@@ -56,6 +56,11 @@ abstract class BaseModel implements BaseModelInterface
 
     private Paginated $paginated;
 
+    /**
+     * Les attributs qui sont assignables en masse.
+     */
+    protected array $fillable = [];
+
     public function __construct()
     {
         $this->query = new Query($this);
@@ -90,7 +95,7 @@ abstract class BaseModel implements BaseModelInterface
      * - Si non :
      *   Récupérer dynamiquement nom de la table selon nom du Model enfant (nom de la table doit être nom de la classe au pluriel).
      */
-    private function setDbTable()
+    private function setDbTable(): void
     {
         if (isset($this->table) && $this->table !== null) {
             $this->dbTable = $this->table;
@@ -110,8 +115,6 @@ abstract class BaseModel implements BaseModelInterface
 
     /**
      * Si getter, retourner propriété. si setter, assigner valeur à une propriété.
-     *
-     * @return bool|void
      */
     private function callGetterOrSetter(string $method, array $arguments)
     {

@@ -16,9 +16,6 @@ final class Form extends Facade
      */
     protected static $instance;
 
-    /**
-     * @return string
-     */
     protected static function getFacadeAccessor(): string
     {
         return \DamianPhp\Form\Form::class;

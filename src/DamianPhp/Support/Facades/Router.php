@@ -17,9 +17,6 @@ final class Router extends Facade
      */
     protected static $instance;
 
-    /**
-     * @return string
-     */
     protected static function getFacadeAccessor(): string
     {
         return \DamianPhp\Routing\Router::class;

@@ -33,13 +33,13 @@ class ButtonGenerator
 
     public function get(): string
     {
-        $this->htmlValue = $this->value ?? lang('form')['button'];
+        $htmlValue = $this->value ?? lang('form')['button'];
 
         $this->html = '<button type="button"';
 
         $this->addOptions();
 
-        $this->html .= '>'.$this->htmlValue.'</button>';
+        $this->html .= '>'.$htmlValue.'</button>';
 
         return $this->html;
     }

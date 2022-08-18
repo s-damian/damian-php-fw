@@ -23,6 +23,22 @@ abstract class HttpKernel
      */
     private array|string $key;
 
+    /**
+     * The application's route middleware.
+     *
+     * - To load a specific class and method:
+     * 'key' => ['class to load', 'his method to execute'],
+     *
+     * - Pour charger une Class :
+     * 'key' => 'class to load',
+     */
+    protected array $routeMiddleware = [
+        'verify_csfr_token' => \App\Http\Middlewares\VerifyCsrfToken::class,
+        
+        // Admin :
+        'admin_is_logged' => [\App\Http\Middlewares\Admin\IsLogged::class, 'isConnected'],
+    ];
+
     public function __construct(array|string $key)
     {
         $this->key = $key;

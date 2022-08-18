@@ -1,0 +1,15 @@
+parameters:
+  level: 0
+  paths:
+    - "../../src"
+    - "../../tests"
+  excludePaths:
+    - "../../src/DamianPhp/Config/SingletonConfig.php"
+    - "../../src/DamianPhp/Support/Facades/Facade.php"
+    - "../../src/DamianPhp/Mail/SwiftMailerMailing.php"
+    - "../../src/DamianPhp/Support/Security/Attempt.php"
+  ignoreErrors:
+    - '#Undefined variable: \$relatedId#'
+    - '#Instantiated class App\\Http\\Kernel not found.#'
+    - '#Class App\\Http\\Middlewares\\VerifyCsrfToken not found.#'
+    - '#Class App\\Http\\Middlewares\\Admin\\IsLogged not found.#'

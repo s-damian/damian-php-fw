@@ -36,7 +36,7 @@ class Router implements RouterInterface
     /**
      * Pour l'éventuelle internationalisation.
      */
-    private LangParsing $langGenerator;
+    private LangParsing $langParsing;
 
     /**
      * Pour l'éventuelle internationalisation.

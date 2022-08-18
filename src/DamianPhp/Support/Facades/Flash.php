@@ -16,9 +16,6 @@ final class Flash extends Facade
      */
     protected static $instance;
 
-    /**
-     * @return string
-     */
     protected static function getFacadeAccessor(): string
     {
         return \DamianPhp\Session\Flash::class;

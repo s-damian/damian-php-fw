@@ -16,9 +16,6 @@ final class Str extends Facade
      */
     protected static $instance;
 
-    /**
-     * @return string
-     */
     protected static function getFacadeAccessor(): string
     {
         return \DamianPhp\Support\String\Str::class;

@@ -46,6 +46,6 @@ class ParameterBag
      */
     public function clear(): void
     {
-        $this->data = [];
+        $this->parameters = [];
     }
 }

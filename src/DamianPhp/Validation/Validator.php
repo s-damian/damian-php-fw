@@ -86,7 +86,7 @@ class Validator implements ValidatorInterface
 
     private const REGEX_POSTALE_CODE = '/^[0-9]{5}$/';
 
-    private const REGEX_CHARACTERS_PROHIBITED_NAME_FILE = '/[\/:*?"<>|\\\\ ]/';
+    public const REGEX_CHARACTERS_PROHIBITED_NAME_FILE = '/[\/:*?"<>|\\\\ ]/';
 
     public function __construct(array $requestMethod = [])
     {
