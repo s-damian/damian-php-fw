@@ -24,14 +24,14 @@ class JsonTest extends BaseTest
     {
         $encode = $this->json->encode(self::ARRAY_TEST);
 
-        $this->assertSame('{"aaa":"Valeur A","bbb":"Valeur B"}', $encode);
+        $this->assertSame('{"aaa":"Valeur A","bbb":"Valeur B","ccc":"Valeur C"}', $encode);
     }
 
     public function testDecode(): void
     {
         $this->assertTrue(is_string($this->json->decode('"Abc"')));
 
-        $decode = $this->json->decode('{"aaa":"Valeur A","bbb":"Valeur B"}');
+        $decode = $this->json->decode('{"aaa":"Valeur A","bbb":"Valeur B","ccc":"Valeur C"}');
 
         $this->assertTrue(is_object($decode));
         $this->assertSame(self::ARRAY_TEST, (array) $decode);

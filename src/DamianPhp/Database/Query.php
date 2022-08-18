@@ -175,7 +175,7 @@ class Query
         return self::$connection;
     }
 
-    private function getClassNameConnector(string $connector): string|void
+    private function getClassNameConnector(string $connector): mixed
     {
         $this->driver = Helper::config('database')['connections'][$connector]['driver'];
 
