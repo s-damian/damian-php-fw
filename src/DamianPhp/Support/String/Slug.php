@@ -9,7 +9,7 @@ use DamianPhp\Contracts\String\SlugInterface;
 /**
  * Pour créer des slugs (ajouts de posts...).
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -44,7 +44,7 @@ class Slug implements SlugInterface
     private function cleanSlug(): void
     {
         $strCharacters = str_split($this->str);
-        
+
         foreach ($strCharacters as $character) {
             if (! array_key_exists($character, $this->charactersArray())) {
                 $this->str = str_replace($character, '-', $this->str);
@@ -390,23 +390,23 @@ class Slug implements SlugInterface
             '4' => [
                 '⁴', '₄',
             ],
-            
+
             '5' => [
                 '⁵', '₅',
             ],
-            
+
             '6' => [
                 '⁶',  '₆',
             ],
-            
+
             '7' => [
                 '⁷', '₇',
             ],
-            
+
             '8' => [
                 '⁸', '₈',
             ],
-            
+
             '9' => [
                 '⁹', '₉',
             ],

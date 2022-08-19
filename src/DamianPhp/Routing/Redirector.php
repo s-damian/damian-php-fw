@@ -10,7 +10,7 @@ use DamianPhp\Contracts\Routing\RouterInterface;
 
 /**
  * Redirections.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -73,8 +73,7 @@ class Redirector
                 Helper::isMultilingual() &&
                 Helper::config('lang')['address_structure'] === 'subdirectories' &&
                 rtrim($this->router->getUri(), '/') === $this->router->getLang()
-                )
-            {
+            ) {
                 $urlToRedirect = Helper::getBaseUrl().'/'.rtrim($this->router->getUri(), '/').'/';
             } else {
                 $uri = str_replace('//', '/', $this->router->getUri());
@@ -118,8 +117,7 @@ class Redirector
             Helper::isMultilingual() &&
             Helper::config('lang')['address_structure'] === 'subdirectories' &&
             ($this->router->getUri() === '' || $this->router->getUri() === $this->router->getLang())
-            )
-        {
+        ) {
             Response::redirect(Helper::getBaseUrl().'/'.$this->router->getLang().'/', 302);
         } elseif (mb_substr($this->router->getUri(), -1, 1) === '/') {
             Response::redirect(Helper::getBaseUrl().'/'.rtrim($this->router->getUri(), '/'), 301);

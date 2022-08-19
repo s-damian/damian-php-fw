@@ -7,7 +7,7 @@ namespace DamianPhp\Contracts\Http\Response;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface ResponseInterface
+interface ResponseInterface
 {
     /**
      * @param int - Code de la réponse HTTP.

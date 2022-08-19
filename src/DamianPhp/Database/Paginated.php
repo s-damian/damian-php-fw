@@ -9,7 +9,7 @@ use DamianPhp\Contracts\Database\BaseModelInterface;
  * Pour retourner des collections paginées.
  * Fait 2 requêtes SQL :
  * Fait d'abord une requête SQL COUNT, et fait ensuite une requête SQL qui récupère plusieures lignes.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian

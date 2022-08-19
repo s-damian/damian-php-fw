@@ -6,10 +6,10 @@ use DamianPhp\Support\Helper;
 
 /**
  * The HTTP Kernel.
- * 
+ *
  * Cette classe est parent de App\Http\Middlewares\Kernel;
  * Exécuter le construct de cette classe à chaque instance de son enfant.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -34,7 +34,7 @@ abstract class HttpKernel
      */
     protected array $routeMiddleware = [
         'verify_csfr_token' => \App\Http\Middlewares\VerifyCsrfToken::class,
-        
+
         // Admin :
         'admin_is_logged' => [\App\Http\Middlewares\Admin\IsLogged::class, 'isConnected'],
     ];

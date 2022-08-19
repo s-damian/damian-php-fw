@@ -7,10 +7,10 @@ namespace DamianPhp\Contracts\Log;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface LogInterface
+interface LogInterface
 {
     public function __construct();
-    
+
     /**
      * Envoyer un log d'information de l'app (pour les fichiers qui sont dans le dossier "app").
      *

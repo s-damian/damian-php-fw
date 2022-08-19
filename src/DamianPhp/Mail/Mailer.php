@@ -9,7 +9,7 @@ use DamianPhp\Contracts\Mail\MailerInterface;
 /**
  * Classe client.
  * Pour envoyer des mails.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -95,7 +95,7 @@ class Mailer implements MailerInterface
      * OPTIONAL
      * Pour éventuellement ajouter un cord de message au format 'text/plain'.
      */
-    public function addBodyText(string $path,  array $data = []): self
+    public function addBodyText(string $path, array $data = []): self
     {
         $bodyText = Response::share(Helper::config('path')['emails'].'/'.$path, $data);
 

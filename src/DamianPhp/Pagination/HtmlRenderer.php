@@ -6,7 +6,7 @@ use DamianPhp\Support\Helper;
 
 /**
  * Rendu HTML de la pagination.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -84,7 +84,7 @@ final class HtmlRenderer extends RendererGenerator
     /**
      * Si on est pas à la dernière page, faire apparaitre : aller à dernière page.
      *
-     * Exemple si $this->pagination->getNumberLinks() = 4 : 
+     * Exemple si $this->pagination->getNumberLinks() = 4 :
      * si on est 5 pages avant le nombre de pages, faire apparaitre ".." pour : "avant avant dernière page" "..." "dernière page".
      */
     protected function lastLink(): string
@@ -162,7 +162,7 @@ final class HtmlRenderer extends RendererGenerator
     protected function perPageOption(string $selected, string $valuePP, string $all = null): string
     {
         $nb = $all ?? $valuePP;
-        
+
         return '<option '.$selected.' value="'.$valuePP.'">'.$nb.'</option>';
     }
 

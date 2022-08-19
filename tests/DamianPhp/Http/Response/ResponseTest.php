@@ -11,7 +11,7 @@ class ResponseTest extends BaseTest
 
     public function setUp(): void
     {
-       $this->response = new Response();
+        $this->response = new Response();
     }
 
     public function testGetHttpResponseCode(): void

@@ -7,7 +7,7 @@ use DamianPhp\Contracts\Database\BaseModelInterface;
 /**
  * Pour relations : "plusieurs à plusieurs".
  * Fonctionne avec 3 tables (Table du Model instancié + Table de jonction + Table à joindre).
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -61,12 +61,14 @@ class BelongsToMany
      */
     private function get(): array
     {
-        $relatedInstantiate = new $this->related;
+        $relatedInstantiate = new $this->related();
 
         return $relatedInstantiate->select($relatedInstantiate->getDbTable().'.*')
             ->join(
                 $this->junctionTable,
-                $relatedInstantiate->getDbTable().'.id', '=', $this->junctionTable.'.'.$this->secondKey
+                $relatedInstantiate->getDbTable().'.id',
+                '=',
+                $this->junctionTable.'.'.$this->secondKey
             )
             ->where($this->junctionTable.'.'.$this->firstKey, '=', $this->model->id)
             ->findAll();

@@ -7,13 +7,13 @@ namespace DamianPhp\Contracts\Session;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface SessionInterface
+interface SessionInterface
 {
     /**
      *  Démarrer session.
      */
     public function start(): bool;
-    
+
     /**
      * Créer une session.
      *
@@ -39,7 +39,7 @@ Interface SessionInterface
 
     /**
      * Verifier si une session existe.
-     * 
+     *
      * @param string $name - Nom de la session.
      */
     public function has(string $name): bool;
@@ -60,12 +60,12 @@ Interface SessionInterface
      * Supprimer Toutes les session (lorqu'on déconnecte un utilisateur par exemple).
      */
     public function clear(): void;
-    
+
     /**
      * @return string - Identifiant de la session courante.
      */
     public function getId(): string;
-    
+
     /**
      * Remplace l'identifiant de la session courante par un nouveau.
      */

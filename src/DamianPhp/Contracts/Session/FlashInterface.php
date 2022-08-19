@@ -7,10 +7,10 @@ namespace DamianPhp\Contracts\Session;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface FlashInterface
+interface FlashInterface
 {
     public function __construct();
-    
+
     /**
      * Pour si un message flash a été créé avec cette clé, l'afficher.
      *

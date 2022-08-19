@@ -11,8 +11,8 @@ use DamianPhp\Support\Facades\Server;
 use DamianPhp\Contracts\Exception\ExceptionHandlerInterface;
 
 /**
- * Gestionnaire des Exceptions 
- * 
+ * Gestionnaire des Exceptions
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian

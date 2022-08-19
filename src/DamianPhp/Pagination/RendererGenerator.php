@@ -10,13 +10,13 @@ use DamianPhp\Contracts\Pagination\PaginationInterface;
 
 /**
  * Rendu de la pagination.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
 abstract class RendererGenerator
-{    
+{
     protected PaginationInterface $pagination;
 
     final public function __construct(PaginationInterface $pagination)
@@ -75,7 +75,7 @@ abstract class RendererGenerator
 
             $html .= $this->perPageOpenForm($actionPerPage);
             $html .= $this->perPageLabel();
-            $html .= $this->perPageOpenSelect($onChange);   
+            $html .= $this->perPageOpenSelect($onChange);
 
             foreach ($this->pagination->getArrayOptionsSelect() as $valuePP) {
                 /** @var self $this */

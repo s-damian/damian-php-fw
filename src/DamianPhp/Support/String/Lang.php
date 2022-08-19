@@ -9,7 +9,7 @@ use DamianPhp\Support\Facades\Str as StrF;
 /**
  * Pour retourner des string avec le language (balises avec attr hreflang, img pour languages).
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -37,7 +37,7 @@ class Lang
         if (self::hasCountryLanguage($lang)) {
             return Helper::config('lang')['countries_languages'][$lang];
         }
-        
+
         return '';
     }
 
@@ -110,14 +110,11 @@ class Lang
 
         if (Helper::config('lang')['address_structure'] === 'domain') {
             $href .= self::getHrefIfAddressStructureIsDomain($value);
-        }
-        elseif (Helper::config('lang')['address_structure'] === 'subdomain') {
+        } elseif (Helper::config('lang')['address_structure'] === 'subdomain') {
             $href .= self::getHrefIfAddressStructureIsSubdomain($value);
-        }
-        elseif (Helper::config('lang')['address_structure'] === 'subdirectories') {
+        } elseif (Helper::config('lang')['address_structure'] === 'subdirectories') {
             $href .= self::getHrefIfAddressStructureIsSubdirectories($value);
-        }
-        elseif (Helper::config('lang')['address_structure'] === 'domain_and_subdomain') {
+        } elseif (Helper::config('lang')['address_structure'] === 'domain_and_subdomain') {
             $href .= self::getHrefIfAddressStructureIsDomainAndSubdomain($value);
         }
 
@@ -139,7 +136,7 @@ class Lang
                     : '';
 
                 if ($value['lang'] === Helper::getLocale()) {
-                    $stringStart .= '<link rel="alternate" href="'.$value['href'].'" hreflang="'.$value['lang'].$country.'" />';        
+                    $stringStart .= '<link rel="alternate" href="'.$value['href'].'" hreflang="'.$value['lang'].$country.'" />';
                 } else {
                     $string .= '<link rel="alternate" href="'.$value['href'].'" hreflang="'.$value['lang'].$country.'" />';
                 }
@@ -173,8 +170,7 @@ class Lang
                 $string .=     ' alt="'.array_search($value, Helper::config('lang')['languages_allowed']).'">';
                 $string .= '</a>';
             }
-        }
-        elseif (Helper::config('lang')['address_structure'] === 'subdomain') {
+        } elseif (Helper::config('lang')['address_structure'] === 'subdomain') {
             foreach (Helper::config('lang')['languages_allowed'] as $value) {
                 if (isset(self::$hrefsImglang[$value])) {
                     $href = self::$hrefsImglang[$value];
@@ -187,8 +183,7 @@ class Lang
                 $string .=     ' alt="'.array_search($value, Helper::config('lang')['languages_allowed']).'">';
                 $string .= '</a>';
             }
-        }
-        elseif (Helper::config('lang')['address_structure'] === 'subdirectories') {
+        } elseif (Helper::config('lang')['address_structure'] === 'subdirectories') {
             foreach (Helper::config('lang')['languages_allowed'] as $value) {
                 if (isset(self::$hrefsImglang[$value])) {
                     $href = self::$hrefsImglang[$value];
@@ -201,8 +196,7 @@ class Lang
                 $string .=     ' alt="'.array_search($value, Helper::config('lang')['languages_allowed']).'">';
                 $string .= '</a>';
             }
-        }
-        elseif (Helper::config('lang')['address_structure'] === 'domain_and_subdomain') {
+        } elseif (Helper::config('lang')['address_structure'] === 'domain_and_subdomain') {
             foreach (Helper::config('lang')['languages_allowed'] as $value) {
                 if (isset(self::$hrefsImglang[$value])) {
                     $href = self::$hrefsImglang[$value];

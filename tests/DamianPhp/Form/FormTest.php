@@ -15,7 +15,7 @@ class FormTest extends BaseTest
 
     public function setUp(): void
     {
-       $this->form = new Form();
+        $this->form = new Form();
     }
 
     public function testOpen(): void

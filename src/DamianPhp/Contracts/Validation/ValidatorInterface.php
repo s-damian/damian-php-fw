@@ -9,15 +9,15 @@ use DamianPhp\Validation\Message;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface ValidatorInterface
+interface ValidatorInterface
 {
     public function __construct(array $requestMethod = []);
-    
+
     /**
      * Pour ajouter une règle de validation.
      */
     public static function extend(string $rule, callable $callable): void;
-    
+
     /**
      * Activer le validateur.
      */
@@ -60,7 +60,7 @@ Interface ValidatorInterface
      * @return string - Le message de confirmation.
      */
     public function getSuccess(): string;
-    
+
     public function getMessages(): Message;
 
     /**

@@ -7,7 +7,7 @@ use DamianPhp\Contracts\Database\BaseModelInterface;
 /**
  * Pour relations : "un à un", "un à plusieurs inversés".
  * Fonctionne avec 2 tables (Table du Model instancié + Table à joindre).
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -47,7 +47,7 @@ class HasOne
      */
     private function get(): ?object
     {
-        $relatedInstantiate = new $this->related;
+        $relatedInstantiate = new $this->related();
         $foreignKey = $this->foreignKey;
 
         return $relatedInstantiate->select($relatedInstantiate->getDbTable().'.*')

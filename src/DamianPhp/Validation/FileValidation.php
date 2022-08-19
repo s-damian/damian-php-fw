@@ -9,7 +9,7 @@ use DamianPhp\Contracts\Validation\ValidatorInterface;
 
 /**
  * Pour validation des fichiés uploadés.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -18,10 +18,10 @@ class FileValidation
 {
     private ValidatorInterface $validator;
 
-	public function __construct(ValidatorInterface $validator)
-	{
-		$this->validator = $validator;
-	}
+    public function __construct(ValidatorInterface $validator)
+    {
+        $this->validator = $validator;
+    }
 
     /**
      * Upload unique.
@@ -41,16 +41,16 @@ class FileValidation
         }
         // ***** /nom - format *****
 
-        // ***** nom pas déjà pris ***** 
+        // ***** nom pas déjà pris *****
         if (isset($value['name_not_taken'])) {
             $listRep = scandir($value['path']);
             if (in_array($fileName, $listRep)) {
                 $error .= '<i style="font-size:16px;">- "'.$fileName.'" : '.$this->pushErrorWithFile('name_not_taken').'</i><br>';
             }
         }
-        // ***** /nom pas déjà pris *****    
+        // ***** /nom pas déjà pris *****
 
-        // ***** nom - length *****       
+        // ***** nom - length *****
         if (isset($value['max_length_name'])) {
             if (mb_strlen($fileName) > $value['max_length_name']) {
                 $error .= '<i style="font-size:16px;">- "'.$fileName.'" : '.$this->pushErrorWithFile('max_length_name', $value).'</i><br>';
@@ -133,7 +133,7 @@ class FileValidation
         }
         // ***** /nom - format *****
 
-        // ***** nom pas déjà pris ***** 
+        // ***** nom pas déjà pris *****
         if (isset($value['name_not_taken'])) {
             $listRep = scandir($value['path']);
             foreach ($fileName as $oneFileName) {
@@ -144,7 +144,7 @@ class FileValidation
         }
         // ***** /nom pas déjà pris *****
 
-        // ***** nom - length *****       
+        // ***** nom - length *****
         if (isset($value['max_length_name'])) {
             foreach ($fileName as $oneFileName) {
                 if (mb_strlen($oneFileName) > $value['max_length_name']) {
@@ -157,9 +157,8 @@ class FileValidation
         // ***** poid *****
         if (isset($value['max_size'])) {
             foreach ($fileName as $oneFileName) {
-
             }
-            
+
             foreach ($fileSize as $oneFileSize) {
                 if ($oneFileSize > $value['max_size']) {
                     $error .= '<i style="font-size:16px;">- "'.$oneFileName.'" : '.$this->pushErrorWithFile('max_size', $value).'</i><br>';
@@ -178,7 +177,7 @@ class FileValidation
         }
 
         foreach ($fileName as $oneFileName) {
-            if (! in_array( Security::getExtFile(strtolower($oneFileName)), $extension )) {
+            if (! in_array(Security::getExtFile(strtolower($oneFileName)), $extension)) {
                 $error .= '<i style="font-size:16px;">- "'.$oneFileName.'" : '.$extMessage.'</i><br>';
             }
         }

@@ -7,7 +7,7 @@ namespace DamianPhp\Contracts\Auth;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface IsConnectedInterface
+interface IsConnectedInterface
 {
     /**
      * @param string $modelName - Model où faire les requetes SQL.

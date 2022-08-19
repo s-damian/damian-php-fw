@@ -11,7 +11,7 @@ class ServerTest extends BaseTest
 
     public function setUp(): void
     {
-       $this->server = new Server();
+        $this->server = new Server();
     }
 
     public function testGet(): void

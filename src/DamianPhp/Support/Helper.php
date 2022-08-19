@@ -11,7 +11,7 @@ use DamianPhp\Exception\ExceptionHandler;
 
 /**
  * Helpers.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -70,7 +70,7 @@ class Helper
     public static function basePath(string $file = null): string
     {
         $pathPrefix = dirname(dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))));
-        
+
         if ($file) {
             return $pathPrefix.'/'.$file;
         }
@@ -97,7 +97,9 @@ class Helper
      */
     public static function load(string $file, array $data = []): void
     {
-        if ($data) extract($data);
+        if ($data) {
+            extract($data);
+        }
 
         require_once self::basePath('resources/views/'.$file.'.php');
     }

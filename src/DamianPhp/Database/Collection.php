@@ -6,7 +6,7 @@ use DamianPhp\Contracts\Database\BaseModelInterface;
 
 /**
  * Pour retourner une collection d'objets d'un modèle hydraté.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -38,7 +38,7 @@ class Collection
     private function setPropertiesAndAddCollectionToItems(): void
     {
         foreach ($this->sqlQuery as $ligneQuery) {
-            $object = new $this->model;
+            $object = new $this->model();
 
             foreach ($ligneQuery as $property => $value) {
                 if (property_exists($this->model, $property)) {

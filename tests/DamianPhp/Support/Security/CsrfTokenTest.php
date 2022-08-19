@@ -11,7 +11,7 @@ class CsrfTokenTest extends BaseTest
 
     public function setUp(): void
     {
-       $this->token = new CsrfToken();
+        $this->token = new CsrfToken();
     }
 
     public function testHtmlPost(): void

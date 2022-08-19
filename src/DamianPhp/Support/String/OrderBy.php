@@ -80,7 +80,7 @@ class OrderBy
             $orderBy = Input::get('orderby');
             $order = Input::get('order');
         }
-        
+
         // To specify the table in the SQL (if requested with "assignSqlOrderbyToColumns()").
         if (array_key_exists($orderBy, $this->sqlOrderbyToColumns)) {
             $orderByInSql = $this->sqlOrderbyToColumns[$orderBy];

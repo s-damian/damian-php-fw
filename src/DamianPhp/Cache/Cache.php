@@ -10,7 +10,7 @@ use DamianPhp\Contracts\Cache\CacheInterface;
  * Classe client.
  * Pour faire de la mise en cache.
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -27,7 +27,7 @@ class Cache implements CacheInterface
         if (! file_exists(Helper::storagePath('cache'))) {
             File::createDir(Helper::storagePath('cache'));
         }
-        
+
         $this->direname = Helper::storagePath('cache');
     }
 

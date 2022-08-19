@@ -19,7 +19,7 @@ use DamianPhp\Contracts\Routing\RouterInterface;
  * - Détécter les routes avec leurs méthods (GET, POST...), et les ajouter à $this->routes avec des objets de la classe Route
  * - Parcourir toutes les routes selon la REQUEST_METHOD actuelle
  * - Dès qu'on a trouvé la correspondace du Path d'une Route avec URL actuelle -> Initialiser un controller avec sa method, ou executer une function callable
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -226,7 +226,7 @@ class Router implements RouterInterface
     public function any(string $path, string|callable $callable, array $args = []): void
     {
         $methods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'];
-        
+
         $this->match($methods, $path, $callable, $args);
     }
 
@@ -396,7 +396,7 @@ class Router implements RouterInterface
     {
         if (! isset($this->routes[Request::getMethod()])) {
             Log::errorDamianPhp('Method "'.Request::getMethod().'" does not exist for URI "'.$this->uri.'" in '.get_class().' on line '.__LINE__.'.');
-            
+
             Helper::getExceptionOrGetError404('Method "'.Request::getMethod().'" does not exist for URI "'.$this->uri.'".');
         }
     }
@@ -442,7 +442,7 @@ class Router implements RouterInterface
         if (! isset($this->namedRoute[$name])) {
             Helper::getExceptionOrLog('No route have this name "'.$name.'".');
         }
-        
+
         return $this->namedRoute[$name]->getUrl($params);
     }
 

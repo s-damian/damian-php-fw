@@ -11,7 +11,7 @@ class StrTest extends BaseTest
 
     public function setUp(): void
     {
-       $this->str = new Str();
+        $this->str = new Str();
     }
 
     public function testActive(): void
@@ -35,9 +35,9 @@ class StrTest extends BaseTest
     {
         $test = 'testaaa';
 
-        $this->assertTrue($this->str->contains($test,  'aaa'));
+        $this->assertTrue($this->str->contains($test, 'aaa'));
 
-        $this->assertFalse($this->str->contains($test,  'aaabbb'));
+        $this->assertFalse($this->str->contains($test, 'aaabbb'));
     }
 
     public function testConvertCamelCaseToSnakeCase(): void

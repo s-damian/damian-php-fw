@@ -7,7 +7,7 @@ namespace DamianPhp\Contracts\Hashing;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface HashInterface
+interface HashInterface
 {
     /**
      * Créer une clé de hachage pour un password.

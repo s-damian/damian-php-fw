@@ -8,7 +8,7 @@ use DamianPhp\Contracts\Database\BaseModelInterface;
 
 /**
  * Pour gérer les requètes SQL
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -36,7 +36,7 @@ class Query
      * Pour éventuellement changer les ID de la connexion à une BDD (avec des ID différents de la config).
      */
     private array $idConnection = [];
-    
+
     /**
      * Requete qu'on récupère avec le prepare.
      */
@@ -161,7 +161,7 @@ class Query
             $classNameConnector = $this->getClassNameConnector($this->connector);
 
             $db = new $classNameConnector($this->connector, $this->idConnection);
-            
+
             return $db->getConnection();
         }
 
@@ -308,7 +308,7 @@ class Query
      * Pour éventuellement ajouter condition(s) avec WHERE (avec AND si plusieures conditions).
      */
     public function addWhere(array|string $where): void
-    {        
+    {
         if (is_array($where)) { // si array, on peut utiliser qu'une seule fois cette method avec une instance
             $this->wheres = $where;
 
@@ -449,7 +449,7 @@ class Query
     {
         $paramsWhere = '';
 
-        if (count($this->wheres) > 0) {    
+        if (count($this->wheres) > 0) {
             foreach ($this->wheres as $value) {
                 $comporaisonOperator = $value[1];
                 if (! in_array($comporaisonOperator, self::COMPARAISON_OPERATORS)) {
@@ -460,7 +460,7 @@ class Query
                 if ($logicOperator !== '' && !in_array($logicOperator, self::LOGIC_OPERATORS)) {
                     Helper::getExceptionOrLog('Logic operator "'.$logicOperator.'" not allowed.');
                 }
-                
+
                 $paramsWhere .= $value[0]." ".$comporaisonOperator." ? ".$logicOperator." ";
 
                 $this->wheresBindValue[] = $value;
@@ -482,10 +482,10 @@ class Query
         if (count($this->wheresIn) === 0) {
             Helper::getExceptionOrLog('Argument 2 passed to "whereIn()" can not be an empty array.');
         }
-        
+
         $paramsWhereIn = " ( ";
 
-        foreach ($this->wheresIn as $value) {                
+        foreach ($this->wheresIn as $value) {
             $paramsWhereIn .= " ?, ";
 
             $this->wheresBindValue[] = $value;
@@ -537,11 +537,11 @@ class Query
     {
         $isAssociativeArray = function ($array) { // return true si c'est un array associatif
             if (!is_array($array) || empty($array)) {
-                return false;   
+                return false;
             }
 
             $keys = array_keys($array);
-            
+
             return array_keys($keys) !== $keys;
         };
 
@@ -627,7 +627,7 @@ class Query
      */
     public function bindLimit(): self
     {
-        if ($this->limit !== null) {            
+        if ($this->limit !== null) {
             $this->sqlQuery->bindValue($this->positioningMarker, $this->limit, PDO::PARAM_INT);
             if ($this->offset !== null) { // pour à partir de PHP 8.0.1
                 $this->positioningMarker++;
@@ -724,7 +724,7 @@ class Query
      * @return int - Dernier ID inséré par auto-incrémentation.
      */
     public function getLastInsertId(): int
-    {   
+    {
         return $this->getConnection()->lastInsertId();
     }
 

@@ -7,7 +7,7 @@ use DamianPhp\Contracts\Database\BaseModelInterface;
 
 /**
  * Attache / Détache / Sync.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -86,7 +86,7 @@ class Related
                 }
             }
         }
-        
+
         $query->closeCursor();
         // ***** /étape 1 : récupérer tous les jointures déjà existantes pour ce "row" *****
 

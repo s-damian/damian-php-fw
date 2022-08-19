@@ -18,7 +18,7 @@ use DamianPhp\Contracts\Auth\IsConnectedInterface;
  * - Il faut créer une instance : $isConnected = new IsConnected('App\Models\UserClassName');
  * - 3 méthodes sont obligatoires : session('AuthSessionName', [array assosiatif comme value]), redirectIfFalse('url_logout'), isLogged()
  * - 1 méthode est optionelle : cookie('cookie_name_de_remember_a_verif')
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -195,7 +195,7 @@ class IsConnected implements IsConnectedInterface
             ->select('id')
             ->where('id', '=', Session::get($this->sessionName)['id'])
             ->find();
-        
+
         if (! $dataUser) {
             return false;
         }

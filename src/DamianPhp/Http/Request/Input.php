@@ -7,7 +7,7 @@ use DamianPhp\Contracts\Http\Request\InputInterface;
 /**
  * Pour traitements des formulaires, et GET...
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -33,7 +33,8 @@ class Input implements InputInterface
 
     public function hasGet(string $name): bool
     {
-        return $this->request->getGet()->has($name);;
+        return $this->request->getGet()->has($name);
+        ;
     }
 
     public function get(string $name): mixed

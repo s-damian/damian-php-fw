@@ -21,7 +21,7 @@ class CacheTest extends BaseTest
     public function testGet(): void
     {
         $cacheMock = $this->getMockBuilder(Cache::class)->onlyMethods(['get'])->getMock();
-        
+
         $cacheMock->method('get')->willReturn('En cache');
 
         $this->expectOutputString('En cache');
@@ -39,7 +39,7 @@ class CacheTest extends BaseTest
     public function testGetToObject(): void
     {
         $cacheMock = $this->getMockBuilder(Cache::class)->onlyMethods(['getToObject'])->getMock();
-        
+
         $cacheMock->method('getToObject')->willReturn(new stdClass());
 
         /** @var Cache $cacheMock */
@@ -48,7 +48,7 @@ class CacheTest extends BaseTest
         $this->assertTrue(is_object($test));
 
         $cacheMock2 = $this->getMockBuilder(Cache::class)->onlyMethods(['getToObject'])->getMock();
-        
+
         $cacheMock2->method('getToObject')->willReturn(false);
 
         /** @var Cache $cacheMock2 */
@@ -60,7 +60,7 @@ class CacheTest extends BaseTest
     public function testGetToArray(): void
     {
         $cacheMock = $this->getMockBuilder(Cache::class)->onlyMethods(['getToArray'])->getMock();
-        
+
         $cacheMock->method('getToArray')->willReturn(['aaa'=>1]);
 
         /** @var Cache $cacheMock */
@@ -69,7 +69,7 @@ class CacheTest extends BaseTest
         $this->assertTrue(is_array($test));
 
         $cacheMock2 = $this->getMockBuilder(Cache::class)->onlyMethods(['getToArray'])->getMock();
-        
+
         $cacheMock2->method('getToArray')->willReturn(false);
 
         /** @var Cache $cacheMock2 */
@@ -81,7 +81,7 @@ class CacheTest extends BaseTest
     public function testRemember(): void
     {
         $cacheMock = $this->getMockBuilder(Cache::class)->onlyMethods(['remember'])->getMock();
-        
+
         $cacheMock->method('remember')->willReturn('En cache');
 
         $this->expectOutputString('En cache');
@@ -97,7 +97,7 @@ class CacheTest extends BaseTest
     public function testHas(): void
     {
         $cacheMock = $this->getMockBuilder(Cache::class)->onlyMethods(['has'])->getMock();
-        
+
         $cacheMock->method('has')->willReturn(false);
 
         /** @var Cache $cacheMock */

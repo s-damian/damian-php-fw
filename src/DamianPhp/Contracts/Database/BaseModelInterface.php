@@ -9,7 +9,7 @@ use DamianPhp\Pagination\Pagination;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface BaseModelInterface
+interface BaseModelInterface
 {
     public function __construct();
 
@@ -31,7 +31,7 @@ Interface BaseModelInterface
      * @return string - Nom de la table avec préfix.
      */
     public function getDbTable(): string;
-    
+
     /**
      * @param string $related - Model joint.
      * @param string $foreignKey - Clé étrangère de la table du Model.
@@ -113,12 +113,12 @@ Interface BaseModelInterface
      * @param string $order - Ordre d'affichage.
      */
     public function orderBy(string $orderBy, string $order = 'ASC'): self;
-    
+
     /**
      * Pour éventuellement ajouter un LIMIT - Nombre d'éléments à récupérer.
      */
     public function limit(?int $limit): self;
-    
+
     /**
      * Pour éventuellement ajouter un OFFSET - A partir d'où on débute le LIMIT.
      */

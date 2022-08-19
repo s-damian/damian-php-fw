@@ -11,9 +11,9 @@ class LangTest extends BaseTest
 
     public function setUp(): void
     {
-       $this->lang = new Lang();
+        $this->lang = new Lang();
     }
-    
+
     public function testLang(): void
     {
         $this->assertFalse($this->lang->hasCountryLanguage('enaaaaa'));

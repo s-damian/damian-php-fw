@@ -6,7 +6,7 @@ use DamianPhp\Support\Helper;
 
 /**
  * Pour générer un input de type file.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -26,7 +26,7 @@ class InputFileGenerator
      * @param array $options - Pour éventuellement ajouter au label id, class css.
      */
     public function __construct(string $name, array $options = [])
-    {       
+    {
         $this->name = $name;
         $this->options = $options;
     }

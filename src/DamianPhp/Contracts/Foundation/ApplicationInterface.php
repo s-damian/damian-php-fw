@@ -7,7 +7,7 @@ namespace DamianPhp\Contracts\Foundation;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface ApplicationInterface
+interface ApplicationInterface
 {
     /**
      * Démmarer $_SESSION

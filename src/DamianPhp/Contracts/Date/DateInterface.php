@@ -7,10 +7,10 @@ namespace DamianPhp\Contracts\Date;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface DateInterface
+interface DateInterface
 {
     public function __construct();
-    
+
     /**
      * Setter pour DateTimeZone.
      */

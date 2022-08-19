@@ -10,7 +10,7 @@ namespace DamianPhp\Contracts\Pagination;
 interface PaginationInterface
 {
     public function __construct(array $options = []);
-    
+
     /**
      * Active la pagination.
      *
@@ -88,13 +88,13 @@ interface PaginationInterface
      * @return bool - True si on est sur un numéro de page donné.
      */
     public function isPage(int $nb): bool;
-    
+
     /**
      * Obtenir l'URL de la page précédente.
      * Renvoie null si nous sommes sur la première page.
      */
     public function getPreviousPageUrl(): ?string;
-    
+
     /**
      * Obtenir l'URL de la page suivante.
      * Renvoie null si nous sommes sur la dernière page.
@@ -105,12 +105,12 @@ interface PaginationInterface
      * Obtenir l'URL de la première page.
      */
     public function getFirstPageUrl(): string;
-    
+
     /**
      * Obtenir l'URL de la dernière page.
      */
     public function getLastPageUrl(): string;
-    
+
     /**
      * Obtenir l'URL d'un numéro de page donné.
      */

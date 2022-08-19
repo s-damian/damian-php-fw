@@ -4,7 +4,7 @@ namespace DamianPhp\Http\Request\Bags;
 
 /**
  * Bag des : $_GET, $_POST, $_COOKIE
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian

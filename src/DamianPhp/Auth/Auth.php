@@ -30,7 +30,7 @@ use DamianPhp\Contracts\Auth\AuthInterface;
  * Dans la vue de login :
  * - Si on met une case à cocher, elle doit toujours avoir : name="remember"
  * ********** /OBLIGATOIRE pour chaque création d'espace membres **********
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -86,7 +86,7 @@ class Auth implements AuthInterface
         Session::put($sessionName, $valuesSession);
 
         if (Input::hasPost('remember') && Input::post('remember') === 'on' && $this->cookieNameRemember !== null) {
-            $this->rememberMe($id);             
+            $this->rememberMe($id);
         }
 
         return $this;

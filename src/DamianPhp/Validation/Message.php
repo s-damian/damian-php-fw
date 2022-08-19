@@ -6,7 +6,7 @@ use DamianPhp\Contracts\Validation\ValidatorInterface;
 
 /**
  * Pour retourner les messages du Validator.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian

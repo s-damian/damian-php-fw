@@ -20,7 +20,7 @@ class PaginationMethodsTest extends BaseTest
 
         $_GET = [];
     }
-    
+
     public function testGetCurrentPage(): void
     {
         $pagination = new Pagination();
@@ -29,7 +29,7 @@ class PaginationMethodsTest extends BaseTest
 
         $this->assertSame(1, $pagination->getCurrentPage()); // si $_GET['page'] n'existe pas, prend la valeur de 1 par défaut
         $this->assertTrue(! isset($_GET['page']));
-        
+
         // On simule qu'on se positionne sur une page d'après la dernière page (donc on simule qu'on est une page qui n'existe pas).
         // Il existe que 7 pages, et on se positionne sur la 9ème.
         // PS (vs Pagination de Laravel) : ici getCurrentPage() n'a pas le même comportement que la pagination livré avec Laravel.
@@ -256,7 +256,7 @@ class PaginationMethodsTest extends BaseTest
         $pagination->paginate(100);
 
         $this->assertFalse($pagination->isLastPage()); // nous ne sommes pas sur la dernière page (nous somme sur une page d'après, donc une page qui n'existe pas)
-        $this->assertTrue($pagination->getNextPageUrl() === null); 
+        $this->assertTrue($pagination->getNextPageUrl() === null);
 
         // On simule n'importe quoi dans l'URL (un string).
         // PS (vs Pagination de Laravel) : on simule qu'on a le même comportement que la pagination livré avec Laravel.
@@ -281,7 +281,7 @@ class PaginationMethodsTest extends BaseTest
         $ex = explode('?page=', $pagination->getFirstPageUrl());
         $this->assertSame('1', $ex[1]);
     }
-    
+
     public function testGetLastPageUrl(): void
     {
         $_GET['page'] = 4;

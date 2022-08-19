@@ -9,7 +9,7 @@ use DamianPhp\Support\Facades\Response;
 /**
  * Controller parent de App\Http\Controllers\Controller
  * qui est lui meme controller parent de tout les controllers de l'application
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -125,12 +125,20 @@ abstract class BaseController
                 $data += $addOneData;
             }
         }
-        
-        if ($data) extract($data);
 
-        if (isset($viewInLayout)) Helper::getExceptionOrLog('Key "viewInLayout" cannot be declared.');
-        if (isset($specificsCss)) Helper::getExceptionOrLog('Key "specificsCss" cannot be declared.');
-        if (isset($specificsJs))  Helper::getExceptionOrLog('Key "specificsJs" cannot be declared.');
+        if ($data) {
+            extract($data);
+        }
+
+        if (isset($viewInLayout)) {
+            Helper::getExceptionOrLog('Key "viewInLayout" cannot be declared.');
+        }
+        if (isset($specificsCss)) {
+            Helper::getExceptionOrLog('Key "specificsCss" cannot be declared.');
+        }
+        if (isset($specificsJs)) {
+            Helper::getExceptionOrLog('Key "specificsJs" cannot be declared.');
+        }
 
         ob_start();
         require Helper::basePath('resources/views/'.$view.'.'.$this->extension);
@@ -196,7 +204,7 @@ abstract class BaseController
 
         return $this;
     }
-    
+
     /**
      * Redirections.
      */

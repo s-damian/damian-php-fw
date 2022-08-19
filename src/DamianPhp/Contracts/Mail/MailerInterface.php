@@ -7,10 +7,10 @@ namespace DamianPhp\Contracts\Mail;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface MailerInterface
+interface MailerInterface
 {
     public function __construct();
-    
+
     /**
      * Expéditeur du mail.
      *
@@ -49,7 +49,7 @@ Interface MailerInterface
      * OPTIONAL
      * Pour éventuellement ajouter un cord de message au format 'text/plain'.
      */
-    public function addBodyText(string $path,  array $data = []): self;
+    public function addBodyText(string $path, array $data = []): self;
 
     /**
      * Essayer d'envoyer le mail.

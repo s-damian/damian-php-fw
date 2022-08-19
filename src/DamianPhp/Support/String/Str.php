@@ -9,7 +9,7 @@ use DamianPhp\Support\Facades\Security;
 /**
  * Gestion des String.
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -25,7 +25,7 @@ class Str
      * Cache de snake-cased plurial words.
      */
     private static $snakePluralCache = [];
-    
+
     /**
      * Cache de camel-cased words..
      */
@@ -53,7 +53,7 @@ class Str
 
         return self::$snakeCache[$value] = $snake_case;
     }
-    
+
     /**
      * Pour remplacer format snake_case par format camelCase.
      */
@@ -106,7 +106,7 @@ class Str
      * @param string $haystack - Chaine dans laquelle faire la recherche.
      * @param string $needle - Ce que l'on recherche.
      */
-    public function contains(string $haystack,  string $needle): bool
+    public function contains(string $haystack, string $needle): bool
     {
         if ($needle !== '' && mb_strpos($haystack, $needle) !== false) {
             return true;
@@ -123,12 +123,12 @@ class Str
         $randomString = '';
 
         $random_key = $options['random'] ?? 'abcdefghijklmnopqrstuvwxyz0123456789';
-  
+
         for ($i = 0; $i < $nbChars; $i++) {
             $index = rand(0, strlen($random_key) - 1);
             $randomString .= $random_key[$index];
         }
-      
+
         return $randomString;
     }
 
@@ -245,7 +245,7 @@ class Str
             $html .=     '<span itemprop="name">'.$title.'</span>';
             $html .= '</a>';
             $html .= '<meta itemprop="position" content="'.$i.'" />';
-            
+
             if ($i < count($items)) {
                 $html .= '<span class="chevron-right"></span>';
             }
@@ -257,7 +257,7 @@ class Str
 
         $html .= '</ol>';
 
-        return $html; 
+        return $html;
     }
 
     /**
@@ -277,9 +277,7 @@ class Str
 
             if ($options['spam-filter'] === 'without-signs-encode') {
                 return $this->spamFilterForFirstEmail($firstEmail, '%5BAT%5D', '%5BPOINT%5D');
-            }
-
-            elseif ($options['spam-filter'] === 'encode') {
+            } elseif ($options['spam-filter'] === 'encode') {
                 return $this->spamFilterForFirstEmail($firstEmail, '&commat;', '&period;');
             }
         }
@@ -335,14 +333,14 @@ class Str
             if (isset($options['space']) && $options['space'] === true) {
                 return '+33 '.mb_substr($tel, 1);
             }
-            
+
             return '+33'.str_replace(' ', '', mb_substr($tel, 1));
         }
 
         if (isset($options['space']) && $options['space'] === true) {
             return $tel;
         }
-        
+
         return str_replace(' ', '', $tel);
     }
 
@@ -370,7 +368,7 @@ class Str
     }
 
     /**
-     * @param array $options 
+     * @param array $options
      * - $options['except'] array
      */
     public static function inputHiddenIfHasQueryString(array $options = []): string
@@ -410,7 +408,7 @@ class Str
                     $var .= '<input type="hidden" name="'.$get.'" value="'.Input::get($get).'">';
                 }
             }
-        }  else {
+        } else {
             if (Input::hasGet($gets)) {
                 $var .= '<input type="hidden" name="'.$gets.'" value="'.Input::get($gets).'">';
             }
@@ -421,7 +419,7 @@ class Str
 
     /**
      * Pour pouvoir "cumuler" les liens. Si de(s) GET passé(s) dans l'URL.
-     * 
+     *
      * @param array|string $gets - Valeur des éventuelr GET.
      * @param $operatorParam|null - Pour éventuellement préciser l'opérateur.
      * @return string - Les éventuels GET.
@@ -439,7 +437,7 @@ class Str
                     $i++;
                 }
             }
-        }  else {
+        } else {
             if (Input::hasGet($gets)) {
                 $operator = $operatorParam ?? '&amp;';
                 $var .= $operator.$gets.'='. Input::get($gets);
@@ -464,7 +462,7 @@ class Str
         $classCss = $options['css_class'] ?? 'search-surligne';
         $search = $options['input_search'] ?? 'search';
         $nbCharacters = $options['nb_characters'] ?? 2;
-        
+
         $title = Security::e($titre);
 
         if (Input::hasGet($search) && mb_strlen(Input::get($search)) > 0) {
@@ -474,8 +472,10 @@ class Str
             foreach ($words as $word) {
                 if (mb_strlen($word) >= $nbCharacters) {
                     $i++;
-                    if ($i > 4) $i = 1;
-                    $title = str_ireplace($word, '<span class="'.$classCss.' '.$classCss.'-'.$i.'">'.$word.'</span>', $title);  
+                    if ($i > 4) {
+                        $i = 1;
+                    }
+                    $title = str_ireplace($word, '<span class="'.$classCss.' '.$classCss.'-'.$i.'">'.$word.'</span>', $title);
                 }
             }
         }

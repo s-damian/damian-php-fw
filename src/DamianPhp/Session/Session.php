@@ -9,7 +9,7 @@ use DamianPhp\Contracts\Session\SessionInterface;
  * Classe client.
  * Gestion des sessions.
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -32,7 +32,7 @@ class Session implements SessionInterface
     {
         return $this->sessionStorage->start();
     }
-    
+
     /**
      * Créer une session.
      *
@@ -70,7 +70,7 @@ class Session implements SessionInterface
 
     /**
      * Verifier si une session existe.
-     * 
+     *
      * @param string $name - Nom de la session.
      */
     public function has(string $name): bool

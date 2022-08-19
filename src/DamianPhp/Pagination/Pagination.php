@@ -8,10 +8,10 @@ use DamianPhp\Contracts\Pagination\PaginationInterface;
 /**
  * Classe client.
  * Pour générer une pagination.
- * 
+ *
  * # Fonctionnement de ce package :
  * Pour générer le rendu, la classe "Pagination" fait appelle à la classe "HtmlRenderer" qui est une classe enfant de "RendererGenerator".
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -122,7 +122,7 @@ class Pagination implements PaginationInterface
                 $this->getPP = is_numeric($this->request->getGet()->get(self::PER_PAGE_NAME)) ? (int) $this->request->getGet()->get(self::PER_PAGE_NAME) : null;
             }
         }
-        
+
         $this->extractOptions($options);
 
         $this->htmlRenderer = new HtmlRenderer($this);
@@ -165,7 +165,7 @@ class Pagination implements PaginationInterface
         $this->count = $count;
 
         $this->treatmentPerPage();
-                        
+
         if ($this->perPage !== null) { // si pas sur "Tous"
             $this->nbPages = (int) ceil($this->count / $this->perPage);
         } else {
@@ -266,7 +266,7 @@ class Pagination implements PaginationInterface
      */
     public function getTo(): int
     {
-        return $this->getFromTo()['to'];    
+        return $this->getFromTo()['to'];
     }
 
     /**
@@ -354,7 +354,7 @@ class Pagination implements PaginationInterface
      */
     public function hasMorePages(): bool
     {
-        return $this->currentPage < $this->nbPages; 
+        return $this->currentPage < $this->nbPages;
     }
 
     /**
@@ -365,7 +365,7 @@ class Pagination implements PaginationInterface
         if ($this->request->getGet()->has(self::PAGE_NAME)) {
             return $this->isPage(1);
         }
-        
+
         return true;
     }
 
@@ -374,7 +374,7 @@ class Pagination implements PaginationInterface
      */
     public function isLastPage(): bool
     {
-        return $this->currentPage === $this->nbPages; 
+        return $this->currentPage === $this->nbPages;
     }
 
     /**
@@ -397,7 +397,7 @@ class Pagination implements PaginationInterface
 
         return null;
     }
-    
+
     /**
      * Obtenir l'URL de la page suivante.
      * Renvoie null si nous sommes sur la dernière page.
@@ -410,7 +410,7 @@ class Pagination implements PaginationInterface
 
         return null;
     }
-    
+
     /**
      * Obtenir l'URL de la première page.
      */
@@ -418,7 +418,7 @@ class Pagination implements PaginationInterface
     {
         return $this->request->getFullUrlWithQuery([self::PAGE_NAME => 1]);
     }
-    
+
     /**
      * Obtenir l'URL de la dernière page.
      */
@@ -426,7 +426,7 @@ class Pagination implements PaginationInterface
     {
         return $this->request->getFullUrlWithQuery([self::PAGE_NAME => $this->nbPages]);
     }
-    
+
     /**
      * Obtenir l'URL d'un numéro de page donné.
      */

@@ -198,7 +198,7 @@ class RouterTest extends BaseTest
         $this->assertSame('/home', $router->url('admin_home'));
         $this->assertSame('App\Http\Controllers\Site\HomeController@getHome', $router->calledCallable('admin_home'));
     }
-    
+
     public function testGetWithGroupMiddleware(): void
     {
         $router = new Router();

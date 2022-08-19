@@ -11,7 +11,7 @@ class SecurityTest extends BaseTest
 
     public function setUp(): void
     {
-       $this->security = new Security();
+        $this->security = new Security();
     }
 
     public function testE(): void
@@ -22,7 +22,7 @@ class SecurityTest extends BaseTest
     public function testNoCrlf(): void
     {
         $email = 'test@live.fr<br>test@live.fr';
-        
+
         $emailNoCrlf = $this->security->noCrlf($email);
 
         $this->assertTrue(mb_strpos($email, '<br>') !== false);

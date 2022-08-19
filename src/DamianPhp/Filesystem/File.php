@@ -9,7 +9,7 @@ use DirectoryIterator;
  * (this class can be used with a Facade)
  */
 class File
-{    
+{
     /**
      * Ouvrir un dossier.
      */
@@ -33,7 +33,7 @@ class File
 
         return $files;
     }
-    
+
     /**
      * Renommer un fichier ou un dossier.
      */

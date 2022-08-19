@@ -11,7 +11,7 @@ use DamianPhp\Support\Facades\Security;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Trait GeneratorTrait
+trait GeneratorTrait
 {
     /**
      * @param string $type - Type de l'input.
@@ -27,7 +27,7 @@ Trait GeneratorTrait
 
         return $value;
     }
-    
+
     private function getRequired(array $options): string
     {
         return isset($options['required']) && $options['required'] === true ? ' required ' : '';

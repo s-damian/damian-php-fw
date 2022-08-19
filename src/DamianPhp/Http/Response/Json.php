@@ -6,7 +6,7 @@ use DamianPhp\Support\Helper;
 
 /**
  * JSON.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -27,7 +27,7 @@ class Json
         }
 
         Helper::getExceptionOrLog('An error occurred while modifying the JSON file.');
-        
+
         return false;
     }
 

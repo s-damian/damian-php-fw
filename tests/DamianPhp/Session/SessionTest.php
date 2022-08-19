@@ -56,12 +56,12 @@ class SessionTest extends BaseTest
         $this->assertSame(2, Session::count());
 
         $_SESSION = [];
-        
+
         $this->assertSame(0, Session::count());
     }
 
     public function testGetId(): void
     {
-         $this->assertTrue(is_string(Session::getId()));
+        $this->assertTrue(is_string(Session::getId()));
     }
 }

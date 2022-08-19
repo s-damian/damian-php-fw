@@ -14,7 +14,7 @@ use DamianPhp\Support\Facades\Security as SecurityF;
 /**
  * CSRF CsrfToken.
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -28,7 +28,7 @@ class CsrfToken implements TokenInterface
     {
         if (! Session::has('_token')) {
             $random = Str::random(35);
-            
+
             Session::put('_token', SecurityF::hash($random));
         }
     }

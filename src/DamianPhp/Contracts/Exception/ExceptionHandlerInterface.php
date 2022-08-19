@@ -7,7 +7,7 @@ namespace DamianPhp\Contracts\Exception;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface ExceptionHandlerInterface
+interface ExceptionHandlerInterface
 {
     /**
      * Renvoyer une exception avec un message d'erreur si on est en dev.

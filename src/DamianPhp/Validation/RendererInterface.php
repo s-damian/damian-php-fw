@@ -7,7 +7,7 @@ namespace DamianPhp\Validation;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface RendererInterface
+interface RendererInterface
 {
     /**
      * @return string - Les erreurs à retourner.

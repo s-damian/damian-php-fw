@@ -9,7 +9,7 @@ use DamianPhp\Support\Facades\Router;
 /**
  * Pour les langues. Et require les fichiers qui sont dans "/resources/lang/".
  * Cette classe doit fonctionner uniquement avec singleton.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -45,7 +45,7 @@ final class Lang extends SingletonConfig
     private function withCallWithPoints(string $method): mixed
     {
         $methodEx = explode('.', $method);
-        
+
         $file = $methodEx[0];
         unset($methodEx[0]);
 
@@ -53,7 +53,7 @@ final class Lang extends SingletonConfig
             $path = Helper::basePath('resources/lang/'.$this->getLocale().'/'.$file.'.php');
 
             if (file_exists($path)) {
-                self::$require[$file] = require_once $path; 
+                self::$require[$file] = require_once $path;
             } else {
                 Helper::getExceptionOrLog('Lang File "'.$path.'" not exists.');
             }

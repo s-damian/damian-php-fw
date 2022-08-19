@@ -17,7 +17,7 @@ interface RouterInterface
     public function __construct();
 
     public function getUri(): string;
-    
+
     /**
      * Eventuellement stoker des params depuis RoutingServiceProvider.
      *
@@ -125,7 +125,7 @@ interface RouterInterface
      * Toutes les routes.
      */
     public function getRoutes(): array;
-    
+
     /**
      * Executer rooting.
      * Parcourir ensemble des routes selon la REQUEST_METHOD actuelle.

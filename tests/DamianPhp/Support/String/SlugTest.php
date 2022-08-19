@@ -13,7 +13,7 @@ class SlugTest extends BaseTest
 
     public function setUp(): void
     {
-       $this->slug = new Slug();
+        $this->slug = new Slug();
     }
 
     public function testCreate(): void

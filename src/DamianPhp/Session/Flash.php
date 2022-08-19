@@ -8,7 +8,7 @@ use DamianPhp\Contracts\Session\FlashInterface;
 /**
  * Sessions flash.
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -31,7 +31,7 @@ class Flash implements FlashInterface
     {
         if ($this->session->has($key)) {
             $result = $this->session->get($key);
-            
+
             $this->session->destroy($key);
 
             return $result;

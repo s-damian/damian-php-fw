@@ -7,8 +7,8 @@ namespace DamianPhp\Contracts\Form;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface FormInterface
-{   
+interface FormInterface
+{
     /**
      * Ouvrir un formulaire.
      *

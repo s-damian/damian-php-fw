@@ -7,10 +7,10 @@ namespace DamianPhp\Contracts\Cache;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface CacheInterface
+interface CacheInterface
 {
     public function __construct();
-    
+
     /**
      * Créer un fichier cache.
      */

@@ -26,7 +26,7 @@ use App\Models\Attempt as AttemptModel;
  * Un user bloqué, sera bloqué de uniquement des formuilaires en fonction du WHERE 'auth';
  * Si on met 'ip' pour 'field', on mettera le même 'auth' (histoire de bloquer l'IP de tout les formulaures 'auth').
  * Si on met 'username' pour 'field', on ne mettera pas le même 'auth' (histoire de bloquer un username uniquement sur un seul espace membres).
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -79,7 +79,7 @@ class Attempt
         $this->visitor = AttemptModel::load()
             ->where('auth', '=', $this->auth)
             ->where('field', '=', $this->field)
-            ->where('ip', '=',Server::getIp()) // utile pour si un pirate bloque un username (WHERE son IP), ne pas aussi bloquer le vrai user qui a cet username
+            ->where('ip', '=', Server::getIp()) // utile pour si un pirate bloque un username (WHERE son IP), ne pas aussi bloquer le vrai user qui a cet username
             ->find();
     }
 
@@ -182,7 +182,7 @@ class Attempt
             case 'pgsql':
                 // On DELETE aussi toute les lignes qui ont échoués leur 1er login depuis >= de 24H.
                 AttemptModel::load()->where('EXTRACT(EPOCH FROM (NOW() - date_first_auth_failure)) / 3600', '>=', 24)->delete();
-                
+
                 // On DELETE aussi toute les lignes qui sont bloqués depuis >= de 24H.
                 AttemptModel::load()->where('EXTRACT(EPOCH FROM (NOW() - date_blocking)) / 3600', '>=', 24)->delete();
                 break;
@@ -197,7 +197,7 @@ class Attempt
     private function getMinWhoHaveBeenBlocked(): int
     {
         $date_blocking = $this->visitor->date_blocking ?? (new Date())->format('Y-m-d H:i:s');
-        
+
         $dateStart = new Date($date_blocking);
         $dateEnd = new Date();
 

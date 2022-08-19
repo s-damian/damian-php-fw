@@ -21,7 +21,7 @@ use DamianPhp\Contracts\Validation\ValidatorInterface;
  * la classe "Validator" fait appelle à la classe "Message"
  * qui fait appelle à un Renderer ("HtmlRenderer", ou "JsonRenderer")
  * et retournera la réponse (success ou erreur(s)).
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -29,7 +29,7 @@ use DamianPhp\Contracts\Validation\ValidatorInterface;
 class Validator implements ValidatorInterface
 {
     private Request $request;
-    
+
     /**
      * $_POST ou $_GET - Sera $_POST par defaut.
      */
@@ -69,7 +69,7 @@ class Validator implements ValidatorInterface
      * Contiendra les messages d'erreurs à remplacer.
      */
     private array $messageErrorsSpecified = [];
-    
+
     private const REGEX_TEL = '/^[0-9-+(),;._ \/]{4,20}$/';
 
     private const REGEX_SLUG = '/^[a-z0-9\-]+$/';
@@ -104,7 +104,7 @@ class Validator implements ValidatorInterface
     {
         self::$extends[$rule] = $callable;
     }
-    
+
     /**
      * Activer le validateur.
      */
@@ -115,7 +115,7 @@ class Validator implements ValidatorInterface
 
             if (is_array($rules)) {
                 $this->setLabel($rules);
-                
+
                 foreach ($rules as $rule => $value) {
                     if ($rule !== 'label') {
                         if ($rule === 'required' || $rule === 'file' || isset($this->requestMethod[$this->input])) {
@@ -132,7 +132,7 @@ class Validator implements ValidatorInterface
     public function specifyMessageErrors(array $messages): void
     {
         foreach ($messages as $input => $message) {
-            $this->messageErrorsSpecified[$input] = $message;   
+            $this->messageErrorsSpecified[$input] = $message;
         }
     }
 
@@ -305,7 +305,7 @@ class Validator implements ValidatorInterface
             }
         }
     }
-    
+
     /**
      * Verifier que valeur soumise est bien au format d'un code postale.
      */
@@ -414,7 +414,7 @@ class Validator implements ValidatorInterface
             $this->errors[$this->input] = $this->pushError('name_directory_unique_in_directory');
         }
     }
-    
+
     /**
      * Vérifier dans un répertoire spécifié, qu'un fichier n'a pas déjà le meme nom que le fichier qu'on ajout ou que l'on modifie.
      */
@@ -455,7 +455,7 @@ class Validator implements ValidatorInterface
             $this->errors[$this->input] = $this->pushError('not_in_array');
         }
     }
-    
+
     /**
      * Pour vérifier si password entré est === à password qui est dans BDD.
      *
@@ -477,7 +477,7 @@ class Validator implements ValidatorInterface
             $this->errors[$this->input] = $this->pushError('password_current_ok');
         }
     }
-    
+
     /**
      * Verifier que valeur soumise est bien au format d'un regex spécifique.
      */
@@ -494,7 +494,7 @@ class Validator implements ValidatorInterface
     private function verifyRequired(): void
     {
         if (
-            ($this->value === true && !array_key_exists($this->input, $this->requestMethod)) OR
+            ($this->value === true && !array_key_exists($this->input, $this->requestMethod)) or
             $this->requestMethod[$this->input] === ''
         ) {
             $this->errors[$this->input] = $this->pushError('required');
@@ -558,7 +558,7 @@ class Validator implements ValidatorInterface
         $result = $model->select($this->value['column'])->where($this->value['where'])->find();
 
         $dbColumn = $this->value['column'];
-        
+
         if (! isset($result->$dbColumn) || $result->$dbColumn !== $this->value['data_to_verify']) {
             $this->errors[$this->input] = $this->value['error_message'];
         }
@@ -591,7 +591,7 @@ class Validator implements ValidatorInterface
 
     /**
      * $this->value - Options possibles :
-     * 
+     *
      * - $this->value['name_not_taken'] -> Vérifier que le nom n'est pas déjà pris.
      * - $this->value['path'] -> Chemin du fichier uplodé pour si vérifier que le nom n'est pas déjà pris.
      *
@@ -605,7 +605,7 @@ class Validator implements ValidatorInterface
     private function verifyFile(): void
     {
         $fileValidation = new FileValidation($this);
-        
+
         if (
             isset(Input::file($this->input)['name']) &&
             is_array(Input::file($this->input)['name']) &&

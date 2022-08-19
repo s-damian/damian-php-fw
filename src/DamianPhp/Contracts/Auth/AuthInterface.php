@@ -7,7 +7,7 @@ namespace DamianPhp\Contracts\Auth;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
-Interface AuthInterface
+interface AuthInterface
 {
     public function __construct(string $modelName);
 

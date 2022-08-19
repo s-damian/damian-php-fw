@@ -15,7 +15,7 @@ use DamianPhp\Support\Facades\Log;
  * - Vérifier si on a des params à Route.
  * - Dès qu'on a trouvé la correspondace du Path d'une Route avec URL actuelle :
  *   Instancier éventuel(s) middleware(s). Et initialiser un controller avec sa method, ou executer une function callable.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -130,7 +130,7 @@ class Route
         array_shift($matches);
 
         $this->matches = $matches;
-        
+
         return true;
     }
 
@@ -194,7 +194,7 @@ class Route
     {
         if ($this->middleware !== null && $this->middleware !== '') {
             $middlewares = explode(',', $this->middleware);
-            
+
             $mdw = [];
             foreach ($middlewares as $middleware) {
                 if ($middleware !== '') {
@@ -223,13 +223,13 @@ class Route
         $injectionsForAction = []; // on push les injections de methodes
         // on parcours tout les paramètres de l'action ou de la closure
         foreach ($reflectionClass->getConstructor()->getParameters() as $parameter) {
-            $classInjected = $parameter->getType() && ! $parameter->getType()->isBuiltin() 
+            $classInjected = $parameter->getType() && ! $parameter->getType()->isBuiltin()
                 ? new ReflectionClass($parameter->getType()->getName())
                 : null;
 
             if ($classInjected !== null) { // si c'est une injection de méthode
-                $injectionsForConstruct[] = new $classInjected->name; // pour constructeur
-                $injectionsForAction[$classInjected->name] = new $classInjected->name; // pour action
+                $injectionsForConstruct[] = new $classInjected->name(); // pour constructeur
+                $injectionsForAction[$classInjected->name] = new $classInjected->name(); // pour action
             }
         }
 
@@ -255,7 +255,7 @@ class Route
         $i = 0; // pour qu'on puisse mettre dans n'importe quel ordre les matches et injections dans paramètres des function
         // on parcours tout les paramètres de l'action ou de la closure
         foreach ($reflectionFunction->getParameters() as $parameter) {
-            $classInjected = $parameter->getType() && (method_exists($parameter->getType(), 'isBuiltin') && ! $parameter->getType()->isBuiltin() )
+            $classInjected = $parameter->getType() && (method_exists($parameter->getType(), 'isBuiltin') && ! $parameter->getType()->isBuiltin())
                 ? new ReflectionClass($parameter->getType()->getName())
                 : null;
 
@@ -263,7 +263,7 @@ class Route
                 if (isset($injectionsInConstruct[$classInjected->name])) { // si classe aussi en param du construct : injecter la même instance
                     $injectionsWithMatches[] = $injectionsInConstruct[$classInjected->name];
                 } else {
-                    $injectionsWithMatches[] = new $classInjected->name;
+                    $injectionsWithMatches[] = new $classInjected->name();
                 }
             } else {
                 if (isset($this->matches[$i])) { // pour si $reflectionFunction->getParameters() (action) a un paramètre qui est nullable

@@ -8,7 +8,7 @@ use DamianPhp\Support\Facades\Str;
 /**
  * Pour require les fichiers qui sont dans "/config/".
  * Cette classe doit fonctionner uniquement avec singleton.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -47,7 +47,7 @@ final class Config extends SingletonConfig
     private function withCallWithPoints(string $method): mixed
     {
         $methodEx = explode('.', $method);
-        
+
         $file = $methodEx[0];
         unset($methodEx[0]);
 
@@ -55,7 +55,7 @@ final class Config extends SingletonConfig
             $path = Helper::basePath('config/'.$file.'.php');
 
             if (file_exists($path)) {
-                self::$require[$file] = require_once $path; 
+                self::$require[$file] = require_once $path;
             } else {
                 Helper::getExceptionOrLog('Config File "'.$path.'" not exists.');
             }
@@ -83,7 +83,7 @@ final class Config extends SingletonConfig
             $path = Helper::basePath('config/'.$method.'.php');
 
             if (file_exists($path)) {
-                self::$require[$method] = require_once $path;   
+                self::$require[$method] = require_once $path;
             } else {
                 Helper::getExceptionOrLog('Config File "'.$path.'" not exists.');
             }

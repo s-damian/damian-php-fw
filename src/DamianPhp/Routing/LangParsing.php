@@ -9,7 +9,7 @@ use DamianPhp\Contracts\Routing\RouterInterface;
 /**
  * Pour l'éventuelle internationalisation.
  * Gestion des langues du Routing. Communique avec la classe Router.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -61,7 +61,7 @@ class LangParsing
                 return $this->getLang().'/';
             }
         }
-        
+
         return '';
     }
 
@@ -114,7 +114,7 @@ class LangParsing
         if (! isset(Helper::config('lang')['address_structure'])) {
             return '';
         }
-        
+
         switch (Helper::config('lang')['address_structure']) {
             case 'domain':
                 return $this->parseWithDomain();

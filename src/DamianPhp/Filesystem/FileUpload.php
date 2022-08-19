@@ -8,7 +8,7 @@ use DamianPhp\Contracts\Filesystem\FileInterface;
 /**
  * Classe client.
  * Gestion des uploads de fichiers.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -122,7 +122,7 @@ class FileUpload implements FileInterface
 
             return true;
         }
-        
+
         return false;
     }
 }

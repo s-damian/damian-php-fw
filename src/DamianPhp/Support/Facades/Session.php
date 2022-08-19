@@ -4,11 +4,11 @@ namespace DamianPhp\Support\Facades;
 
 /**
  * Facade pour la classe Session.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
- * 
+ *
  * @method static void put(string $name, mixed $value)
  * @method static bool has(string $name)
  * @method static mixed get(string $name)

@@ -12,7 +12,7 @@ use DamianPhp\Contracts\Http\Request\RequestInterface;
 /**
  * Request.
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -182,7 +182,7 @@ class Request implements RequestInterface
     {
         if ($this->post->has('_method')) {
             $methodInput = mb_strtoupper($this->post->get('_method'));
-            
+
             if (in_array($methodInput, $this->getMethodsAllowedForInputMethod())) {
                 return $methodInput;
             }

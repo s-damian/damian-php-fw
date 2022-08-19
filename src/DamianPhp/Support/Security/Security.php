@@ -8,7 +8,7 @@ use DamianPhp\Support\Facades\Str as StrF;
 /**
  * Sécurité - Faille XSS, faille CSRF, cryptage, extension upload.
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -56,7 +56,7 @@ class Security
      */
     public function getExtFile(string $file): string
     {
-       $s = strrchr($file, '.');
+        $s = strrchr($file, '.');
 
         return ltrim($s, '.');
     }

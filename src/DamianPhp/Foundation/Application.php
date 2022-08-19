@@ -11,7 +11,7 @@ use DamianPhp\Contracts\Foundation\ApplicationInterface;
 
 /**
  * Pour créer l'application.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -44,7 +44,7 @@ class Application implements ApplicationInterface
             ini_set('display_errors', '1');
         } else {
             ini_set('display_errors', '0');
-            
+
             ini_set('log_errors', '1');
 
             $logFilePath = Helper::storagePath('logs/errors-php.log');

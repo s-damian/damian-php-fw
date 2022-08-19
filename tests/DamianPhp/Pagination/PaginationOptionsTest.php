@@ -31,10 +31,10 @@ class PaginationOptionsTest extends BaseTest
         $pagination = new Pagination();
 
         $pagination->paginate(100);
-        
+
         $this->assertSame(15, $pagination->getPerPage());
         $this->assertSame(5, $pagination->getNumberLinks());
-        
+
         $arrayOptionsSelect = $pagination->getArrayOptionsSelect();
         $this->assertSame(6, count($arrayOptionsSelect));
         $this->assertSame(15, $arrayOptionsSelect[0]);
@@ -69,7 +69,7 @@ class PaginationOptionsTest extends BaseTest
 
         $this->assertSame(10, $pagination->getNbPages());
         $this->assertSame(3, $pagination->getNumberLinks());
-        
+
         $arrayOptionsSelect = $pagination->getArrayOptionsSelect();
         $this->assertSame(3, count($arrayOptionsSelect));
         $this->assertSame(10, $arrayOptionsSelect[0]);

@@ -106,9 +106,9 @@ class RequestTest extends BaseTest
         $this->assertTrue(is_array($request->getServer()->keys()));
 
         $this->assertTrue($request->getServer()->count() > 0);
-        
+
         $this->assertTrue($request->getServer()->has('DOCUMENT_ROOT'));
-        
+
         $this->assertSame('', $request->getServer()->get('DOCUMENT_ROOT'));
     }
 
@@ -172,17 +172,17 @@ class RequestTest extends BaseTest
     public function testGetUrlCurrent(): void
     {
         $request = new Request();
-        
+
         $this->assertTrue(is_string($request->getUrlCurrent()));
     }
-    
+
     public function testGetFullUrlWithQuery()
     {
         $request = new Request();
 
         $this->assertSame('://?page=1', $request->getFullUrlWithQuery(['page' => 1]));
     }
-    
+
     public function testBuildQuery()
     {
         $request = new Request();

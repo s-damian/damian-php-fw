@@ -9,7 +9,7 @@ namespace DamianPhp\Contracts\Config;
  */
 interface SingletonConfigInterface
 {
-	/**
+    /**
      * Singleton.
      */
     public static function getInstance(): object;

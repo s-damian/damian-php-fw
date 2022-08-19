@@ -12,7 +12,7 @@ use DamianPhp\Contracts\Database\Connectors\ConnectorInterface;
 /**
  * Classe patrent des différents Connectors.
  * Pour récupérer une connexion à une BDD avec PDO.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -85,7 +85,7 @@ abstract class Connector implements ConnectorInterface
             Response::header('HTTP/1.1 503 Service Temporarily Unavailable');
             Response::header('Status: 503 Service Temporarily Unavailable');
             Response::header('Retry-After: 300');
-            
+
             exit(Helper::lang('database')['connection_error']);
         }
     }

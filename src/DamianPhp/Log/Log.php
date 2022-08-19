@@ -11,7 +11,7 @@ use DamianPhp\Contracts\Log\LogInterface;
  * Classe client.
  * Gestion des Logs.
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -117,7 +117,7 @@ class Log implements LogInterface
     public function errorDamianPhp(string $message): void
     {
         $logFilePath = Helper::storagePath('logs/errors-damian-php.log');
-        
+
         if (file_exists($logFilePath)) {
             $filesLines = $this->debugFilesAndLines();
 
@@ -128,7 +128,7 @@ class Log implements LogInterface
             $messageFinal .= '- Message: '.$message."\r\n".$filesLines."\r\n";
 
             fwrite($fp, $messageFinal);
-            fclose($fp);   
+            fclose($fp);
         } else {
             File::createFile($logFilePath);
         }

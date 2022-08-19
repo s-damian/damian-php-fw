@@ -20,9 +20,9 @@ class AuthIsConnectedTest extends BaseTest
     public function testConnect(): void
     {
         Session::count(); // Pour éventuelement céer "_url"
-        
+
         $userModel = self::userModel();
-        
+
         $_SESSION = [];
 
         $this->assertSame(0, Session::count());
@@ -61,7 +61,7 @@ class AuthIsConnectedTest extends BaseTest
 
     private static function userModel(): object
     {
-        return new class {
+        return new class () {
             public int $id;
             public ?string $date_last_connexion; // OBLIGATOIRE pour tester "DamianPhp\Auth\Auth".
             public string $email;
@@ -100,7 +100,7 @@ class AuthIsConnectedTest extends BaseTest
                 $user = new self();
                 $user->id = self::FAKE_ID;
                 $user->email = 'user-model@gmail.com';
-        
+
                 return $user;
             }
         };

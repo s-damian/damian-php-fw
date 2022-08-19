@@ -17,7 +17,7 @@ class JsonTest extends BaseTest
 
     public function setUp(): void
     {
-       $this->json = new Json();
+        $this->json = new Json();
     }
 
     public function testEncode(): void

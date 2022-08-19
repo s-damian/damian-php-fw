@@ -8,7 +8,7 @@ use DamianPhp\Contracts\Http\Response\ResponseInterface;
 /**
  * Response.
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -132,13 +132,13 @@ class Response implements ResponseInterface
                 header('Location: '.$url, true, $httpResponseCode);
             } else {
                 Helper::getExceptionOrLog('Status code "'.$httpResponseCodeParam.'" not good.');
-                
+
                 header('Location: '.$url);
             }
         } else {
             header('Location: '.$url);
         }
-        
+
         exit();
     }
 
@@ -151,11 +151,13 @@ class Response implements ResponseInterface
      */
     public function share(string $path, array $data = []): string
     {
-        if ($data) extract($data);
-        
+        if ($data) {
+            extract($data);
+        }
+
         ob_start();
         require Helper::basePath($path.'.php');
-        
+
         return ob_get_clean();
     }
 

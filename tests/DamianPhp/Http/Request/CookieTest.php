@@ -16,12 +16,12 @@ class CookieTest extends BaseTest
         $_COOKIE['cookie_a'] = 'aaa';
 
         $cookie = new Cookie();
-        
+
         $this->assertTrue($cookie->has('cookie_a'));
         $this->assertSame('aaa', $cookie->get('cookie_a'));
 
         $_COOKIE = [];
-        
+
         $cookie = new Cookie();
 
         $this->assertFalse($cookie->has('cookie_a'));

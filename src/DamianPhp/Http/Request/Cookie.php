@@ -8,7 +8,7 @@ use DamianPhp\Contracts\Http\Request\CookieInterface;
 /**
  * Gestion des cookies.
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -58,7 +58,7 @@ class Cookie implements CookieInterface
     {
         return $this->request->getCookies()->has($name);
     }
-    
+
     public function get(string $name): mixed
     {
         return $this->request->getCookies()->get($name);

@@ -28,7 +28,7 @@ class DateTest extends BaseTest
     public function testDateFormat(): void
     {
         $date = new Date();
-        
+
         $this->assertTrue(is_string($date->format('Y-m-d H:i:s')));
     }
 }

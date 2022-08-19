@@ -7,7 +7,7 @@ use DamianPhp\Support\Facades\Server;
 
 /**
  * Storage des sessions
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -83,7 +83,7 @@ class SessionStorage
 
     /**
      * Verifier si une session existe.
-     * 
+     *
      * @param string $name - Nom de la session.
      */
     public function has(string $name): bool
@@ -120,9 +120,14 @@ class SessionStorage
 
         if (ini_get("session.use_cookies")) {
             $params = session_get_cookie_params();
-            setcookie(session_name(), '', time() - 42000,
-                $params["path"], $params["domain"],
-                $params["secure"], $params["httponly"]
+            setcookie(
+                session_name(),
+                '',
+                time() - 42000,
+                $params["path"],
+                $params["domain"],
+                $params["secure"],
+                $params["httponly"]
             );
         }
 

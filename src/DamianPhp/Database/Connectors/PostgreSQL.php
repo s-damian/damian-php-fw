@@ -6,7 +6,7 @@ use DamianPhp\Support\Helper;
 
 /**
  * Pour se connecter à une BDD du SGBDR PostgreSQL.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -42,7 +42,7 @@ final class PostgreSQL extends Connector
         if (isset(Helper::config('database')['connections'][$this->connector]['port'])) {
             $this->dsn .= 'port='.Helper::config('database')['connections'][$this->connector]['port'].';';
         }
-        
-        $this->dsn .= 'dbname='.$database.';'; 
+
+        $this->dsn .= 'dbname='.$database.';';
     }
 }

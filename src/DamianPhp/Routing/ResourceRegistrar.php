@@ -15,7 +15,7 @@ use DamianPhp\Contracts\Routing\RouterInterface;
  * @edit GET/HEAD      : '/resource/{id}/edit'
  *   @update PUT/PATCH : '/resource/{id}/edit'
  * @destroy DELETE     : '/resource/{id}/destroy'
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -59,9 +59,9 @@ class ResourceRegistrar
     public function resource(string $controller, array $options = []): void
     {
         $this->verifyOptions($options);
-        
+
         $prefixRouteName = $options['prefix_name'] ?? '';
-        
+
         foreach (self::RESOURCE_ACTIONS as $action) {
             $method = 'addResource'.ucfirst($action);
 

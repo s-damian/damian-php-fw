@@ -14,7 +14,7 @@ interface ServerInterface
     public function get(string $key): array|string;
 
     public function getMethod(): string;
-    
+
     /**
      * @return string - L'URI qui a été fourni pour accéder à cette page.
      */

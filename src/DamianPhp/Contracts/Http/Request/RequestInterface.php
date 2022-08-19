@@ -22,7 +22,7 @@ interface RequestInterface
      * @return ParameterBag
      */
     public function getGet();
-    
+
     /**
      * @return ParameterBag
      */

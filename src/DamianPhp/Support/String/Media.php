@@ -6,7 +6,7 @@ use DamianPhp\Support\Helper;
 
 /**
  * Gestion des medias (vidéos, audio...).
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -49,7 +49,7 @@ class Media
     {
         $as = isset($options['as']) ? ' as="'.$options['as'].'"' : '';
         $type = isset($options['type']) ? ' type="'.$options['type'].'"' : '';
-        
+
         if (isset($options['crossorigin'])) {
             if ($options['crossorigin'] === 'crossorigin') {
                 $crossorigin = ' crossorigin';
@@ -59,7 +59,7 @@ class Media
         } else {
             $crossorigin = '';
         }
-        
+
 
         return '<link rel="preload" href="'.Helper::getBaseUrl().'/'.$file.'"'.$as.$type.$crossorigin.'>';
     }
@@ -97,8 +97,11 @@ class Media
         if ($options) {
             $array_key = ['id', 'class'];
             foreach ($options as $key => $value) {
-                if (! in_array($key, $array_key) && ! $options['poster']) Helper::getException('Key "'.$key.'" not authorized in options of audio');
-                else $html .= ' '.$key.'="'.$value.'"';
+                if (! in_array($key, $array_key) && ! $options['poster']) {
+                    Helper::getException('Key "'.$key.'" not authorized in options of audio');
+                } else {
+                    $html .= ' '.$key.'="'.$value.'"';
+                }
             }
         }
 
@@ -106,8 +109,11 @@ class Media
 
         $array_types = ['mp3','ogg','mpeg','wav','wawe','aif','aac','m4a','wma'];
         foreach ($types as $type) {
-            if (! in_array($type, $array_types))  Helper::getException('Type "'.$type.'" of audio not authorized');
-            else $html .= '<source src="'.$audio.'.'.$type.'" type="audio/'.$type.'">';
+            if (! in_array($type, $array_types)) {
+                Helper::getException('Type "'.$type.'" of audio not authorized');
+            } else {
+                $html .= '<source src="'.$audio.'.'.$type.'" type="audio/'.$type.'">';
+            }
         }
 
         $html .= '</audio>';
@@ -129,8 +135,11 @@ class Media
         if ($options) {
             $array_key = ['height', 'width', 'id', 'class'];
             foreach ($options as $key => $value) {
-                if (! in_array($key, $array_key) && ! $options['poster']) Helper::getException('Key "'.$key.'" not authorized in options of video');
-                else $html .= ' '.$key.'="'.$value.'"';
+                if (! in_array($key, $array_key) && ! $options['poster']) {
+                    Helper::getException('Key "'.$key.'" not authorized in options of video');
+                } else {
+                    $html .= ' '.$key.'="'.$value.'"';
+                }
             }
         }
 
@@ -139,8 +148,11 @@ class Media
         $array_types = ['ogv','mp4','webm','ogg'];
         foreach ($types as $type) {
             // mp4 : IE, Safari / ogv : Firefox, Chrome, Opera / webm : Firefox, Chrome
-            if (! in_array($type, $array_types)) Helper::getException('Type "'.$type.'" of video not authorized');
-            else $html .= '<source src="'.$video.'.'.$type.'" type="video/'.$type.'">';
+            if (! in_array($type, $array_types)) {
+                Helper::getException('Type "'.$type.'" of video not authorized');
+            } else {
+                $html .= '<source src="'.$video.'.'.$type.'" type="video/'.$type.'">';
+            }
         }
 
         $html .= '</video>';

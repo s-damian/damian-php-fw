@@ -11,7 +11,7 @@ use DamianPhp\Contracts\Date\DateInterface;
  * Classe client.
  * Gestion de dates.
  * Peut fonctionner avec une Facade.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -27,7 +27,7 @@ class Date extends DateTime implements DateInterface
     public function __construct(string $datetime = "now", ?DateTimeZone $timezone = null)
     {
         parent::__construct($datetime, $timezone);
-        
+
         $this->timeZone = Helper::config('app')['timezone'];
     }
 

@@ -8,7 +8,7 @@ use DamianPhp\Support\Facades\Request;
 
 /**
  * Pour générer un select.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -103,11 +103,11 @@ class SelectGenerator
                 if (Request::isPost()) {
                     $selected = Input::post($this->name) === $keyVal ? 'selected' : '';
                 } else {
-                    $selected = $this->selectedPerDefault !== null && $this->selectedPerDefault === $keyVal ? 'selected' : ''; 
+                    $selected = $this->selectedPerDefault !== null && $this->selectedPerDefault === $keyVal ? 'selected' : '';
                 }
-                
+
                 $disabled = isset($this->options['options_disabled']) && in_array($keyVal, $this->options['options_disabled']) ? ' disabled' : '';
-                
+
                 $this->html .= '<option '.$selected.' value="'.$keyVal.'"'.$disabled.'>'.$textVal.'</option>';
             }
         }

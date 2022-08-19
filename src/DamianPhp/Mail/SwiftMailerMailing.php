@@ -12,7 +12,7 @@ use Swift_Signers_DKIMSigner;
 
 /**
  * Pour envoyer des mails avec SwiftMailer
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -127,7 +127,7 @@ class SwiftMailerMailing implements MailingInterface
         // si array -> Email + Nom de l'expediteur
         // si pas array -> que Email de l'expediteur
         $from = is_array($this->from) ? [$this->from[0] => $this->from[1]] : $this->from;
-        
+
         // pour autoriser plusieurs email destinataires (plusieurs receveurs)
         $to = explode(',', $this->to);
 
@@ -175,14 +175,16 @@ class SwiftMailerMailing implements MailingInterface
             $transport = new Swift_SendmailTransport(Helper::config('mail')['sendmail']);
         } elseif (Helper::config('mail')['driver'] === 'smtp') {
             $transport = new Swift_SmtpTransport(
-                Helper::config('mail')['host'], Helper::config('mail')['port'], Helper::config('mail')['encryption']
+                Helper::config('mail')['host'],
+                Helper::config('mail')['port'],
+                Helper::config('mail')['encryption']
             );
 
             $transport->setUsername(Helper::config('mail')['username'])
                 ->setPassword(Helper::config('mail')['password']);
         } else {
             $transport = new Swift_SendmailTransport(Helper::config('mail')['sendmail']);
-            
+
             Helper::getExceptionOrLog('"driver" on mailer must be "mail" or "smtp"');
         }
 
@@ -199,7 +201,9 @@ class SwiftMailerMailing implements MailingInterface
         $privateKey = file_get_contents(Helper::basePath(Helper::config('mail')['dkim_private_key']));
 
         return new Swift_Signers_DKIMSigner(
-            $privateKey, Helper::config('mail')['dkim_domain'], Helper::config('mail')['dkim_selector']
+            $privateKey,
+            Helper::config('mail')['dkim_domain'],
+            Helper::config('mail')['dkim_selector']
         );
     }
 }

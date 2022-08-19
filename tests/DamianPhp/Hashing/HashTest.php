@@ -11,7 +11,7 @@ class HashTest extends BaseTest
 
     public function setUp(): void
     {
-       $this->hash = new Hash();
+        $this->hash = new Hash();
     }
 
     public function testHash(): void

@@ -4,7 +4,7 @@ namespace DamianPhp\Http\Request\Bags;
 
 /**
  * Ce trait est inclut dans les classes : ParameterBag, ServerBag
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -42,7 +42,7 @@ trait BagTrait
     {
         return array_key_exists($key, $this->parameters);
     }
-    
+
     /**
      * @return mixed - Retourne un paramètre par son nom.
      */

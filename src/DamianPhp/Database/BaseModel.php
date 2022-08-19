@@ -15,7 +15,7 @@ use DamianPhp\Contracts\Database\BaseModelInterface;
 /**
  * Classe client.
  * Model parent de tout les Models de l'application qui ont besoin de la base de données.
- * 
+ *
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
@@ -130,7 +130,7 @@ abstract class BaseModel implements BaseModelInterface
         if (mb_substr($method, 0, 3) === 'get') { // getter
             return $this->$property;
         }
-        
+
         if (mb_substr($method, 0, 3) === 'set') { // setter
             $this->assignProperty($method, $property, $arguments[0]);
         }
@@ -326,7 +326,7 @@ abstract class BaseModel implements BaseModelInterface
     final public function when(bool $condition, callable $callable): self
     {
         if ($condition === true) {
-            return $callable($this);    
+            return $callable($this);
         }
 
         return $this;
@@ -386,8 +386,8 @@ abstract class BaseModel implements BaseModelInterface
      */
     final public function orderBy(string $orderBy, string $order = 'ASC'): self
     {
-       $this->query->addOrderBy($orderBy, $order);
-            
+        $this->query->addOrderBy($orderBy, $order);
+
         return $this;
     }
 
@@ -557,7 +557,7 @@ abstract class BaseModel implements BaseModelInterface
     {
         return $this->aggregation("MAX(".$column.")");
     }
-    
+
     private function aggregation(string $aggregation): float|int
     {
         $this->query->setStartAggregation($aggregation);
@@ -578,7 +578,7 @@ abstract class BaseModel implements BaseModelInterface
     {
         // si dans les keys de $data il les valeurs de $fillable, assigner
         foreach ($this->fillable as $property) {
-            if (array_key_exists($property, $data)){
+            if (array_key_exists($property, $data)) {
                 $method = 'set'.ucfirst(Str::convertSnakeCaseToCamelCase($property));
 
                 $this->assignProperty($method, $property, $data[$property]);
@@ -652,7 +652,7 @@ abstract class BaseModel implements BaseModelInterface
      * @return int - Dernier ID inséré par auto-incrémentation.
      */
     final public function getLastInsertId(): int
-    {   
+    {
         return (int) $this->query->getLastInsertId();
     }
 
@@ -693,7 +693,7 @@ abstract class BaseModel implements BaseModelInterface
     {
         return $this->query->cancelTransaction();
     }
-    
+
     /**
      * Pour si on veut récupérer nombre de lignes affectées.
      */
