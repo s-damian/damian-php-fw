@@ -8,6 +8,8 @@ namespace DamianPhp\Support\Facades;
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
+ * 
+ * @method static void errorDamianPhp(string $message)
  */
 final class Log extends Facade
 {

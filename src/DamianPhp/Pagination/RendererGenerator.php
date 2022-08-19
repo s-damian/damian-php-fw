@@ -95,13 +95,11 @@ abstract class RendererGenerator
     {
         $html = '';
 
-        $selectedPP = $valuePP === $this->pagination->getGetPP()
-            ? 'selected'
-            : '';
-
-        $selectedDefault = $this->pagination->getGetPP() === null && $valuePP === $this->pagination->getDefaultPerPage()
-            ? 'selected'
-            : '';
+        if ($this->pagination->getGetPP() !== null) {
+            $selected = $valuePP === $this->pagination->getGetPP() ? 'selected' : '';
+        } else {
+            $selected = $valuePP === $this->pagination->getDefaultPerPage() ? 'selected' : '';
+        }
 
         /** @var HtmlRenderer $this */
         if (
@@ -109,12 +107,12 @@ abstract class RendererGenerator
             $valuePP !== $this->pagination->getDefaultPerPage() &&
             $valuePP !== Pagination::PER_PAGE_OPTION_ALL
         ) {
-            $html .= $this->perPageOption($selectedDefault.$selectedPP, $valuePP);
+            $html .= $this->perPageOption($selected, $valuePP);
         } elseif ($valuePP === $this->pagination->getDefaultPerPage() || $valuePP === Pagination::PER_PAGE_OPTION_ALL) { // afficher ces 3 <option> en permanance
             if ($valuePP === Pagination::PER_PAGE_OPTION_ALL) {
-                $html .= $this->perPageOption($selectedDefault.$selectedPP, $valuePP, Helper::lang('pagination')[Pagination::PER_PAGE_OPTION_ALL]);
+                $html .= $this->perPageOption($selected, $valuePP, Helper::lang('pagination')[Pagination::PER_PAGE_OPTION_ALL]);
             } else {
-                $html .= $this->perPageOption($selectedDefault.$selectedPP, $valuePP);
+                $html .= $this->perPageOption($selected, (string) $valuePP);
             }
         }
 

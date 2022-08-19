@@ -26,7 +26,7 @@ class Input implements InputInterface
         return $this->request->getPost()->has($name);
     }
 
-    public function post(string $name)
+    public function post(string $name): mixed
     {
         return $this->request->getPost()->get($name);
     }
@@ -36,7 +36,7 @@ class Input implements InputInterface
         return $this->request->getGet()->has($name);;
     }
 
-    public function get(string $name)
+    public function get(string $name): mixed
     {
         return $this->request->getGet()->get($name);
     }

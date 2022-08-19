@@ -8,6 +8,11 @@ namespace DamianPhp\Support\Facades;
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
+ * 
+ * @method static string convertCamelCaseToSnakeCase(string $value)
+ * @method static bool contains(string $haystack,  string $needle)
+ * @method static string snakePlural(string $value)
+ * @method static string random(int $nbChars = 10, array $options = [])
  */
 final class Str extends Facade
 {

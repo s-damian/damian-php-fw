@@ -13,11 +13,11 @@ interface InputInterface
 
     public function hasPost(string $name): bool;
 
-    public function post(string $name);
+    public function post(string $name): mixed;
 
     public function hasGet(string $name): bool;
 
-    public function get(string $name);
+    public function get(string $name): mixed;
 
     public function hasFile(string $name): bool;
 

@@ -71,12 +71,12 @@ final class HtmlRenderer extends RendererGenerator
         return $html;
     }
 
-    protected function paginationActive(string $nb): string
+    protected function paginationActive(int $nb): string
     {
         return '<li class="'.$this->pagination->getCssClassLinkActive().'"><span>'.$nb.'</span></li>';
     }
 
-    protected function paginationLink(string $nb): string
+    protected function paginationLink(int $nb): string
     {
         return '<li><a href="'.$this->pagination->getUrl($nb).'">'.$nb.'</a></li>';
     }

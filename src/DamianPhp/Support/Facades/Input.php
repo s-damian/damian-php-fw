@@ -8,6 +8,10 @@ namespace DamianPhp\Support\Facades;
  * @author  Stephen Damian <contact@devandweb.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
+ * 
+ * @method static bool hasPost(string $name)
+ * @method static mixed post(string $name)
+ * @method static mixed file(string $name)
  */
 final class Input extends Facade
 {
