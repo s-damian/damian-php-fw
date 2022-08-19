@@ -110,7 +110,7 @@ class OrderBy
         }
 
         return [
-            'orderBy' => $orderByInSql,
+            'order_by' => $orderByInSql,
             'order' => $order,
             'attrs' => $attrs,
         ];

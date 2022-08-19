@@ -15,7 +15,7 @@ class OrderByTest extends BaseTest
 
         $this->assertTrue(is_array($resultOrderBy));
 
-        $this->assertTrue(isset($resultOrderBy['orderBy']) && is_string($resultOrderBy['orderBy']));
+        $this->assertTrue(isset($resultOrderBy['order_by']) && is_string($resultOrderBy['order_by']));
         $this->assertTrue(isset($resultOrderBy['order']) && is_string($resultOrderBy['order']));
         $this->assertTrue(isset($resultOrderBy['attrs']) && is_array($resultOrderBy['attrs']));
 
