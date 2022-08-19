@@ -187,13 +187,13 @@ class Pagination implements PaginationInterface
      */
     private function treatmentPerPage(): void
     {
-        if ($this->getPP !== null && (preg_match(self::REGEX_INTEGER, $this->getPP) || $this->getPP === self::PER_PAGE_OPTION_ALL)) {
+        if ($this->getPP !== null && (preg_match(self::REGEX_INTEGER, (string) $this->getPP) || $this->getPP === self::PER_PAGE_OPTION_ALL)) {
             if (in_array($this->getPP, $this->arrayOptionsSelect)) {
                 if ($this->getPP === self::PER_PAGE_OPTION_ALL) { // pour si clic sur "Tous"
                     $this->perPage = null;
                     $this->getP = 1;
                 } else {
-                    $this->perPage = (int) round($this->getPP);
+                    $this->perPage = (int) $this->getPP;
                 }
             } else {
                 $this->perPage = $this->defaultPerPage; // sécuritée, si pas dans array
