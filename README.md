@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/s-damian/damian-php/actions/workflows/tests.yml"><img src="https://github.com/s-damian/damian-php/actions/workflows/tests.yml/badge.svg" alt="Static analysis"></a>
+<a href="https://github.com/s-damian/damian-php-fw/actions/workflows/static-analysis.yml"><img src="https://github.com/s-damian/damian-php-fw/actions/workflows/static-analysis.yml/badge.svg" alt="Static analysis"></a>
 <a href="https://packagist.org/packages/s-damian/damian-php-fw"><img src="https://img.shields.io/packagist/v/s-damian/damian-php-fw" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/s-damian/damian-php-fw"><img src="https://img.shields.io/packagist/l/s-damian/damian-php-fw" alt="License"></a>
 </p>
