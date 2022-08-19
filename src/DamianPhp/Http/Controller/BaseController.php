@@ -178,9 +178,9 @@ abstract class BaseController
      * @param string $message
      * @return $this
      */
-    final protected function withOk(string $message): self
+    final protected function withSuccess(string $message): self
     {
-        Flash::setOk($message);
+        Flash::setSuccess($message);
 
         return $this;
     }

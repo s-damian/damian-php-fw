@@ -23,7 +23,7 @@ interface FlashInterface
      *
      * @param string $message - Message(s) d'info.
      */
-    public function setOk(string $message);
+    public function setSuccess(string $message);
 
     /**
      * Pour messages d'erreur(s) avec session flash.

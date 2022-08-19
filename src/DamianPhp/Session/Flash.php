@@ -45,7 +45,7 @@ class Flash implements FlashInterface
      *
      * @param string $message - Message(s) d'info.
      */
-    public function setOk(string $message): void
+    public function setSuccess(string $message): void
     {
         $this->session->put('_flash', Response::alertSuccess($message));
     }
