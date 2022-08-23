@@ -15,7 +15,7 @@
 
 > A powerful PHP Framework in PHP 8.1 - Beautiful code & Elegant syntax
 
-This library is developed by [Stephen Damian](https://www.linkedin.com/in/stephen-damian/) [![Stephen Damian - LinkedIn](https://raw.githubusercontent.com/s-damian/medias/main/favicon-linkedin.png)](https://www.linkedin.com/in/stephen-damian/)
+This Framework is developed by [Stephen Damian](https://github.com/s-damian)
 
 Here you have the source codes of the Kernel.
 
