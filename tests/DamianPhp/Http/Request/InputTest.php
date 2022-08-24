@@ -8,8 +8,7 @@ use DamianPhp\Http\Request\Input;
 class InputTest extends BaseTest
 {
     /**
-     * Est appellée après chaque testMethod() de cette classe et de classes enfants
-     * (si on met un tearDown() dans une classe enfant, c'est celle de la classe enfant qui sera appelé avant)
+     * Est appellée après chaque testMethod() de cette classe et de classes enfants.
      */
     public function tearDown(): void
     {
