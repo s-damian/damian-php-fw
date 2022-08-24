@@ -27,7 +27,7 @@ class Form implements FormInterface
      *
      * @param array $options
      * - $options['action'] string - Pour éventuellement préciser l'URL de l'action.
-     * - $options['method'] string - Pour éventuellement préciser un method (POST par defaut).
+     * - $options['method'] string - Pour éventuellement préciser la méthode HTTP (POST par defaut).
      * - $options['files'] string - Pour éventuellement si il y a un système d'upload dans le form.
      * - $options['on_submit'] string - Pour éventuellement ex. : "Etes vous sur de vouloir effectuer cette action... ?".
      * - $options['id'] string - Pour éventuellement ajouter un id au formulaire.

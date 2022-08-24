@@ -244,7 +244,7 @@ class Router implements RouterInterface
     }
 
     /**
-     * Ajouter route avec method GET.
+     * Ajouter une route avec la méthode GET.
      * Lire.
      *
      * @param string|callable $callable
@@ -259,7 +259,7 @@ class Router implements RouterInterface
     }
 
     /**
-     * Ajouter route avec method HEAD.
+     * Ajouter une route avec la méthode HEAD.
      * Lire (entête seulement).
      *
      * @param string|callable $callable
@@ -270,7 +270,7 @@ class Router implements RouterInterface
     }
 
     /**
-     * Ajouter route avec method POST.
+     * Ajouter une route avec la méthode POST.
      * Créer.
      *
      * @param string|callable $callable
@@ -281,7 +281,7 @@ class Router implements RouterInterface
     }
 
     /**
-     * Ajouter route avec method PUT.
+     * Ajouter une route avec la méthode PUT.
      * Mettre à jour.
      *
      * @param string|callable $callable
@@ -292,7 +292,7 @@ class Router implements RouterInterface
     }
 
     /**
-     * Ajouter route avec method PATCH.
+     * Ajouter une route avec la méthode PATCH.
      * Partiellement mettre à jour.
      *
      * @param string|callable $callable
@@ -303,7 +303,7 @@ class Router implements RouterInterface
     }
 
     /**
-     * Ajouter route avec method DELETE.
+     * Ajouter une route avec la méthode DELETE.
      * Supprimer.
      *
      * @param string|callable $callable
@@ -314,7 +314,7 @@ class Router implements RouterInterface
     }
 
     /**
-     * Ajouter route avec method OPTIONS.
+     * Ajouter une route avec la méthode OPTIONS.
      * Toutes les methods HTTP + d'autres option.
      *
      * @param string|callable $callable
@@ -329,7 +329,7 @@ class Router implements RouterInterface
      *
      * @param string $path - Chemin d'url.
      * @param string|callable $callable - controller@method, ou closure avec function anonyme.
-     * @param string $method - Method en GET ou en POST.
+     * @param string $method - Méthode HTTP (GET, POST, etc.).
      * @param array|null $args - OPTIONAL.
      * - $args['name'] string - Pour éventuellement nommer la route.
      * @return Route
@@ -390,7 +390,7 @@ class Router implements RouterInterface
     }
 
     /**
-     * Verifier que la method HTTP a une (ou des) route(s).
+     * Verifier que la méthode HTTP a une (ou des) route(s).
      */
     private function verifyRequestMethodHasRoutes(): void
     {

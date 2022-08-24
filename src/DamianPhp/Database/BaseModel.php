@@ -337,7 +337,7 @@ abstract class BaseModel implements BaseModelInterface
      */
     final public function where(array|string $where): self
     {
-        if (is_array($where)) { // si array, on peut utiliser qu'une seule fois cette method avec une instance
+        if (is_array($where)) { // si array, on peut utiliser qu'une seule fois cette méthode avec une instance
             $this->query->addWhere($where);
         } else {
             $args = func_get_args();

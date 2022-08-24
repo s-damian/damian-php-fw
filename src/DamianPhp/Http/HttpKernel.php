@@ -47,7 +47,7 @@ abstract class HttpKernel
 
         // Parcourir ensemble des routes du Kernel (class enfant)
         foreach ($this->routeMiddleware as $k => $v) {
-            // Pour charger une Class et une Method spécifique
+            // Pour charger une Class et une Méthode spécifique
             if (is_array($v)) {
                 $this->isArrayValueOfRouteMiddleware($k, $v);
             }
@@ -82,7 +82,7 @@ abstract class HttpKernel
     }
 
     /**
-     * Pour charger une Class et une Method spécifique.
+     * Pour charger une Class et une Méthode spécifique.
      *
      * @param string $k - Tableaux numéroté - Les key des routes du Kernel.
      * @param array $v - Les value des routes du Kernel.

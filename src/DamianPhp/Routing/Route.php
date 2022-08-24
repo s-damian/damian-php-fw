@@ -126,7 +126,7 @@ class Route
 
         // Pour dégager index[0] pour récupérer les éventuels params.
         // (Ex. : pour si dans url "article/edit/23" ->
-        // récupérer que "23" pour qu'on puisse l'envoyer en param de la method du controller qui va etre initialisé)
+        // récupérer que "23" pour qu'on puisse l'envoyer en param de la méthode du controller qui va etre initialisé)
         array_shift($matches);
 
         $this->matches = $matches;

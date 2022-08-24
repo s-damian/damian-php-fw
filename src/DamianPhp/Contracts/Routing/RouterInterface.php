@@ -66,7 +66,7 @@ interface RouterInterface
     public function match(array $methods, string $path, string|callable $callable, array $args = []): void;
 
     /**
-     * Ajouter route avec method GET.
+     * Ajouter une route avec la méthode GET.
      * Lire.
      *
      * @param string|callable $callable
@@ -74,7 +74,7 @@ interface RouterInterface
     public function get(string $path, string|callable $callable, array $args = []): Route;
 
     /**
-     * Ajouter route avec method HEAD.
+     * Ajouter une route avec la méthode HEAD.
      * Lire (entête seulement).
      *
      * @param string|callable $callable
@@ -82,7 +82,7 @@ interface RouterInterface
     public function head(string $path, string|callable $callable, array $args = []): Route;
 
     /**
-     * Ajouter route avec method POST.
+     * Ajouter une route avec la méthode POST.
      * Créer.
      *
      * @param string|callable $callable
@@ -90,7 +90,7 @@ interface RouterInterface
     public function post(string $path, string|callable $callable, array $args = []): Route;
 
     /**
-     * Ajouter route avec method PUT.
+     * Ajouter une route avec la méthode PUT.
      * Mettre à jour.
      *
      * @param string|callable $callable
@@ -98,7 +98,7 @@ interface RouterInterface
     public function put(string $path, string|callable $callable, array $args = []): Route;
 
     /**
-     * Ajouter route avec method PATCH.
+     * Ajouter une route avec la méthode PATCH.
      * Partiellement mettre à jour.
      *
      * @param string|callable $callable
@@ -106,7 +106,7 @@ interface RouterInterface
     public function patch(string $path, string|callable $callable, array $args = []): Route;
 
     /**
-     * Ajouter route avec method DELETE.
+     * Ajouter une route avec la méthode DELETE.
      * Supprimer.
      *
      * @param string|callable $callable
@@ -114,7 +114,7 @@ interface RouterInterface
     public function delete(string $path, string|callable $callable, array $args = []): Route;
 
     /**
-     * Ajouter route avec method OPTIONS.
+     * Ajouter une route avec la méthode OPTIONS.
      * Toutes les methods HTTP + d'autres option.
      *
      * @param string|callable $callable

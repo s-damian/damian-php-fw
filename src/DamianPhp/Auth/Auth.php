@@ -24,8 +24,8 @@ use DamianPhp\Contracts\Auth\AuthInterface;
  *
  * Dans le Controller d'authentification :
  * - Il faut créer une instance : $auth = new Auth('App\Models\UserClassName');
- * - OPTIONAL - Si on veut laisser possibilitée d'une connexion perraine, préciser le nom du cookie avec la method remember('cookie_name_remember')
- * - Préciser le nom de la session d'auth avec sa valeur avec la method connect('AuthSessionName', [array assosiatif comme value])
+ * - OPTIONAL - Si on veut laisser possibilitée d'une connexion perraine, préciser le nom du cookie avec la méthode remember('cookie_name_remember')
+ * - Préciser le nom de la session d'auth avec sa valeur avec la méthode connect('AuthSessionName', [array assosiatif comme value])
  *
  * Dans la vue de login :
  * - Si on met une case à cocher, elle doit toujours avoir : name="remember"

@@ -126,7 +126,7 @@ class Query
      */
     private function initSql(): void
     {
-        $this->sql['query_type'] = null; // pour savoir pour quel type de requete SQL (SELECT, INSERT, UPDATE, UPDATE)
+        $this->sql['query_type'] = null; // pour savoir pour quel type de requete SQL (SELECT, INSERT, UPDATE, DELETE)
         $this->sql['start'] = null;
         $this->sql['join'] = '';
         $this->sql['where'] = '';
@@ -309,7 +309,7 @@ class Query
      */
     public function addWhere(array|string $where): void
     {
-        if (is_array($where)) { // si array, on peut utiliser qu'une seule fois cette method avec une instance
+        if (is_array($where)) { // si array, on peut utiliser qu'une seule fois cette méthode avec une instance
             $this->wheres = $where;
 
             $this->sql['where'] .= " ".$this->logicOperator." ".$this->addConditionsToSql()." ";
