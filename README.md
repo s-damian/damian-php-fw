@@ -17,12 +17,12 @@
 
 This Framework is developed by [Stephen Damian](https://github.com/s-damian)
 
-Here you have the source codes of the Kernel.
+Here you have the source codes of the ```Kernel```.
 
 
 ### Framework skeleton
 
-The Framework skeleton is in this package:
+The Framework ```skeleton``` is in this package:
 
 [Damian PHP Framework - Skeleton - [damian-php]](https://github.com/s-damian/damian-php)
 
