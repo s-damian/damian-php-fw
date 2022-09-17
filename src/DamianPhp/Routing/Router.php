@@ -20,7 +20,7 @@ use DamianPhp\Contracts\Routing\RouterInterface;
  * - Parcourir toutes les routes selon la REQUEST_METHOD actuelle
  * - Dès qu'on a trouvé la correspondace du Path d'une Route avec URL actuelle -> Initialiser un controller avec sa method, ou executer une function callable
  *
- * @author  Stephen Damian <contact@devandweb.fr>
+ * @author  Stephen Damian <contact@damian-freelance.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */

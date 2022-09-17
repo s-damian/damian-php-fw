@@ -12,7 +12,7 @@ use DamianPhp\Contracts\Pagination\PaginationInterface;
  * # Fonctionnement de ce package :
  * Pour générer le rendu, la classe "Pagination" fait appelle à la classe "HtmlRenderer" qui est une classe enfant de "RendererGenerator".
  *
- * @author  Stephen Damian <contact@devandweb.fr>
+ * @author  Stephen Damian <contact@damian-freelance.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */

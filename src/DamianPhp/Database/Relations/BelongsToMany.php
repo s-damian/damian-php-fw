@@ -8,7 +8,7 @@ use DamianPhp\Contracts\Database\BaseModelInterface;
  * Pour relations : "plusieurs à plusieurs".
  * Fonctionne avec 3 tables (Table du Model instancié + Table de jonction + Table à joindre).
  *
- * @author  Stephen Damian <contact@devandweb.fr>
+ * @author  Stephen Damian <contact@damian-freelance.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */

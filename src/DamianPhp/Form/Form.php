@@ -16,7 +16,7 @@ use DamianPhp\Form\Generators\OpenCloseGenerator;
  * Helpers pour les formulaires.
  * Peut fonctionner avec une Facade.
  *
- * @author  Stephen Damian <contact@devandweb.fr>
+ * @author  Stephen Damian <contact@damian-freelance.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */

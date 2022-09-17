@@ -19,7 +19,7 @@ use DamianPhp\Contracts\Auth\IsConnectedInterface;
  * - 3 méthodes sont obligatoires : session('AuthSessionName', [array assosiatif comme value]), redirectIfFalse('url_logout'), isLogged()
  * - 1 méthode est optionelle : cookie('cookie_name_de_remember_a_verif')
  *
- * @author  Stephen Damian <contact@devandweb.fr>
+ * @author  Stephen Damian <contact@damian-freelance.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  */
