@@ -14,8 +14,7 @@
         "php": ">=8.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "9.5.*",
-        "phpstan/phpstan": "1.8.*"
+        "phpunit/phpunit": "9.5.*"
     },
     "autoload": {
         "files": [
@@ -26,7 +25,7 @@
         }
     },
     "scripts": {
-        "phpstan": "php8.1 ./vendor/bin/phpstan --configuration='tools/phpstan/phpstan.neon'",
+        "stan": "php8.1 ./tools/phpstan/vendor/bin/phpstan --configuration='tools/phpstan/phpstan.neon'",
         "fix-all": "php8.1 ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=tools/php-cs-fixer/.php-cs-fixer.dist.php",
         "fix-all-dry": "php8.1 ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=tools/php-cs-fixer/.php-cs-fixer.dist.php -vv --dry-run --diff"
     },
