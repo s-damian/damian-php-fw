@@ -15,6 +15,8 @@
 
 > A powerful PHP Framework in PHP 8.1 - Beautiful code & Elegant syntax
 
+> Compatible with MySQL / MariaDB / PostgreSQL
+
 This **Open Source Framework** is developed by [Stephen Damian](https://github.com/s-damian)
 
 Here you have the source codes of the ```Kernel```.
@@ -51,7 +53,7 @@ The Framework ```skeleton``` is in this package:
 * Validation
 
 
-## Design pattern used
+## Design patterns used
 
 * MVC
 * Active reord
