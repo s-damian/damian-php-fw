@@ -13,7 +13,7 @@
 
 # Damian PHP Framework - Kernel
 
-> A powerful PHP Framework in PHP 8.1 - Beautiful code & Elegant syntax
+> A powerful PHP Framework in PHP 8.2 - Beautiful code & Elegant syntax
 
 > Compatible with MySQL / MariaDB / PostgreSQL
 
