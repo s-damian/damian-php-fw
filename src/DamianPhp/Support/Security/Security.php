@@ -37,7 +37,7 @@ class Security
      */
     public function noCrlf(string $value): string
     {
-        return str_replace(['\n','\r',PHP_EOL,'%0A','<br>','</br>'], '', $value);
+        return str_replace(['\n', '\r', PHP_EOL, '%0A', '<br>', '</br>'], '', $value);
     }
 
     public function hash(string $value): string

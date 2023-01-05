@@ -107,7 +107,7 @@ class IsConnected implements IsConnectedInterface
     {
         // il a le Cookie et pas la Session
         if ($this->cookieName !== null) {
-            if (Cookie::has($this->cookieName) && !Session::has($this->sessionName)) {
+            if (Cookie::has($this->cookieName) && ! Session::has($this->sessionName)) {
                 return $this->verifyCookie();
             }
         }

@@ -111,7 +111,7 @@ class Query
      * Opérateurs logiques.
      */
     private const LOGIC_OPERATORS = [
-        'WHERE', 'AND' ,'OR',
+        'WHERE', 'AND', 'OR',
     ];
 
     public function __construct(BaseModelInterface $model)
@@ -186,6 +186,7 @@ class Query
                 return 'DamianPhp\Database\Connectors\PostgreSQL';
             default:
                 Helper::getExceptionOrLog('Database Connection Name must be "mysql" or "pgsql".');
+
                 return '';
         }
     }
@@ -457,7 +458,7 @@ class Query
                 }
 
                 $logicOperator = isset($value[3]) && $value[3] !== null ? $value[3] : '';
-                if ($logicOperator !== '' && !in_array($logicOperator, self::LOGIC_OPERATORS)) {
+                if ($logicOperator !== '' && ! in_array($logicOperator, self::LOGIC_OPERATORS)) {
                     Helper::getExceptionOrLog('Logic operator "'.$logicOperator.'" not allowed.');
                 }
 
@@ -536,7 +537,7 @@ class Query
     public function query(string $sql, array $otpions = []): object
     {
         $isAssociativeArray = function ($array) { // return true si c'est un array associatif
-            if (!is_array($array) || empty($array)) {
+            if (! is_array($array) || empty($array)) {
                 return false;
             }
 

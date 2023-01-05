@@ -32,7 +32,6 @@ interface CacheInterface
      */
     public function getToObject(string $file, int $minutes = null): mixed;
 
-
     /**
      * Récupérer la valeur du fichier de cache sérialisé sous forme d'array.
      *

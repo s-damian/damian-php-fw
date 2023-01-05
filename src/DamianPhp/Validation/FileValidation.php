@@ -99,10 +99,12 @@ class FileValidation
                 switch (Input::file($input)['error']) {
                     case UPLOAD_ERR_NO_FILE:
                         $extMessage = $this->pushErrorWithFile('upload_err_nofile');
+
                         break;
                     case UPLOAD_ERR_INI_SIZE:
                     case UPLOAD_ERR_FORM_SIZE:
                         $extMessage = $this->pushErrorWithFile('upload_err_size');
+
                         break;
                 }
             }
@@ -190,10 +192,12 @@ class FileValidation
                     switch ($oneErrorFile) {
                         case UPLOAD_ERR_NO_FILE:
                             $extMessage = $this->pushErrorWithFile('upload_err_nofile');
+
                             break;
                         case UPLOAD_ERR_INI_SIZE:
                         case UPLOAD_ERR_FORM_SIZE:
                             $extMessage = $this->pushErrorWithFile('upload_err_size');
+
                             break;
                     }
                 }

@@ -47,7 +47,7 @@ class ExceptionHandler extends Exception implements ExceptionHandlerInterface
      */
     private function runException(string $message)
     {
-        if (Helper::config('email')['send_mail_if_exception'] && !Helper::config('app')['debug']) {
+        if (Helper::config('email')['send_mail_if_exception'] && ! Helper::config('app')['debug']) {
             $mailer = new Mailer();
             $mailer->setFrom(Helper::config('email')['email_error_from'])
                 ->setTo(Helper::config('email')['email_error_to'])

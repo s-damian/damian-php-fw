@@ -91,7 +91,7 @@ class File
         foreach ($subdirs as $subdir) {
             $rDir .= '/'.$subdir;
 
-            if (!file_exists($basePath.$rDir)) {
+            if (! file_exists($basePath.$rDir)) {
                 self::createDir($basePath.$rDir, $mode);
             }
         }

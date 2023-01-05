@@ -44,7 +44,7 @@ class Redirector
      */
     public function verifyUrlBeforeAttemptMatching(): void
     {
-        if (Str::contains(Server::getUri(), '&') && !Str::contains(Server::getUri(), '?')) {
+        if (Str::contains(Server::getUri(), '&') && ! Str::contains(Server::getUri(), '?')) {
             Helper::getExceptionOrGetError404('URI has "&" but not "?".');
         }
 

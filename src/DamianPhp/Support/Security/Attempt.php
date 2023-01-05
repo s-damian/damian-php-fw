@@ -178,6 +178,7 @@ class Attempt
 
                 // On DELETE aussi toute les lignes qui sont bloqués depuis >= de 24H.
                 AttemptModel::load()->where('TIMESTAMPDIFF(HOUR, date_blocking, NOW())', '>=', 24)->delete();
+
                 break;
             case 'pgsql':
                 // On DELETE aussi toute les lignes qui ont échoués leur 1er login depuis >= de 24H.
@@ -185,6 +186,7 @@ class Attempt
 
                 // On DELETE aussi toute les lignes qui sont bloqués depuis >= de 24H.
                 AttemptModel::load()->where('EXTRACT(EPOCH FROM (NOW() - date_blocking)) / 3600', '>=', 24)->delete();
+
                 break;
             default:
                 exit(); // On sécurise.

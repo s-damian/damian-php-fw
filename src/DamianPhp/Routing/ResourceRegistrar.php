@@ -65,9 +65,9 @@ class ResourceRegistrar
         foreach (self::RESOURCE_ACTIONS as $action) {
             $method = 'addResource'.ucfirst($action);
 
-            if (! isset($options['except']) && !isset($options['only'])) {
+            if (! isset($options['except']) && ! isset($options['only'])) {
                 $this->$method($controller, $prefixRouteName);
-            } elseif (isset($options['except']) && !in_array($action, $options['except'])) {
+            } elseif (isset($options['except']) && ! in_array($action, $options['except'])) {
                 $this->$method($controller, $prefixRouteName);
             } elseif (isset($options['only']) && in_array($action, $options['only'])) {
                 $this->$method($controller, $prefixRouteName);

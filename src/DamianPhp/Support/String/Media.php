@@ -60,7 +60,6 @@ class Media
             $crossorigin = '';
         }
 
-
         return '<link rel="preload" href="'.Helper::getBaseUrl().'/'.$file.'"'.$as.$type.$crossorigin.'>';
     }
 
@@ -107,7 +106,7 @@ class Media
 
         $html .= '>';
 
-        $array_types = ['mp3','ogg','mpeg','wav','wawe','aif','aac','m4a','wma'];
+        $array_types = ['mp3', 'ogg', 'mpeg', 'wav', 'wawe', 'aif', 'aac', 'm4a', 'wma'];
         foreach ($types as $type) {
             if (! in_array($type, $array_types)) {
                 Helper::getException('Type "'.$type.'" of audio not authorized');
@@ -145,7 +144,7 @@ class Media
 
         $html .= '>';
 
-        $array_types = ['ogv','mp4','webm','ogg'];
+        $array_types = ['ogv', 'mp4', 'webm', 'ogg'];
         foreach ($types as $type) {
             // mp4 : IE, Safari / ogv : Firefox, Chrome, Opera / webm : Firefox, Chrome
             if (! in_array($type, $array_types)) {

@@ -43,7 +43,7 @@ class TextareaGenerator
 
         $this->addOptions();
 
-        $this->html .= !isset($this->options['id']) ? ' id="'.$this->name.'"' : '';
+        $this->html .= ! isset($this->options['id']) ? ' id="'.$this->name.'"' : '';
 
         $this->html .= '>';
 

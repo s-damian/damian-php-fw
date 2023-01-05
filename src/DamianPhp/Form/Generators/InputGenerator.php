@@ -55,7 +55,7 @@ class InputGenerator
 
         $this->addOptions();
 
-        $this->html .= !isset($this->options['id']) ? ' id="'.$this->name.'"' : '';
+        $this->html .= ! isset($this->options['id']) ? ' id="'.$this->name.'"' : '';
 
         $this->html .= '>';
 
@@ -71,16 +71,20 @@ class InputGenerator
             switch ($this->type) {
                 case 'text': case 'email': case 'search': case 'url': case 'tel': case 'password':
                     $keysAllowed = ['id', 'class', 'style', 'placeholder', 'autocomplete'];
+
                     break;
                 case 'hidden': case 'checkbox': case 'radio': case 'file': case 'submit':
                     $keysAllowed = ['id', 'class', 'style'];
+
                     break;
                 case 'number': case 'range':
                     $keysAllowed = ['id', 'class', 'style', 'step', 'min', 'max'];
+
                     break;
                 default:
                     $keysAllowed = [];
                     Helper::getException('Type "'.$this->type.'" not exists.');
+
                     break;
             }
 

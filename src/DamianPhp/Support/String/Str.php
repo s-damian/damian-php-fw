@@ -377,7 +377,7 @@ class Str
 
         $htmlInputs = '';
         foreach (Request::getGet()->all() as $get => $v) {
-            if (!in_array($get, $arrayToIgnore)) {
+            if (! in_array($get, $arrayToIgnore)) {
                 if (is_array($v)) {
                     foreach ($v as $k => $oneV) {
                         $htmlInputs .= '<input type="hidden" name="'.$get.'['.$k.']" value="'.$oneV.'">';
