@@ -15,11 +15,25 @@ use DamianPhp\Contracts\Config\SingletonConfigInterface;
 abstract class SingletonConfig implements SingletonConfigInterface
 {
     /**
+     * private - Car n'est pas autorisé à etre appelée de l'extérieur.
+     */
+    private function __construct()
+    {
+    }
+
+    /**
      * Pour charger les fichiers.
      *
      * @param string $method - Fichier à require (+ éventuellement keys).
      */
     abstract public function __call(string $method, array $arguments): mixed;
+
+    /**
+     * private - Empêcher l'occurrence d'être cloné.
+     */
+    private function __clone()
+    {
+    }
 
     /**
      * Singleton.
@@ -31,20 +45,6 @@ abstract class SingletonConfig implements SingletonConfigInterface
         }
 
         return static::$instance;
-    }
-
-    /**
-     * private - Car n'est pas autorisé à etre appelée de l'extérieur.
-     */
-    private function __construct()
-    {
-    }
-
-    /**
-     * private - Empêcher l'occurrence d'être cloné.
-     */
-    private function __clone()
-    {
     }
 
     /**

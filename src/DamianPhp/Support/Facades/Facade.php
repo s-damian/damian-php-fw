@@ -11,8 +11,6 @@ namespace DamianPhp\Support\Facades;
  */
 abstract class Facade
 {
-    abstract protected static function getFacadeAccessor(): string;
-
     /**
      * @param string $method - Nom de la méthode à appeler
      * @param array $arguments - Paramètres dans méthodes
@@ -26,6 +24,8 @@ abstract class Facade
 
         return static::$instance->$method(...$arguments);
     }
+
+    abstract protected static function getFacadeAccessor(): string;
 
     private static function getFacadeInstace(): object
     {

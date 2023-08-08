@@ -13,6 +13,8 @@ use DamianPhp\Support\Helper;
  */
 class LabelGenerator
 {
+    private const OPTIONS_KEYS_ALLOWED = ['id', 'class', 'style'];
+
     private string $html;
 
     private string $for;
@@ -20,8 +22,6 @@ class LabelGenerator
     private string $text;
 
     private array $options = [];
-
-    private const OPTIONS_KEYS_ALLOWED = ['id', 'class', 'style'];
 
     /**
      * @param string $for - Pour faire référence à l'id de l'input auquel il fait référence.

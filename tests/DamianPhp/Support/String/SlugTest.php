@@ -7,9 +7,9 @@ use DamianPhp\Support\String\Slug;
 
 class SlugTest extends BaseTest
 {
-    private Slug $slug;
-
     private const STRING_TO_TEST = 'Mot1 mot2 mot3';
+
+    private Slug $slug;
 
     public function setUp(): void
     {

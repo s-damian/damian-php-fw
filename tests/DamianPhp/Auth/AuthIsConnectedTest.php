@@ -63,9 +63,13 @@ class AuthIsConnectedTest extends BaseTest
     {
         return new class () {
             public int $id;
+
             public ?string $date_last_connexion; // OBLIGATOIRE pour tester "DamianPhp\Auth\Auth".
+
             public string $email;
+
             public string $password;
+
             public ?string $remember_token; // OBLIGATOIRE pour tester "DamianPhp\Auth\Auth".
 
             private const FAKE_ID = 1;

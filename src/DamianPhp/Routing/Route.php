@@ -24,6 +24,12 @@ class Route
 {
     use RoutingTrait;
 
+    public const REGEX_ID = '[0-9]+';
+
+    public const REGEX_SLUG = '[0-9a-z\-]+';
+
+    public const REGEX_KEY = '[0-9a-z]+';
+
     /**
      * Chemin d'URL.
      */
@@ -47,20 +53,14 @@ class Route
     private array $matches = [];
 
     /**
-     * Pour le pattern() (wheres seront prioritaires par rapport aux patterns).
-     */
-    private static array $patterns = [];
-
-    /**
      * Pour le where().
      */
     private array $wheres = [];
 
-    public const REGEX_ID = '[0-9]+';
-
-    public const REGEX_SLUG = '[0-9a-z\-]+';
-
-    public const REGEX_KEY = '[0-9a-z]+';
+    /**
+     * Pour le pattern() (wheres seront prioritaires par rapport aux patterns).
+     */
+    private static array $patterns = [];
 
     /**
      * @param string|callable $callable

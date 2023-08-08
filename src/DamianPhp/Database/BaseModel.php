@@ -28,6 +28,11 @@ abstract class BaseModel implements BaseModelInterface
     protected string $table;
 
     /**
+     * Les attributs qui sont assignables en masse.
+     */
+    protected array $fillable = [];
+
+    /**
      * Table avec préfix.
      */
     private string $dbTable;
@@ -55,11 +60,6 @@ abstract class BaseModel implements BaseModelInterface
     private ?int $rowCount = null;
 
     private Paginated $paginated;
-
-    /**
-     * Les attributs qui sont assignables en masse.
-     */
-    protected array $fillable = [];
 
     public function __construct()
     {

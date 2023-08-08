@@ -13,13 +13,13 @@ use DamianPhp\Support\Helper;
  */
 class ButtonGenerator
 {
+    private const OPTIONS_KEYS_ALLOWED = ['name', 'class', 'id', 'style'];
+
     private string $html;
 
     private ?string $value;
 
     private array $options = [];
-
-    private const OPTIONS_KEYS_ALLOWED = ['name', 'class', 'id', 'style'];
 
     /**
      * @param $value string|null - Texte à affiche dans le button.

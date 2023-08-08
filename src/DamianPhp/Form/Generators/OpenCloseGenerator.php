@@ -15,9 +15,9 @@ use DamianPhp\Support\Facades\Request;
  */
 class OpenCloseGenerator
 {
-    private string $html;
-
     private const OPTIONS_KEYS_ALLOWED = ['id', 'class', 'style'];
+
+    private string $html;
 
     /**
      * Ouvrir un formulaire.

@@ -15,6 +15,11 @@ use DamianPhp\Support\Facades\Request;
  */
 class SelectGenerator
 {
+    /**
+     * Pour les options que l'on "push" dans le html de la balise select.
+     */
+    private const OPTIONS_KEYS_ALLOWED = ['id', 'class', 'style'];
+
     private string $html;
 
     private string $name;
@@ -24,11 +29,6 @@ class SelectGenerator
     private null|int|string $selectedPerDefault;
 
     private array $options = [];
-
-    /**
-     * Pour les options que l'on "push" dans le html de la balise select.
-     */
-    private const OPTIONS_KEYS_ALLOWED = ['id', 'class', 'style'];
 
     /**
      * @param string $name - Name du <select>

@@ -23,6 +23,11 @@ use DamianPhp\Contracts\Routing\RouterInterface;
 class ResourceRegistrar
 {
     /**
+     * Toutes les actions que peut avoir une resource.
+     */
+    private const RESOURCE_ACTIONS = ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'];
+
+    /**
      * L'instance router.
      */
     private RouterInterface $router;
@@ -31,11 +36,6 @@ class ResourceRegistrar
      * Path des routes de resource.
      */
     private array $pathResource = [];
-
-    /**
-     * Toutes les actions que peut avoir une resource.
-     */
-    private const RESOURCE_ACTIONS = ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'];
 
     /**
      *  ResourceRegistrarconstructor.

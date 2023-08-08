@@ -19,8 +19,6 @@ use DamianPhp\Contracts\Database\Connectors\ConnectorInterface;
  */
 abstract class Connector implements ConnectorInterface
 {
-    private PDO $connection;
-
     protected string $connector;
 
     protected string $dsn;
@@ -30,6 +28,8 @@ abstract class Connector implements ConnectorInterface
     protected string $password;
 
     protected array $options = [];
+
+    private PDO $connection;
 
     /**
      * DSN + Identification + Options - Iront dans paramètres de l'instance de PDO.

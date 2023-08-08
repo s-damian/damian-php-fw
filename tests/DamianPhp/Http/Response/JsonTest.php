@@ -7,13 +7,13 @@ use DamianPhp\Http\Response\Json;
 
 class JsonTest extends BaseTest
 {
-    private Json $json;
-
     private const ARRAY_TEST = [
         'aaa' => 'Valeur A',
         'bbb' => 'Valeur B',
         'ccc' => 'Valeur C',
     ];
+
+    private Json $json;
 
     public function setUp(): void
     {

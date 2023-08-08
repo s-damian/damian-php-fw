@@ -17,13 +17,6 @@ use DamianPhp\Support\Helper;
 abstract class HttpKernel
 {
     /**
-     * Key(s) passée(s) en param du Middleware dans Controller
-     *
-     * @var array|string
-     */
-    private array|string $key;
-
-    /**
      * The application's route middleware.
      *
      * - To load a specific class and method:
@@ -38,6 +31,13 @@ abstract class HttpKernel
         // Admin :
         'admin_is_logged' => [\App\Http\Middlewares\Admin\IsLogged::class, 'isConnected'],
     ];
+
+    /**
+     * Key(s) passée(s) en param du Middleware dans Controller
+     *
+     * @var array|string
+     */
+    private array|string $key;
 
     public function __construct(array|string $key)
     {

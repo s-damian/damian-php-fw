@@ -15,12 +15,29 @@ use DamianPhp\Contracts\Database\BaseModelInterface;
  */
 class Query
 {
-    private BaseModelInterface $model;
+    /**
+     * Opérateurs arithmétiques.
+     */
+    private const ARITHMETIC_OPERATORS = [
+        '+', '-', '*', '/', '%',
+    ];
 
     /**
-     * Pour retourner connexion de la BDD avec PDO.
+     * Opérateurs de comparaison.
      */
-    private static ?PDO $connection = null;
+    private const COMPARAISON_OPERATORS = [
+        '=', '<', '>', '<=', '>=', '<>', '!=', '!<', '!>',
+        'LIKE', 'NOT LIKE', 'IN', 'NOT IN', 'BETWEEN', 'IS NULL', 'IS NOT NULL', 'EXISTS',
+    ];
+
+    /**
+     * Opérateurs logiques.
+     */
+    private const LOGIC_OPERATORS = [
+        'WHERE', 'AND', 'OR',
+    ];
+
+    private BaseModelInterface $model;
 
     /**
      * Pour éventuellement utiliser une autre BDD que celle par defaut.
@@ -93,26 +110,9 @@ class Query
     private int $positioningMarker = 1;
 
     /**
-     * Opérateurs arithmétiques.
+     * Pour retourner connexion de la BDD avec PDO.
      */
-    private const ARITHMETIC_OPERATORS = [
-        '+', '-', '*', '/', '%',
-    ];
-
-    /**
-     * Opérateurs de comparaison.
-     */
-    private const COMPARAISON_OPERATORS = [
-        '=', '<', '>', '<=', '>=', '<>', '!=', '!<', '!>',
-        'LIKE', 'NOT LIKE', 'IN', 'NOT IN', 'BETWEEN', 'IS NULL', 'IS NOT NULL', 'EXISTS',
-    ];
-
-    /**
-     * Opérateurs logiques.
-     */
-    private const LOGIC_OPERATORS = [
-        'WHERE', 'AND', 'OR',
-    ];
+    private static ?PDO $connection = null;
 
     public function __construct(BaseModelInterface $model)
     {

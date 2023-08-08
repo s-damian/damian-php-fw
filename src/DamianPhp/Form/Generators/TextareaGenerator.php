@@ -15,6 +15,8 @@ class TextareaGenerator
 {
     use GeneratorTrait;
 
+    private const OPTIONS_KEYS_ALLOWED = ['id', 'class', 'placeholder', 'style'];
+
     private string $html;
 
     private string $name;
@@ -22,8 +24,6 @@ class TextareaGenerator
     private string $value;
 
     private array $options = [];
-
-    private const OPTIONS_KEYS_ALLOWED = ['id', 'class', 'placeholder', 'style'];
 
     /**
      * @param string $name - Name du textarea.

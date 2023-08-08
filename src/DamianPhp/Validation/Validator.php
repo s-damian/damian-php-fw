@@ -28,17 +28,30 @@ use DamianPhp\Contracts\Validation\ValidatorInterface;
  */
 class Validator implements ValidatorInterface
 {
+    public const REGEX_CHARACTERS_PROHIBITED_NAME_FILE = '/[\/:*?"<>|\\\\ ]/';
+
+    private const REGEX_TEL = '/^[0-9-+(),;._ \/]{4,20}$/';
+
+    private const REGEX_SLUG = '/^[a-z0-9\-]+$/';
+
+    private const REGEX_ALPHA = '/^[a-z]+$/i';
+
+    private const REGEX_INTEGER = '/^[0-9]+$/';
+
+    private const REGEX_ALPHA_NUMERIC = '/^[a-z0-9]+$/i';
+
+    private const REGEX_DATE_TIME = '#^\d{2}/\d{2}/\d{4} \d{2}:\d{2}$#';
+
+    private const REGEX_DATE = '#^\d{2}/\d{2}/\d{4}$#';
+
+    private const REGEX_POSTALE_CODE = '/^[0-9]{5}$/';
+
     private Request $request;
 
     /**
      * $_POST ou $_GET - Sera $_POST par defaut.
      */
     private array $requestMethod;
-
-    /**
-     * Les éventuels règles da validation pour un traitement spécifique.
-     */
-    private static array $extends = [];
 
     /**
      * Pour éventuellement personnaliser certains attributs de validation.
@@ -70,23 +83,10 @@ class Validator implements ValidatorInterface
      */
     private array $messageErrorsSpecified = [];
 
-    private const REGEX_TEL = '/^[0-9-+(),;._ \/]{4,20}$/';
-
-    private const REGEX_SLUG = '/^[a-z0-9\-]+$/';
-
-    private const REGEX_ALPHA = '/^[a-z]+$/i';
-
-    private const REGEX_INTEGER = '/^[0-9]+$/';
-
-    private const REGEX_ALPHA_NUMERIC = '/^[a-z0-9]+$/i';
-
-    private const REGEX_DATE_TIME = '#^\d{2}/\d{2}/\d{4} \d{2}:\d{2}$#';
-
-    private const REGEX_DATE = '#^\d{2}/\d{2}/\d{4}$#';
-
-    private const REGEX_POSTALE_CODE = '/^[0-9]{5}$/';
-
-    public const REGEX_CHARACTERS_PROHIBITED_NAME_FILE = '/[\/:*?"<>|\\\\ ]/';
+    /**
+     * Les éventuels règles da validation pour un traitement spécifique.
+     */
+    private static array $extends = [];
 
     public function __construct(array $requestMethod = [])
     {

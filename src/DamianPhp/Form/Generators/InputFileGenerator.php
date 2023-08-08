@@ -13,13 +13,13 @@ use DamianPhp\Support\Helper;
  */
 class InputFileGenerator
 {
+    private const OPTIONS_KEYS_ALLOWED = ['id', 'class', 'style'];
+
     private string $html;
 
     private string $name;
 
     private array $options = [];
-
-    private const OPTIONS_KEYS_ALLOWED = ['id', 'class', 'style'];
 
     /**
      * @param string $name - Name de l'input.

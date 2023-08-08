@@ -18,6 +18,14 @@ use DamianPhp\Contracts\Pagination\PaginationInterface;
  */
 class Pagination implements PaginationInterface
 {
+    public const PAGE_NAME = 'page';
+
+    public const PER_PAGE_NAME = 'pp';
+
+    public const PER_PAGE_OPTION_ALL = 'all';
+
+    public const REGEX_INTEGER = '/^[0-9]+$/';
+
     private Request $request;
 
     private ?int $getP = null;
@@ -98,14 +106,6 @@ class Pagination implements PaginationInterface
     private string $cssIdPP;
 
     private HtmlRenderer $htmlRenderer;
-
-    public const PAGE_NAME = 'page';
-
-    public const PER_PAGE_NAME = 'pp';
-
-    public const PER_PAGE_OPTION_ALL = 'all';
-
-    public const REGEX_INTEGER = '/^[0-9]+$/';
 
     public function __construct(array $options = [])
     {
