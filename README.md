@@ -15,7 +15,7 @@
 
 > A powerful PHP Framework in PHP 8.3 - Beautiful code & Elegant syntax
 
-> Compatible with MySQL / MariaDB / PostgreSQL
+> **SGBDR**: Compatible with MySQL / MariaDB / PostgreSQL
 
 This **Open Source Framework** is developed by [Stephen Damian](https://github.com/s-damian)
 
