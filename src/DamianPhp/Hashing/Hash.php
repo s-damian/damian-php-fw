@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Hashing;
 
 use DamianPhp\Support\Helper;

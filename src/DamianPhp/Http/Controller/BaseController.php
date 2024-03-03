@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Http\Controller;
 
 use DamianPhp\Support\Helper;

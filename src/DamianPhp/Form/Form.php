@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Form;
 
 use DamianPhp\Contracts\Form\FormInterface;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Validation;
 
 use DamianPhp\Support\Helper;

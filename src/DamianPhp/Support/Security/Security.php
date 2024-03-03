@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Support\Security;
 
 use DamianPhp\Support\Helper;
-use DamianPhp\Support\Facades\Str as StrF;
 
 /**
  * Sécurité - Faille XSS, faille CSRF, cryptage, extension upload.

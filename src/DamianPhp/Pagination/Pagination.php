@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Pagination;
 
 use DamianPhp\Http\Request\Request;

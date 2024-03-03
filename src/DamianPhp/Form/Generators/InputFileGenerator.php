@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Form\Generators;
 
 use DamianPhp\Support\Helper;

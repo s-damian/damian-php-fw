@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Log;
 
 use DamianPhp\Support\Helper;

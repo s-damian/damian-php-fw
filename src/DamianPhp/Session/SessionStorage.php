@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Session;
 
 use DamianPhp\Support\Helper;

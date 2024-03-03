@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Http\Response;
 
 use DamianPhp\Support\Helper;
@@ -103,7 +105,7 @@ class Response implements ResponseInterface
     /**
      * @param int - Code de la réponse HTTP.
      */
-    public function getHttpResponseCode(): int
+    public function getHttpResponseCode(): int|bool
     {
         return http_response_code();
     }

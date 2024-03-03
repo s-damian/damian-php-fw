@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Support\String;
 
 use DamianPhp\Support\Facades\Input;
@@ -192,7 +194,16 @@ class Str
         if (mb_strlen($valueStr) > $limit) {
             $str = mb_substr($valueStr, 0, $limit);
             $pSpace = strrpos($str, ' ');
-            $text = mb_substr($str, 0, $pSpace);
+
+            // Vérifier si $pSpace est false et gérer ce cas
+            if ($pSpace === false) {
+                // Si aucun espace n'est trouvé, utiliser la longueur complète de $str
+                $text = $str;
+            } else {
+                // Si un espace est trouvé, couper la chaîne à cet endroit
+                $text = mb_substr($str, 0, $pSpace);
+            }
+
             $points = '...';
         } else {
             $text = $valueStr;

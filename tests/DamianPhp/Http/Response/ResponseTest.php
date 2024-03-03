@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\DamianPhp\Http\Response;
 
 use Tests\BaseTest;
@@ -16,7 +18,7 @@ class ResponseTest extends BaseTest
 
     public function testGetHttpResponseCode(): void
     {
-        $this->assertTrue(is_int($this->response->getHttpResponseCode()));
+        $this->assertTrue(is_int($this->response->getHttpResponseCode()) || is_bool($this->response->getHttpResponseCode()));
     }
 
     public function testAlertSuccess(): void

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Contracts\Validation;
 
 use DamianPhp\Validation\Message;

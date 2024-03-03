@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Database;
 
 use PDO;
@@ -568,7 +570,7 @@ abstract class BaseModel implements BaseModelInterface
 
         $this->query->close();
 
-        return $result->nb;
+        return is_string($result->nb) ? (float) $result->nb : $result->nb;
     }
 
     /**
@@ -649,9 +651,9 @@ abstract class BaseModel implements BaseModelInterface
     }
 
     /**
-     * @return int - Dernier ID inséré par auto-incrémentation.
+     * @return int|string|false - Dernier ID inséré par auto-incrémentation.
      */
-    final public function getLastInsertId(): int
+    final public function getLastInsertId(): int|string|false
     {
         return (int) $this->query->getLastInsertId();
     }

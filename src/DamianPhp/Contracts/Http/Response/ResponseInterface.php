@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Contracts\Http\Response;
 
 /**
@@ -12,7 +14,7 @@ interface ResponseInterface
     /**
      * @param int - Code de la réponse HTTP.
      */
-    public function getHttpResponseCode(): int;
+    public function getHttpResponseCode(): int|bool;
 
     /**
      * Spécifier l'en-tête HTTP de l'affichage d'une vue.

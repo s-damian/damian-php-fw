@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Filesystem;
 
 use DamianPhp\Support\Facades\Input;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Support\Security;
 
 use DamianPhp\Support\Helper;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Routing;
 
 use DamianPhp\Support\Helper;

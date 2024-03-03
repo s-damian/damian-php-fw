@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Auth;
 
 use DamianPhp\Support\Facades\Cookie;

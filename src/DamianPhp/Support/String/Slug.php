@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Support\String;
 
 use DamianPhp\Date\Date;
@@ -88,7 +90,7 @@ class Slug implements SlugInterface
      */
     private function cleanKeywords(): void
     {
-        if (mb_strlen($this->str > 1)) {
+        if ($this->str > 1) {
             $this->str = preg_replace('# {1,1000}#', '-', $this->str);
             $this->str = preg_replace('#-{1,1000}#', '-', $this->str);
             $this->str = preg_replace('#,{1,1000}#', ',', $this->str);

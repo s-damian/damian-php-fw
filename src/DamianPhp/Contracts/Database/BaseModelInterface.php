@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Contracts\Database;
 
 use DamianPhp\Pagination\Pagination;
@@ -199,9 +201,9 @@ interface BaseModelInterface
     public function update(array $data): void;
 
     /**
-     * @return int - Dernier ID inséré par auto-incrémentation.
+     * @return int|string|false - Dernier ID inséré par auto-incrémentation.
      */
-    public function getLastInsertId(): int;
+    public function getLastInsertId(): int|string|false;
 
     /**
      * Pour les requetes SQL DELETE - Supprimer ligne(s) dans une table.

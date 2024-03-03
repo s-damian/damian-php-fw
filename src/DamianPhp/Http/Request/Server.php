@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Http\Request;
 
 use DamianPhp\Contracts\Http\Request\ServerInterface;

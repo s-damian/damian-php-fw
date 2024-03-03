@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Validation;
 
 use DateTime;
@@ -570,7 +572,7 @@ class Validator implements ValidatorInterface
      * @param string $key - Key dans le tableau inclut dans resources/lang...
      * @param null|array|string $value - Pour éventuellemnt {value} dans le tableau inclut dans resources/lang...
      */
-    private function pushError(string $key, array|string $value = null): string
+    private function pushError(string $key, array|string|int $value = null): string
     {
         $errorMessage = str_replace('{field}', $this->label, Helper::lang('validation')[$key]);
 
@@ -578,11 +580,15 @@ class Validator implements ValidatorInterface
             if (is_array($value)) { // utile pour 'between'
                 $i = 0;
                 foreach ($value as $v_null) {
-                    $errorMessage = str_replace('{value_'.$i.'}', $value[$i], $errorMessage);
+                    $v = is_int($value[$i]) ? (string) $value[$i] : $value[$i];
+
+                    $errorMessage = str_replace('{value_'.$i.'}', $v, $errorMessage);
                     $i++;
                 }
             } else {
-                $errorMessage = str_replace('{value}', $value, $errorMessage);
+                $v = is_int($value) ? (string) $value : $value;
+
+                $errorMessage = str_replace('{value}', $v, $errorMessage);
             }
         }
 

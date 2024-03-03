@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Database;
 
 use PDO;
@@ -722,9 +724,9 @@ class Query
     }
 
     /**
-     * @return int - Dernier ID inséré par auto-incrémentation.
+     * @return int|string|false - Dernier ID inséré par auto-incrémentation.
      */
-    public function getLastInsertId(): int
+    public function getLastInsertId(): int|string|false
     {
         return $this->getConnection()->lastInsertId();
     }

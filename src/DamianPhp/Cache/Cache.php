@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianPhp\Cache;
 
 use DamianPhp\Support\Helper;
