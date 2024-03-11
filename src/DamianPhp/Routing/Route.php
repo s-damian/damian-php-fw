@@ -297,16 +297,16 @@ class Route
     {
         if (is_array($params)) {
             foreach ($params as $k => $v) {
-                $path = str_replace('{'.$k.'}', $v, $path);
+                $path = str_replace('{'.$k.'}', (string) $v, $path);
             }
         } elseif (is_object($params)) {
             if (! property_exists($params, 'id')) {
                 Helper::getExceptionOrLog('Property "id" not exists in class "'.$params.'".');
             }
 
-            $path = str_replace('{id}', $params->id, $path);
+            $path = str_replace('{id}', (string) $params->id, $path);
         } elseif (is_string($params) || is_int($params)) {
-            $path = str_replace('{id}', $params, $path);
+            $path = str_replace('{id}', (string) $params, $path);
         }
 
         return $path;
