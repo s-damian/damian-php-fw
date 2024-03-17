@@ -40,7 +40,7 @@ class ExceptionHandler extends Exception implements ExceptionHandlerInterface
         if (Helper::config('app')['debug']) {
             $this->runException($message);
         } else {
-            Log::errorDamianPhp('Exception in '.get_class().' on line '.__LINE__.': '.$message);
+            Log::errorDamianPhp('Exception in '.self::class.' on line '.__LINE__.': '.$message);
         }
     }
 

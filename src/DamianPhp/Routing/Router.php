@@ -397,7 +397,7 @@ class Router implements RouterInterface
     private function verifyRequestMethodHasRoutes(): void
     {
         if (! isset($this->routes[Request::getMethod()])) {
-            Log::errorDamianPhp('Method "'.Request::getMethod().'" does not exist for URI "'.$this->uri.'" in '.get_class().' on line '.__LINE__.'.');
+            Log::errorDamianPhp('Method "'.Request::getMethod().'" does not exist for URI "'.$this->uri.'" in '.self::class.' on line '.__LINE__.'.');
 
             Helper::getExceptionOrGetError404('Method "'.Request::getMethod().'" does not exist for URI "'.$this->uri.'".');
         }

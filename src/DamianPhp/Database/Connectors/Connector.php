@@ -79,7 +79,7 @@ abstract class Connector implements ConnectorInterface
 
     private function ifCatch(PDOException $e): never
     {
-        Log::errorDamianPhp('PDOException in class in '.get_class().' on line '.__LINE__.'. Error message: '.$e->getMessage());
+        Log::errorDamianPhp('PDOException in class in '.self::class.' on line '.__LINE__.'. Error message: '.$e->getMessage());
 
         if (Helper::config('app')['debug']) {
             exit('Error: '.$e->getMessage());

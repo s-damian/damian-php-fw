@@ -181,7 +181,7 @@ class Route
         } elseif (is_callable($this->callable)) {  // pour closure
             return call_user_func_array($this->callable, $this->getParametersForCall());
         } else {
-            Log::errorDamianPhp('Property "callable" of Routing must be a string or a callable in class in '.get_class().' on line '.__LINE__.'.');
+            Log::errorDamianPhp('Property "callable" of Routing must be a string or a callable in class in '.self::class.' on line '.__LINE__.'.');
 
             Helper::getExceptionOrGetError404('Property "callable" of Routing must be a string or a callable.');
 
