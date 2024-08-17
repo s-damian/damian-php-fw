@@ -16,7 +16,7 @@ use DamianPhp\Contracts\Database\BaseModelInterface;
 
 /**
  * Classe client.
- * Model parent de tout les Models de l'application qui ont besoin de la base de données.
+ * Model parent de tous les Models de l'application qui ont besoin de la base de données.
  *
  * @author  Stephen Damian <contact@damian-freelance.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT

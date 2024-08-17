@@ -22,7 +22,7 @@ interface ApplicationInterface
     public function ifError(): void;
 
     /**
-     * Charger tout les Services Providers.
+     * Charger tous les Services Providers.
      */
     public function initProviders(): void;
 

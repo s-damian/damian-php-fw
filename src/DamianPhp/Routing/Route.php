@@ -223,7 +223,7 @@ class Route
 
         $injectionsForConstruct = []; // on push les injections de methodes
         $injectionsForAction = []; // on push les injections de methodes
-        // on parcours tout les paramètres de l'action ou de la closure
+        // on parcours tous les paramètres de l'action ou de la closure
         foreach ($reflectionClass->getConstructor()->getParameters() as $parameter) {
             $classInjected = $parameter->getType() && ! $parameter->getType()->isBuiltin()
                 ? new ReflectionClass($parameter->getType()->getName())
@@ -255,7 +255,7 @@ class Route
 
         $injectionsWithMatches = []; // on fusionne les injections de methodes avec les matches de l'URL
         $i = 0; // pour qu'on puisse mettre dans n'importe quel ordre les matches et injections dans paramètres des function
-        // on parcours tout les paramètres de l'action ou de la closure
+        // on parcours tous les paramètres de l'action ou de la closure
         foreach ($reflectionFunction->getParameters() as $parameter) {
             $classInjected = $parameter->getType() && (method_exists($parameter->getType(), 'isBuiltin') && ! $parameter->getType()->isBuiltin())
                 ? new ReflectionClass($parameter->getType()->getName())

@@ -44,7 +44,7 @@ class ParameterBag
     }
 
     /**
-     * Supprimer tout les paramètres
+     * Supprimer tous les paramètres
      */
     public function clear(): void
     {

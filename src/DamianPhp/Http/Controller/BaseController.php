@@ -10,7 +10,7 @@ use DamianPhp\Support\Facades\Response;
 
 /**
  * Controller parent de App\Http\Controllers\Controller
- * qui est lui meme controller parent de tout les controllers de l'application
+ * qui est lui meme controller parent de tous les controllers de l'application
  *
  * @author  Stephen Damian <contact@damian-freelance.fr>
  * @license http://www.opensource.org/licenses/mit-license.php MIT

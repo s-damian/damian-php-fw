@@ -9,7 +9,7 @@ use DamianPhp\Form\Form;
 
 /**
  * On test que les méthodes de la classe Form renvoyent bien des string.
- * On fait les test sans préciser les paramètres optionels, et on refait le test en précisant tout les paramètres possibles
+ * On fait les test sans préciser les paramètres optionels, et on refait le test en précisant tous les paramètres possibles
  */
 class FormTest extends BaseTest
 {

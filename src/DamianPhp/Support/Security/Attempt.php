@@ -26,7 +26,7 @@ use App\Models\Attempt as AttemptModel;
  *
  * PS :
  * Un user bloqué, sera bloqué de uniquement des formuilaires en fonction du WHERE 'auth';
- * Si on met 'ip' pour 'field', on mettera le même 'auth' (histoire de bloquer l'IP de tout les formulaures 'auth').
+ * Si on met 'ip' pour 'field', on mettera le même 'auth' (histoire de bloquer l'IP de tous les formulaures 'auth').
  * Si on met 'username' pour 'field', on ne mettera pas le même 'auth' (histoire de bloquer un username uniquement sur un seul espace membres).
  *
  * @author  Stephen Damian <contact@damian-freelance.fr>

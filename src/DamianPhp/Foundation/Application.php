@@ -57,7 +57,7 @@ class Application implements ApplicationInterface
     }
 
     /**
-     * Charger tout les Services Providers.
+     * Charger tous les Services Providers.
      */
     public function initProviders(): void
     {
