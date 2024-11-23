@@ -113,7 +113,7 @@ class Response implements ResponseInterface
     /**
      * Spécifier l'en-tête HTTP de l'affichage d'une vue.
      */
-    public function header(string $content, string $type = null): void
+    public function header(string $content, ?string $type = null): void
     {
         if ($type) {
             header($content.': '.$type.'; charset='.Helper::config('app')['charset']);
@@ -125,7 +125,7 @@ class Response implements ResponseInterface
     /**
      * Rediriger.
      */
-    public function redirect(string $url, int $httpResponseCodeParam = null): never
+    public function redirect(string $url, ?int $httpResponseCodeParam = null): never
     {
         if ($httpResponseCodeParam) {
             if (array_key_exists($httpResponseCodeParam, self::STATUS_CODE)) {

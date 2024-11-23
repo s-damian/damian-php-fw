@@ -11,7 +11,7 @@ namespace DamianPhp\Support\Facades;
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @link    https://github.com/s-damian
  *
- * @method static void header(string $content, string $type = null)
+ * @method static void header(string $content, ?string $type = null)
  */
 final class Response extends Facade
 {

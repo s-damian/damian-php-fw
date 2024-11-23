@@ -19,12 +19,12 @@ interface ResponseInterface
     /**
      * Spécifier l'en-tête HTTP de l'affichage d'une vue.
      */
-    public function header(string $content, string $type = null): void;
+    public function header(string $content, ?string $type = null): void;
 
     /**
      * Rediriger.
      */
-    public function redirect(string $url, int $httpResponseCodeParam = null);
+    public function redirect(string $url, ?int $httpResponseCodeParam = null);
 
     /**
      * Retourner le contenu d'un fichier .php en string.

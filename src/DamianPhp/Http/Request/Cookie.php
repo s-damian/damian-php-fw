@@ -35,7 +35,7 @@ class Cookie implements CookieInterface
      * @param bool|null $secure - Indique si le cookie doit uniquement être transmis à travers une connexion sécurisée HTTPS depuis le client.
      * @param bool|null $httponly - Lorsque ce paramètre vaut TRUE, le cookie ne sera accessible que par le protocole HTTP (ne sera pas éditable en JS...).
      */
-    public function put(string $name, string $value = '', int $minutes = null, string $path = null, string $domain = null, bool $secure = null, bool $httponly = null)
+    public function put(string $name, string $value = '', ?int $minutes = null, ?string $path = null, ?string $domain = null, ?bool $secure = null, ?bool $httponly = null)
     {
         if ($minutes === 0) {
             $expireValue = 0;
@@ -73,7 +73,7 @@ class Cookie implements CookieInterface
      * @param string|null $path - Le chemin sur le serveur sur lequel le cookie sera disponible.
      * @param string|null $domain - Le domaine pour lequel le cookie est disponible.
      */
-    public function destroy(string $name, string $path = null, string $domain = null): void
+    public function destroy(string $name, ?string $path = null, ?string $domain = null): void
     {
         $pathValue = $path ?? Helper::config('cookie')['path'];
 

@@ -572,7 +572,7 @@ class Validator implements ValidatorInterface
      * @param string $key - Key dans le tableau inclut dans resources/lang...
      * @param null|array|string $value - Pour éventuellemnt {value} dans le tableau inclut dans resources/lang...
      */
-    private function pushError(string $key, array|string|int $value = null): string
+    private function pushError(string $key, array|string|int|null $value = null): string
     {
         $errorMessage = str_replace('{field}', $this->label, Helper::lang('validation')[$key]);
 

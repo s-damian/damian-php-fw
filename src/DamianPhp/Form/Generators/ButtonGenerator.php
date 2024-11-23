@@ -27,7 +27,7 @@ class ButtonGenerator
      * @param $value string|null - Texte à affiche dans le button.
      * @param array $options - Pour éventuellement ajouter au label id, class css.
      */
-    public function __construct(string $value = null, array $options = [])
+    public function __construct(?string $value = null, array $options = [])
     {
         $this->value = $value;
         $this->options = $options;

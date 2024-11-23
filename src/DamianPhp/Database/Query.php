@@ -572,14 +572,14 @@ class Query
     /**
      * Préparer la requete SQL.
      */
-    public function prepare(string $sql = null): self
+    public function prepare(?string $sql = null): self
     {
         $this->sqlQuery = $this->getConnection()->prepare($this->getSql($sql));
 
         return $this;
     }
 
-    private function getSql(string $sql = null): string
+    private function getSql(?string $sql = null): string
     {
         if ($sql) {
             $sqlQuery = $sql;

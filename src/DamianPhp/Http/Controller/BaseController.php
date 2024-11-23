@@ -200,7 +200,7 @@ abstract class BaseController
     /**
      * Spécifier l'en-tête HTTP de l'affichage d'une vue.
      */
-    final protected function header(string $content, string $type = null): self
+    final protected function header(string $content, ?string $type = null): self
     {
         Response::header($content, $type);
 
@@ -210,7 +210,7 @@ abstract class BaseController
     /**
      * Redirections.
      */
-    final protected function redirect(string $path, int $httpResponseCodeParam = null): mixed
+    final protected function redirect(string $path, ?int $httpResponseCodeParam = null): mixed
     {
         return Response::redirect($path, $httpResponseCodeParam);
     }

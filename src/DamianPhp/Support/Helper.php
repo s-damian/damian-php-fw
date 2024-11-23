@@ -55,7 +55,7 @@ class Helper
      * @param string|null $file
      * @return string
      */
-    public static function publicPath(string $file = null): string
+    public static function publicPath(?string $file = null): string
     {
         $pathPrefix = dirname(dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))));
 
@@ -69,7 +69,7 @@ class Helper
     /**
      * Path du dossier racine qui contient toute l'application.
      */
-    public static function basePath(string $file = null): string
+    public static function basePath(?string $file = null): string
     {
         $pathPrefix = dirname(dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))));
 
@@ -83,7 +83,7 @@ class Helper
     /**
      * Path du dossier de storage.
      */
-    public static function storagePath(string $file = null): string
+    public static function storagePath(?string $file = null): string
     {
         $slash = $file !== null ? '/' : '';
 

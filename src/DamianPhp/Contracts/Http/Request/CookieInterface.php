@@ -22,7 +22,7 @@ interface CookieInterface
      * @param bool|null $secure - Indique si le cookie doit uniquement être transmis à travers une connexion sécurisée HTTPS depuis le client.
      * @param bool|null $httponly - Lorsque ce paramètre vaut TRUE, le cookie ne sera accessible que par le protocole HTTP (ne sera pas éditable en JS...).
      */
-    public function put(string $name, string $value = '', int $expire = null, string $path = '/', string $domain = '', bool $secure = false, bool $httpOnly = true);
+    public function put(string $name, string $value = '', ?int $expire = null, string $path = '/', string $domain = '', bool $secure = false, bool $httpOnly = true);
 
     public function has(string $name): bool;
 

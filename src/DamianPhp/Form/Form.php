@@ -144,7 +144,7 @@ class Form implements FormInterface
     /**
      * Générer un input de type "submit".
      */
-    public function submit(string $name = 'submit', string $value = null, array $options = []): string
+    public function submit(string $name = 'submit', ?string $value = null, array $options = []): string
     {
         $htmlValue = $value ?? lang('form')['submit'];
 
@@ -165,7 +165,7 @@ class Form implements FormInterface
      * @param $value string|null - Texte à affiche dans le button.
      * @param array $options - Pour éventuellement ajouter au label id, class css.
      */
-    public function button(string $value = null, array $options = []): string
+    public function button(?string $value = null, array $options = []): string
     {
         return (new ButtonGenerator($value, $options))->get();
     }

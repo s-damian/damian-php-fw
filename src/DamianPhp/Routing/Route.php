@@ -67,7 +67,7 @@ class Route
     /**
      * @param string|callable $callable
      */
-    public function __construct(string $path, string|callable $callable, string $middleware = null)
+    public function __construct(string $path, string|callable $callable, ?string $middleware = null)
     {
         $this->path = $path;
         $this->callable = $callable;
@@ -243,7 +243,7 @@ class Route
      * pour éventuellement utiliser l'injection de méthode dans l'action du controller,
      * ou pour éventuellement utiliser l'injection de méthode dans closure.
      */
-    private function getParametersForCall(mixed $controller = null, string $action = null, array $injectionsInConstruct = []): array
+    private function getParametersForCall(mixed $controller = null, ?string $action = null, array $injectionsInConstruct = []): array
     {
         if ($controller && $action) {
             // pour controller@action

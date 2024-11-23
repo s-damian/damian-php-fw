@@ -13,18 +13,18 @@
 
 # Damian PHP Framework - Kernel
 
-> A powerful PHP Framework in **PHP 8.3** - Beautiful code & Elegant syntax
+> A powerful PHP Framework in **PHP 8.4** - Beautiful code & Elegant syntax
 
 > SGBDR: Compatible with **MySQL** / **MariaDB** / **PostgreSQL**
 
 This **Open Source Framework** is developed by [Stephen Damian](https://github.com/s-damian)
 
-Here you have the source codes of the ```Kernel```.
+Here you have the source codes of the `Kernel`.
 
 
 ### Framework skeleton
 
-The Framework ```skeleton``` is in this package:
+The Framework `skeleton` is in this package:
 
 [Damian PHP Framework - Skeleton - [damian-php]](https://github.com/s-damian/damian-php)
 

@@ -26,7 +26,7 @@ if (! function_exists('publicPath')) {
     /**
      * Path du dossier racine public.
      */
-    function publicPath(string $file = null): string
+    function publicPath(?string $file = null): string
     {
         return Helper::publicPath($file);
     }
@@ -36,7 +36,7 @@ if (! function_exists('basePath')) {
     /**
      * Path du dossier racine qui contient toute l'application.
      */
-    function basePath(string $file = null): string
+    function basePath(?string $file = null): string
     {
         return Helper::basePath($file);
     }
@@ -46,7 +46,7 @@ if (! function_exists('storagePath')) {
     /**
      * Path du dossier de storage.
      */
-    function storagePath(string $file = null)
+    function storagePath(?string $file = null)
     {
         return Helper::storagePath($file);
     }

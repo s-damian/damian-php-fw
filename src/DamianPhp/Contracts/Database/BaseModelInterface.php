@@ -129,7 +129,7 @@ interface BaseModelInterface
     /**
      * @return $this - Object hydraté, ou erreur HTTP 404.
      */
-    public function findOrFail(int $id = null): self;
+    public function findOrFail(?int $id = null): self;
 
     /**
      * Pour les requetes SQL qui retournent une seule ligne.

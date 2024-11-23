@@ -58,7 +58,7 @@ class Cache implements CacheInterface
      *
      * @param null|int $minutes - Eventuellement définir une durée de vie au fichier (pour le mettre à jour).
      */
-    public function get(string $file, int $minutes = null): mixed
+    public function get(string $file, ?int $minutes = null): mixed
     {
         if (! $this->has($file)) {
             return false;
@@ -84,7 +84,7 @@ class Cache implements CacheInterface
      *
      * @param null|int $minutes - Eventuellement définir une durée de vie au fichier (pour le mettre à jour).
      */
-    public function getToObject(string $file, int $minutes = null): mixed
+    public function getToObject(string $file, ?int $minutes = null): mixed
     {
         $value = $this->get($file, $minutes);
 
@@ -100,7 +100,7 @@ class Cache implements CacheInterface
      *
      * @param int|null $minutes - Eventuellement définir une durée de vie au fichier (pour le mettre à jour).
      */
-    public function getToArray(string $file, int $minutes = null): mixed
+    public function getToArray(string $file, ?int $minutes = null): mixed
     {
         $value = $this->get($file, $minutes);
 
@@ -150,7 +150,7 @@ class Cache implements CacheInterface
      *
      * @param string $directory - Eventuel dossier (pour supprimer que un dossier spécifique).
      */
-    public function clear(string $directory = null): void
+    public function clear(?string $directory = null): void
     {
         $pathToFiles = ($directory !== null) ? $this->direname.'/'.$directory : $this->direname;
         $files = glob($pathToFiles.'/*', GLOB_MARK);

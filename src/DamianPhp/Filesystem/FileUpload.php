@@ -43,7 +43,7 @@ class FileUpload implements FileInterface
      * @param array|null $options - Eventuelles options.
      * - $options['prefix'] string
      */
-    public function __construct(string $path, string $input = null, array $options = [])
+    public function __construct(string $path, ?string $input = null, array $options = [])
     {
         $this->path = $path;
         $this->input = $input;

@@ -416,7 +416,7 @@ abstract class BaseModel implements BaseModelInterface
     /**
      * @return $this - Object hydraté, ou erreur HTTP 404.
      */
-    final public function findOrFail(int $id = null): self
+    final public function findOrFail(?int $id = null): self
     {
         $result = $this->first($id);
 
@@ -434,7 +434,7 @@ abstract class BaseModel implements BaseModelInterface
      *
      * @return null|$this - Object hydraté.
      */
-    final public function find(int $id = null): ?self
+    final public function find(?int $id = null): ?self
     {
         $result = $this->first($id);
 
@@ -450,7 +450,7 @@ abstract class BaseModel implements BaseModelInterface
     /**
      * Pour retourner le résultat d'une requete SQL qui retourne une seule ligne.
      */
-    private function first(int $id = null): mixed
+    private function first(?int $id = null): mixed
     {
         $this->firstIsSelected = true; // utile pour active record
 

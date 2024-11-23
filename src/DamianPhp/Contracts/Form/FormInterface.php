@@ -93,7 +93,7 @@ interface FormInterface
     /**
      * Générer un input de type "submit".
      */
-    public function submit(string $name = 'submit', string $value = null, array $options = []): string;
+    public function submit(string $name = 'submit', ?string $value = null, array $options = []): string;
 
     /**
      * Générer un input de type "file".
@@ -106,7 +106,7 @@ interface FormInterface
      * @param $value string|null - Texte à affiche dans le button.
      * @param array $options - Pour éventuellement ajouter au label id, class css.
      */
-    public function button(string $value = null, array $options = []): string;
+    public function button(?string $value = null, array $options = []): string;
 
     /**
      * @param string $name - name du textarea.

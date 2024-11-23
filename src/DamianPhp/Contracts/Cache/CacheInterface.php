@@ -23,7 +23,7 @@ interface CacheInterface
      *
      * @param null|int $minutes - Eventuellement définir une durée de vie au fichier (pour le mettre à jour).
      */
-    public function get(string $file, int $minutes = null): mixed;
+    public function get(string $file, ?int $minutes = null): mixed;
 
     /**
      * Récupérer la valeur du fichier de cache sérialisé sous forme d'objet
@@ -32,14 +32,14 @@ interface CacheInterface
      * @param int|null $minutes - Eventuellement définir une durée de vie au fichier (pour le mettre à jour)
      * @return mixed
      */
-    public function getToObject(string $file, int $minutes = null): mixed;
+    public function getToObject(string $file, ?int $minutes = null): mixed;
 
     /**
      * Récupérer la valeur du fichier de cache sérialisé sous forme d'array.
      *
      * @param int|null $minutes - Eventuellement définir une durée de vie au fichier (pour le mettre à jour).
      */
-    public function getToArray(string $file, int $minutes = null): mixed;
+    public function getToArray(string $file, ?int $minutes = null): mixed;
 
     /**
      * Récupérer la valeur du fichier de cache, ou le créer si n'existe pas.
@@ -63,5 +63,5 @@ interface CacheInterface
      *
      * @param string $directory - Eventuel dossier (pour supprimer que un dossier spécifique).
      */
-    public function clear(string $directory = null): void;
+    public function clear(?string $directory = null): void;
 }

@@ -17,7 +17,7 @@ interface FileInterface
      * @param array|null $options - Eventuelles options.
      * - $options['prefix'] (string)
      */
-    public function __construct(string $path, string $input = null, array $options = []);
+    public function __construct(string $path, ?string $input = null, array $options = []);
 
     /**
      * Uploader le fichier.
