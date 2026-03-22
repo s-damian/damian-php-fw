@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace DamianPhp\Database\Connectors;
 
 use PDO;
+use Pdo\Mysql as PdoMysql;
 use DamianPhp\Support\Helper;
 
 /**
@@ -63,9 +64,16 @@ final class MySQL extends Connector
      */
     private function setOptions(): void
     {
-        $this->options = [
-            // PHP >= 5.6.5 - Empecher exécution de plusieurs requêtes en même temps, doit être dans driver_options
-            PDO::MYSQL_ATTR_MULTI_STATEMENTS => false,
-        ];
+        if (PHP_VERSION_ID >= 80500) {
+            // PHP >= 8.5 - Empêcher l'exécution de plusieurs requêtes en même temps (driver_options)
+            $this->options = [
+                PdoMysql::ATTR_MULTI_STATEMENTS => false,
+            ];
+        } else {
+            $this->options = [
+                // PHP >= 5.6.5 < 8.5 - Empêcher l'exécution de plusieurs requêtes en même temps (driver_options)
+                PDO::MYSQL_ATTR_MULTI_STATEMENTS => false,
+            ];
+        }
     }
 }
