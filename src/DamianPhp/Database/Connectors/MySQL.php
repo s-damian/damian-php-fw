@@ -67,6 +67,7 @@ final class MySQL extends Connector
         if (PHP_VERSION_ID >= 80500) {
             // PHP >= 8.5 - Empêcher l'exécution de plusieurs requêtes en même temps (driver_options)
             $this->options = [
+                 /** @phpstan-ignore classConstant.notFound */
                 PdoMysql::ATTR_MULTI_STATEMENTS => false,
             ];
         } else {
