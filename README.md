@@ -17,16 +17,16 @@
 
 > SGBDR: Compatible with **MySQL** / **MariaDB** / **PostgreSQL**
 
-This **Open Source Framework** is developed by [Stephen Damian](https://github.com/s-damian)
-
 Here you have the source codes of the `Kernel`.
 
-
-### Framework skeleton
-
 The Framework `skeleton` is in this package:
+[Damian PHP Framework - Skeleton](https://github.com/s-damian/damian-php)
 
-[Damian PHP Framework - Skeleton - [damian-php]](https://github.com/s-damian/damian-php)
+### Author
+
+This **Open Source Framework** is developed by [Stephen Damian](https://github.com/s-damian)
+
+🛠️ 100% handcrafted code (no LLMs were used)
 
 
 ## This Framework manages
