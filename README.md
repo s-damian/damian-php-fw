@@ -11,7 +11,9 @@
 </p>
 
 
+<p align="center">
 🛠️ 100% handcrafted code (no LLMs were used)
+</p>
 
 
 # Damian PHP Framework - Kernel
