@@ -11,6 +11,9 @@
 </p>
 
 
+🛠️ 100% handcrafted code (no LLMs were used)
+
+
 # Damian PHP Framework - Kernel
 
 > A powerful PHP Framework in **PHP 8.5** - Beautiful code & Elegant syntax
@@ -25,8 +28,6 @@ The Framework `skeleton` is in this package:
 ### Author
 
 This **Open Source Framework** is developed by [Stephen Damian](https://github.com/s-damian)
-
-🛠️ 100% handcrafted code (no LLMs were used)
 
 
 ## This Framework manages
